@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -6,11 +6,1908 @@
   <title>🦕 JURASSIC HAN YU 3 - Belajar Bahasa Mandarin Interaktif Bertema Dinosaurus</title>
   <meta name="description" content="Website Pembelajaran Interaktif HAN YU 3 (汉语 第三册) bertema petualangan dinosaurus: Panduan Membaca Audio, Game Menulis Guratan 20 Kosakata per Unit, dan Latihan Soal Standar YCT Level 2.">
   
-  <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/reader.css">
-  <link rel="stylesheet" href="css/writer.css">
-  <link rel="stylesheet" href="css/quiz.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+/* ========================================================
+   DINO JURASSIC MANDARIN DESIGN SYSTEM & COMPLETE STYLES
+   ======================================================== */
+:root {
+  --dino-forest-dark: #143823;
+  --dino-forest: #1E5E3A;
+  --dino-green-light: #2F855A;
+  --dino-mint: #E6F4EA;
+  --dino-amber: #D97706;
+  --dino-amber-light: #FEF3C7;
+  --dino-orange: #EA580C;
+  --dino-terracotta: #C2410C;
+  --dino-egg-cream: #FFFDF7;
+  --dino-sand: #F7F5EE;
+  --dino-dark: #1E293B;
+  --dino-muted: #64748B;
+  --dino-border: #E2E8F0;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 2px 4px rgba(20, 56, 35, 0.06);
+  --shadow-md: 0 6px 16px rgba(20, 56, 35, 0.08);
+  --shadow-lg: 0 14px 32px rgba(20, 56, 35, 0.12);
+
+  --font-dino: 'Fredoka', 'Quicksand', sans-serif;
+  --font-body: 'Quicksand', sans-serif;
+  --font-chinese: 'Noto Sans SC', 'Kaiti', 'SimSun', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #F4F8F3;
+  background-image: 
+    radial-gradient(#D1E7DD 1.5px, transparent 1.5px),
+    radial-gradient(#E8F5E9 1.5px, #F4F8F3 1.5px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
+  color: var(--dino-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.dino-header {
+  background: linear-gradient(135deg, var(--dino-forest-dark) 0%, var(--dino-forest) 100%);
+  color: #FFFFFF;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(20, 56, 35, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dino-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dino-logo-icon {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+  animation: dinoWiggle 3s ease-in-out infinite;
+}
+
+@keyframes dinoWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+
+.dino-brand-text h1 {
+  font-family: var(--font-dino);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.dino-brand-text p {
+  font-size: 0.82rem;
+  color: #A7F3D0;
+  font-weight: 600;
+}
+
+.dino-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.stat-badge {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #FFFFFF;
+}
+
+.stat-badge.stars {
+  background: #B45309;
+  border-color: #FBBF24;
+  color: #FEF3C7;
+}
+
+.header-action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-weight: 700;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.82rem;
+}
+
+.header-action-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.header-action-btn.muted {
+  background: #DC2626;
+  border-color: #EF4444;
+}
+
+/* NAV TABS */
+.dino-nav-container {
+  background: #FFFFFF;
+  border-bottom: 2px solid #E2E8F0;
+  position: sticky;
+  top: 68px;
+  z-index: 90;
+  box-shadow: var(--shadow-sm);
+}
+
+.dino-nav-tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.dino-nav-btn {
+  background: #F1F5F9;
+  border: 2px solid transparent;
+  color: #475569;
+  font-family: var(--font-dino);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dino-nav-btn:hover {
+  background: #E2E8F0;
+  color: var(--dino-forest);
+  transform: translateY(-2px);
+}
+
+.dino-nav-btn.active {
+  background: var(--dino-mint);
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest-dark);
+  box-shadow: 0 4px 8px rgba(47, 133, 90, 0.15);
+}
+
+.dino-nav-icon {
+  font-size: 1.2rem;
+}
+
+/* MAIN WRAPPER & TABS */
+.main-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+.tab-pane {
+  display: none;
+  animation: fadeInPane 0.3s ease;
+}
+
+.tab-pane.active {
+  display: block !important;
+}
+
+@keyframes fadeInPane {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* BUTTONS */
+.dino-btn {
+  font-family: var(--font-dino);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 3px 0 rgba(0,0,0,0.12);
+}
+
+.dino-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.12);
+}
+
+.dino-btn.primary {
+  background: linear-gradient(180deg, #34D399 0%, #059669 100%);
+  color: #FFFFFF;
+  border-bottom: 3px solid #047857;
+}
+
+.dino-btn.primary:hover {
+  background: linear-gradient(180deg, #6EE7B7 0%, #10B981 100%);
+  transform: translateY(-2px);
+}
+
+.dino-btn.secondary {
+  background: #F1F5F9;
+  color: #334155;
+  border: 1px solid #CBD5E1;
+}
+
+.dino-btn.secondary:hover {
+  background: #E2E8F0;
+}
+
+.dino-btn.large {
+  font-size: 1.05rem;
+  padding: 0.85rem 1.75rem;
+}
+
+.dino-btn.accent {
+  background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
+  color: #FFFFFF;
+  border-bottom: 3px solid #B45309;
+}
+
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+
+/* Filter Pill Bar */
+.filter-pills-bar {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-pill {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  color: #475569;
+  font-family: var(--font-dino);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest);
+}
+
+.filter-pill.active {
+  background: var(--dino-forest);
+  border-color: var(--dino-forest);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(30, 94, 58, 0.25);
+}
+
+/* ========================================================
+   MODUL 1: READER STYLES
+   ======================================================== */
+.reader-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.reader-sidebar {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #E2E8F0;
+  position: sticky;
+  top: 130px;
+  max-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reader-controls-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reader-select-label {
+  font-family: var(--font-dino);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dino-forest-dark);
+}
+
+.dino-select {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 2px solid #CBD5E1;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: #1E293B;
+  background: #F8FAFC;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dino-select:focus {
+  border-color: var(--dino-green-light);
+  box-shadow: 0 0 0 3px rgba(47, 133, 90, 0.15);
+}
+
+.reader-toggle-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.toggle-chip-btn {
+  flex: 1;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #475569;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.toggle-chip-btn.active {
+  background: var(--dino-mint);
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest);
+}
+
+.lesson-chips-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.lesson-chip-btn {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.lesson-chip-btn:hover {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+  transform: translateX(3px);
+}
+
+.lesson-chip-btn.active {
+  background: #DCFCE7;
+  border-color: var(--dino-green-light);
+  box-shadow: 0 4px 10px rgba(47, 133, 90, 0.15);
+}
+
+.lesson-chip-icon {
+  font-size: 1.4rem;
+}
+
+.lesson-chip-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lesson-chip-title {
+  display: block;
+  font-family: var(--font-chinese);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1E293B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lesson-chip-py {
+  display: block;
+  font-size: 0.76rem;
+  color: #64748B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lesson-chip-done {
+  background: #22C55E;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Area Detail Pelajaran */
+.reader-content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lesson-banner {
+  background: linear-gradient(135deg, #1E5E3A 0%, #2F855A 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.lesson-banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-dino-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  backdrop-filter: blur(4px);
+}
+
+.lesson-theme-icon {
+  font-size: 1.8rem;
+}
+
+.lesson-banner-title {
+  font-family: var(--font-chinese);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  letter-spacing: 1px;
+}
+
+.lesson-banner-py {
+  font-size: 1.05rem;
+  color: #FEF08A;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.lesson-banner-id {
+  font-size: 0.95rem;
+  color: #DCFCE7;
+  margin-bottom: 1.25rem;
+}
+
+.lesson-banner-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.lesson-section-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid #F1F5F9;
+  padding-bottom: 0.75rem;
+}
+
+.section-box-icon {
+  font-size: 1.5rem;
+}
+
+.section-box-header h3 {
+  font-family: var(--font-dino);
+  font-size: 1.25rem;
+  color: var(--dino-forest-dark);
+}
+
+.sentences-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.sentence-item-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.sentence-item-card:hover {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+}
+
+.audio-play-circle {
+  background: #DCFCE7;
+  border: 2px solid #86EFAC;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.audio-play-circle:hover {
+  background: #22C55E;
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.sentence-text-box {
+  flex: 1;
+}
+
+.sentence-py {
+  font-size: 0.92rem;
+  color: #0284C7;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.sentence-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.5px;
+}
+
+.sentence-id {
+  font-size: 0.88rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+.reading-paragraphs-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.paragraph-card {
+  background: #FFFDF7;
+  border: 1.5px solid #FEF3C7;
+  border-left: 5px solid #F59E0B;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.paragraph-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.para-num {
+  font-family: var(--font-dino);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #B45309;
+  background: #FEF3C7;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.audio-play-small {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.audio-play-small:hover {
+  background: var(--dino-mint);
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest);
+}
+
+.para-py {
+  font-size: 0.95rem;
+  color: #0284C7;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.para-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 0.4rem;
+  line-height: 1.6;
+  letter-spacing: 0.8px;
+}
+
+.para-id {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.dialogue-chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.dialogue-bubble {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dialogue-speaker {
+  background: #E0F2FE;
+  color: #0369A1;
+  font-family: var(--font-dino);
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.dialogue-content {
+  flex: 1;
+}
+
+.game-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.game-item-card {
+  background: #F0FDF4;
+  border: 2px dashed #86EFAC;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.game-item-card:hover {
+  background: #DCFCE7;
+  transform: translateY(-3px);
+}
+
+.game-item-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--dino-forest-dark);
+}
+
+.game-item-py {
+  font-size: 0.88rem;
+  color: #0284C7;
+  font-weight: 600;
+}
+
+.game-item-id {
+  font-size: 0.82rem;
+  color: #475569;
+  margin: 0.3rem 0 0.5rem;
+}
+
+.audio-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #15803D;
+  background: #DCFCE7;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.poem-box {
+  background: #FAF5FF;
+  border-color: #E9D5FF;
+}
+
+.poem-lines-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.poem-line {
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.poem-line:hover {
+  background: #F3E8FF;
+}
+
+.poem-py {
+  font-size: 0.95rem;
+  color: #7E22CE;
+  font-weight: 600;
+}
+
+.poem-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #3B0764;
+  letter-spacing: 1px;
+}
+
+.poem-id {
+  font-size: 0.85rem;
+  color: #6B21A8;
+}
+
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.vocab-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.vocab-card:hover {
+  border-color: var(--dino-green-light);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(47, 133, 90, 0.12);
+  background: #F0FDF4;
+}
+
+.vocab-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.vocab-py {
+  font-size: 0.88rem;
+  color: #0284C7;
+  font-weight: 700;
+}
+
+.vocab-audio-icon {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.vocab-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0.25rem 0;
+}
+
+.vocab-id {
+  font-size: 0.82rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+/* ========================================================
+   MODUL 2: WRITER STYLES
+   ======================================================== */
+.writer-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.writer-sidebar-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: var(--shadow-sm);
+}
+
+.writer-sidebar-header {
+  margin-bottom: 1rem;
+}
+
+.writer-sidebar-header h3 {
+  font-family: var(--font-dino);
+  color: var(--dino-forest);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.writer-char-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.char-picker-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.25rem;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.char-picker-card:hover {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+  transform: translateY(-2px);
+}
+
+.char-picker-card.active {
+  background: #DCFCE7;
+  border-color: var(--dino-green-light);
+  box-shadow: 0 4px 10px rgba(47, 133, 90, 0.2);
+}
+
+.char-picker-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #94A3B8;
+  line-height: 1;
+}
+
+.char-picker-hanzi {
+  font-family: var(--font-chinese);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0.15rem 0;
+}
+
+.char-picker-py {
+  font-size: 0.72rem;
+  color: #0284C7;
+  font-weight: 600;
+}
+
+.char-picker-star {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 0.75rem;
+}
+
+.writer-main-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.char-target-hero-card {
+  background: linear-gradient(135deg, #1E5E3A 0%, #15803D 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-md);
+  flex-wrap: wrap;
+}
+
+.char-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.char-hero-big-hanzi {
+  font-family: var(--font-chinese);
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.char-hero-details h2 {
+  font-size: 1.6rem;
+  color: #FEF08A;
+  margin-bottom: 0.2rem;
+}
+
+.char-hero-details p {
+  font-size: 1rem;
+  color: #DCFCE7;
+  font-weight: 600;
+}
+
+.char-hero-meta-pills {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.tianzige-stage-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.tianzige-canvas-container {
+  width: 340px;
+  height: 340px;
+  max-width: 100%;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(224, 90, 71, 0.18);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  touch-action: none;
+}
+
+#tianzigeCanvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  background: #FFFEF5;
+}
+
+.writer-toolbar {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.writer-tool-btn {
+  background: #F8FAFC;
+  border: 1.5px solid #CBD5E1;
+  font-family: var(--font-dino);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #334155;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.writer-tool-btn:hover {
+  background: #E2E8F0;
+  transform: translateY(-2px);
+}
+
+.writer-tool-btn.primary {
+  background: #2563EB;
+  color: #FFFFFF;
+  border-color: #1D4ED8;
+}
+
+.writer-tool-btn.primary:hover {
+  background: #1D4ED8;
+}
+
+.writer-tool-btn.active {
+  background: var(--dino-mint);
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest);
+}
+
+.writer-feedback-card {
+  width: 100%;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  text-align: center;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dino-hint {
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.dino-progress-text {
+  color: #0284C7;
+  font-weight: 700;
+}
+
+.dino-warning-text {
+  color: #EA580C;
+  font-weight: 700;
+}
+
+.dino-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #DCFCE7;
+  border: 2px solid #86EFAC;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  color: #166534;
+  text-align: left;
+  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.dino-badge-icon {
+  font-size: 2.2rem;
+}
+
+.stroke-steps-box {
+  width: 100%;
+  border-top: 2px solid #F1F5F9;
+  padding-top: 1rem;
+}
+
+.stroke-steps-box h4 {
+  font-family: var(--font-dino);
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 0.75rem;
+}
+
+.stroke-steps-list {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.stroke-step-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.stroke-step-card:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.stroke-step-card.active {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  color: #B45309;
+  font-weight: 700;
+}
+
+.stroke-step-num {
+  background: #E2E8F0;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stroke-step-card.active .stroke-step-num {
+  background: #F59E0B;
+  color: #FFFFFF;
+}
+
+.stroke-step-name {
+  font-size: 0.82rem;
+}
+
+.char-examples-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #E2E8F0;
+}
+
+.char-examples-box h4 {
+  font-family: var(--font-dino);
+  color: var(--dino-forest);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.examples-tags-list {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.example-tag {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+/* ========================================================
+   MODUL 3: YCT 2 QUIZ STYLES
+   ======================================================== */
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.quiz-top-bar {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quiz-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-dino);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dino-forest);
+}
+
+.progress-track {
+  background: #E2E8F0;
+  height: 12px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+  height: 100%;
+  width: 0%;
+  border-radius: var(--radius-full);
+  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.yct2-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  border: 2px solid #E2E8F0;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeInQuestion 0.3s ease;
+}
+
+@keyframes fadeInQuestion {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.yct2-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #F1F5F9;
+  padding-bottom: 0.85rem;
+}
+
+.yct2-badge {
+  background: #FEF3C7;
+  color: #B45309;
+  font-family: var(--font-dino);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid #FDE68A;
+}
+
+.yct2-emoji-illus {
+  font-size: 3.5rem;
+  background: #F8FAFC;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #E2E8F0;
+}
+
+.yct2-audio-prompt-box {
+  background: #F0FDF4;
+  border: 2px dashed #86EFAC;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.yct2-audio-tip {
+  font-size: 0.82rem;
+  color: #15803D;
+  font-weight: 600;
+}
+
+.yct2-prompt-box {
+  text-align: center;
+}
+
+.yct2-prompt-py {
+  font-size: 1.05rem;
+  color: #0284C7;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.yct2-prompt-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.yct2-prompt-id {
+  font-size: 1.05rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.yct2-options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.yct2-tf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.yct2-tf-btn {
+  font-family: var(--font-dino);
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+}
+
+.yct2-tf-btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.yct2-tf-btn.true-btn {
+  background: #DCFCE7;
+  color: #166534;
+  border-color: #86EFAC;
+}
+
+.yct2-tf-btn.true-btn:hover {
+  background: #22C55E;
+  color: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+.yct2-tf-btn.false-btn {
+  background: #FEE2E2;
+  color: #991B1B;
+  border-color: #FCA5A5;
+}
+
+.yct2-tf-btn.false-btn:hover {
+  background: #EF4444;
+  color: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+.tf-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.yct2-option-btn {
+  background: #F8FAFC;
+  border: 2px solid #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.yct2-option-btn:hover {
+  background: #F0FDF4;
+  border-color: #10B981;
+  transform: translateX(4px);
+}
+
+.opt-label {
+  background: #E2E8F0;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-dino);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.opt-content {
+  flex: 1;
+}
+
+.opt-zh {
+  display: block;
+  font-family: var(--font-chinese);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.opt-id {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.quiz-explanation-card {
+  background: #FEF9C3;
+  border: 2px solid #FACC15;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.exp-header {
+  font-family: var(--font-dino);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.exp-header.correct { color: #15803D; }
+.exp-header.wrong { color: #B91C1C; }
+
+.exp-desc {
+  font-size: 0.95rem;
+  color: #451A03;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.result-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 1.5rem;
+  border: 2px solid #E2E8F0;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.result-dino-hero {
+  font-size: 4.5rem;
+  animation: bounceCup 1s ease infinite alternate;
+}
+
+@keyframes bounceCup {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+.result-title {
+  font-family: var(--font-dino);
+  font-size: 1.8rem;
+  color: var(--dino-forest-dark);
+}
+
+.result-score-circle {
+  background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+  color: #FFFFFF;
+  width: 130px;
+  height: 130px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-dino);
+  font-size: 2.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+}
+
+.result-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.result-rank-badge {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+  font-family: var(--font-dino);
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+}
+
+.result-comment {
+  max-width: 500px;
+  color: #475569;
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.result-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ========================================================
+   MODUL 4: HATCHERY & CERTIFICATE STYLES
+   ======================================================== */
+.hatchery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hatchery-hero-banner {
+  background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.hatchery-hero-banner h2 {
+  font-family: var(--font-dino);
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.hatchery-hero-banner p {
+  color: #FEF3C7;
+  font-size: 0.95rem;
+}
+
+.hatchery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.hatchery-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 2px solid #E2E8F0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hatchery-card.unlocked {
+  border-color: #86EFAC;
+  background: #F0FDF4;
+}
+
+.hatchery-card.unlocked:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(47, 133, 90, 0.15);
+}
+
+.hatchery-card.locked {
+  opacity: 0.7;
+  background: #F8FAFC;
+}
+
+.hatchery-icon {
+  font-size: 3.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.hatchery-name {
+  font-family: var(--font-dino);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dino-forest-dark);
+}
+
+.hatchery-req {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #B45309;
+  background: #FEF3C7;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.hatchery-desc {
+  font-size: 0.85rem;
+  color: #64748B;
+  margin: 0.35rem 0;
+}
+
+.hatchery-status {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #15803D;
+}
+
+.hatchery-card.locked .hatchery-status {
+  color: #94A3B8;
+}
+
+/* MODAL */
+.dino-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeInModal 0.25s ease;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dino-modal-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dino-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #F1F5F9;
+  padding-bottom: 0.75rem;
+}
+
+.dino-modal-header h3 {
+  font-family: var(--font-dino);
+  color: var(--dino-forest);
+  font-size: 1.35rem;
+}
+
+.dino-close-btn {
+  background: #F1F5F9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dino-close-btn:hover {
+  background: #E2E8F0;
+  color: #1E293B;
+}
+
+.cert-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #F8FAFC;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #E2E8F0;
+}
+
+.cert-input-row label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #334155;
+  white-space: nowrap;
+}
+
+.cert-input-row input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid #CBD5E1;
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+.cert-input-row input:focus {
+  border-color: var(--dino-green-light);
+}
+
+.cert-preview-box {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.cert-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: 2px solid #F1F5F9;
+  padding-top: 1rem;
+}
+
+/* FOOTER */
+.dino-footer {
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  padding: 1.25rem 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: #64748B;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.dino-footer span {
+  color: var(--dino-forest);
+  font-weight: 700;
+}
+
+/* Visibility Control */
+body.hide-pinyin .sentence-py,
+body.hide-pinyin .para-py,
+body.hide-pinyin .game-item-py,
+body.hide-pinyin .poem-py,
+body.hide-pinyin .vocab-py,
+body.hide-pinyin .yct2-prompt-py {
+  display: none !important;
+}
+
+body.hide-translation .sentence-id,
+body.hide-translation .para-id,
+body.hide-translation .game-item-id,
+body.hide-translation .poem-id,
+body.hide-translation .vocab-id {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .reader-layout { grid-template-columns: 1fr; }
+  .reader-sidebar { position: static; max-height: none; }
+  .lesson-chips-scroll { flex-direction: row; overflow-x: auto; padding-bottom: 0.5rem; }
+  .lesson-chip-btn { min-width: 220px; }
+  .writer-layout { grid-template-columns: 1fr; }
+  .writer-char-grid { grid-template-columns: repeat(5, 1fr); max-height: 200px; }
+}
+
+@media (max-width: 768px) {
+  .header-container { flex-direction: column; align-items: flex-start; }
+  .dino-stats-bar { width: 100%; justify-content: space-between; }
+}
+  </style>
 </head>
 <body>
 
@@ -120,13 +2017,13 @@
           </div>
 
           <div class="lesson-chips-scroll" id="readerLessonList">
-            <!-- Diisi secara dinamis oleh app.js -->
+            <!-- Diisi secara dinamis oleh JS -->
           </div>
         </aside>
 
         <!-- Area Konten Utama Teks & Audio -->
         <article class="reader-content-area" id="lessonDetailContainer">
-          <!-- Diisi secara dinamis oleh app.js -->
+          <!-- Diisi secara dinamis oleh JS -->
         </article>
 
       </div>
@@ -160,7 +2057,7 @@
             <p style="font-size:0.8rem; color:#64748B;">Pilih karakter untuk melihat guratan & latihan menulis di kanvas!</p>
           </div>
           <div class="writer-char-grid" id="writerCharGrid">
-            <!-- Diisi secara dinamis oleh app.js (20 karakter) -->
+            <!-- Diisi secara dinamis oleh JS -->
           </div>
         </aside>
 
@@ -188,7 +2085,6 @@
           <!-- Panggung Kanvas Tianzige (田字格) -->
           <div class="tianzige-stage-box">
             
-            <!-- Kanvas Gambar Tianzige Interaktif -->
             <div class="tianzige-canvas-container">
               <canvas id="tianzigeCanvas" width="340" height="340"></canvas>
             </div>
@@ -218,7 +2114,7 @@
             <div class="stroke-steps-box">
               <h4>📋 Urutan Langkah Guratan Karakter Ini:</h4>
               <div class="stroke-steps-list" id="strokeStepsList">
-                <!-- Diisi secara dinamis oleh stroke-engine.js -->
+                <!-- Diisi secara dinamis -->
               </div>
             </div>
 
@@ -244,7 +2140,6 @@
     <section id="tab-quiz" class="tab-pane">
       <div class="quiz-container">
         
-        <!-- Filter Kategori Soal YCT 2 -->
         <div class="filter-pills-bar" style="justify-content:center;">
           <button class="filter-pill quiz-unit-pill active" data-unit="1">
             🦖 Latihan YCT 2 Unit 1
@@ -260,10 +2155,8 @@
           </button>
         </div>
 
-        <!-- Wadah Kuis Aktif -->
         <div id="quizActiveContainer">
           
-          <!-- Top Bar Progres Kuis -->
           <div class="quiz-top-bar">
             <div class="quiz-progress-meta">
               <span id="quizProgressText">Soal 1 dari 6</span>
@@ -274,14 +2167,12 @@
             </div>
           </div>
 
-          <!-- Kartu Soal YCT 2 Dinamis -->
           <div id="quizQuestionCard" class="mt-3">
-            <!-- Diisi secara dinamis oleh app.js -->
+            <!-- Diisi secara dinamis -->
           </div>
 
         </div>
 
-        <!-- Wadah Hasil Skor Kuis Selesai -->
         <div id="quizResultContainer" style="display:none;">
           <!-- Diisi saat kuis selesai -->
         </div>
@@ -306,7 +2197,7 @@
         </div>
 
         <div class="hatchery-grid" id="dinoHatcheryGrid">
-          <!-- Diisi secara dinamis oleh app.js -->
+          <!-- Diisi secara dinamis -->
         </div>
 
       </div>
@@ -347,14 +2238,4013 @@
     <p style="margin-top:0.35rem; font-size:0.8rem; color:#94A3B8;">Sesuai Silabus Beijing Chinese Language and Culture College (北京华文学院) & Standar YCT Level 2.</p>
   </footer>
 
-  <!-- Javascript Modules -->
-  <script src="js/data-units.js"></script>
-  <script src="js/data-strokes.js"></script>
-  <script src="js/data-yct2.js"></script>
-  <script src="js/audio-synth.js"></script>
-  <script src="js/stroke-engine.js"></script>
-  <script src="js/certificate.js"></script>
-  <script src="js/app.js"></script>
+  <!-- ========================================================
+       JAVASCRIPT MODULES & DATA ENGINES (SELF-CONTAINED)
+       ======================================================== -->
+  <script>
+// Data Lengkap HAN YU 3 (汉语 第三册)
+// 3 Unit - 15 Pelajaran (课)
+
+const HAN_YU_3_UNITS = [
+  {
+    unitId: 1,
+    unitTitle: "第一单元 (Unit 1): Waktu, Kalender & Cuaca",
+    unitDesc: "Mempelajari tanggal, hari dalam seminggu, waktu/jam, cuaca, dan 4 musim di Beijing.",
+    dinoMascot: "🦖 Rexy Si Penjelajah Waktu",
+    lessons: [
+      {
+        id: 1,
+        unitId: 1,
+        title: "第一课 今天几月几日",
+        titlePinyin: "Dì yī kè: Jīntiān jǐ yuè jǐ rì",
+        titleId: "Pelajaran 1: Hari Ini Tanggal Berapa Bulan Berapa?",
+        themeIcon: "📅",
+        sentences: [
+          { zh: "今天几月几日？", py: "Jīntiān jǐ yuè jǐ rì?", id: "Hari ini tanggal berapa bulan berapa?" },
+          { zh: "今天一月一日。", py: "Jīntiān yī yuè yī rì.", id: "Hari ini tanggal 1 Januari." },
+          { zh: "今天是元旦。", py: "Jīntiān shì Yuándàn.", id: "Hari ini adalah Tahun Baru Masehi." },
+          { zh: "昨天是几月几日？", py: "Zuótiān shì jǐ yuè jǐ rì?", id: "Kemarin tanggal berapa bulan berapa?" },
+          { zh: "昨天是十二月二十五日。", py: "Zuótiān shì shí'èr yuè èrshíwǔ rì.", id: "Kemarin tanggal 25 Desember." },
+          { zh: "昨天是圣诞节。", py: "Zuótiān shì Shèngdàn Jié.", id: "Kemarin adalah Hari Natal." },
+          { zh: "明天是几月几日？", py: "Míngtiān shì jǐ yuè jǐ rì?", id: "Besok tanggal berapa bulan berapa?" },
+          { zh: "明天是十月一日。", py: "Míngtiān shì shí yuè yī rì.", id: "Besok tanggal 1 Oktober." },
+          { zh: "明天是中国的国庆节。", py: "Míngtiān shì Zhōngguó de Guóqìng Jié.", id: "Besok adalah Hari Nasional Tiongkok." }
+        ],
+        readingText: {
+          title: "今天几月几日",
+          paragraphs: [
+            {
+              zh: "今天四月六日，假期结束了，学校开学了。",
+              py: "Jīntiān sì yuè liù rì, jiàqī jiéshù le, xuéxiào kāi xué le.",
+              id: "Hari ini tanggal 6 April, liburan telah usai, sekolah mulai masuk."
+            },
+            {
+              zh: "去年，我上小学一年级。今年，我上二年级了，弟弟也上学了。",
+              py: "Qùnián, wǒ shàng xiǎoxué yī niánjí. Jīnnián, wǒ shàng èr niánjí le, dìdi yě shàngxué le.",
+              id: "Tahun lalu, saya duduk di kelas 1 SD. Tahun ini, saya sudah kelas 2, adik laki-laki juga mulai bersekolah."
+            },
+            {
+              zh: "新学期，我们发了很多新书，我和弟弟都很高兴。",
+              py: "Xīn xuéqī, wǒmen fā le hěn duō xīn shū, wǒ hé dìdi dōu hěn gāoxìng.",
+              id: "Semester baru, kami dibagikan banyak buku baru, saya dan adik sangat gembira."
+            }
+          ]
+        },
+        dialogueActivity: {
+          type: "game",
+          title: "你知道这些日子是几月几日吗？",
+          titleId: "Tahukah kamu tanggal berapa hari-hari ini?",
+          items: [
+            { zh: "劳动节", py: "Láodòng Jié", id: "Hari Buruh (5月1日)" },
+            { zh: "元旦", py: "Yuándàn", id: "Tahun Baru Masehi (1月1日)" },
+            { zh: "圣诞节", py: "Shèngdàn Jié", id: "Hari Natal (12月25日)" },
+            { zh: "国庆节", py: "Guóqìng Jié", id: "Hari Nasional (10月1日)" }
+          ]
+        },
+        vocabulary: [
+          { zh: "月", py: "yuè", id: "bulan" },
+          { zh: "日", py: "rì", id: "hari / tanggal" },
+          { zh: "元旦", py: "Yuándàn", id: "Tahun Baru Masehi" },
+          { zh: "昨天", py: "zuótiān", id: "kemarin" },
+          { zh: "圣诞节", py: "Shèngdàn Jié", id: "Hari Natal" },
+          { zh: "国庆节", py: "Guóqìng Jié", id: "Hari Nasional" },
+          { zh: "假期", py: "jiàqī", id: "liburan" },
+          { zh: "结束", py: "jiéshù", id: "selesai / berakhir" },
+          { zh: "开学", py: "kāi xué", id: "mulai masuk sekolah" },
+          { zh: "年", py: "nián", id: "tahun" },
+          { zh: "去年", py: "qùnián", id: "tahun lalu" },
+          { zh: "小学", py: "xiǎoxué", id: "sekolah dasar (SD)" },
+          { zh: "学期", py: "xuéqī", id: "semester" },
+          { zh: "发", py: "fā", id: "membagikan" }
+        ]
+      },
+      {
+        id: 2,
+        unitId: 1,
+        title: "第二课 明天星期一",
+        titlePinyin: "Dì èr kè: Míngtiān xīngqīyī",
+        titleId: "Pelajaran 2: Besok Hari Senin",
+        themeIcon: "🗓️",
+        sentences: [
+          { zh: "今天星期几？", py: "Jīntiān xīngqījǐ?", id: "Hari ini hari apa?" },
+          { zh: "明天星期几？", py: "Míngtiān xīngqījǐ?", id: "Besok hari apa?" },
+          { zh: "后天星期几？", py: "Hòutiān xīngqījǐ?", id: "Lusa hari apa?" },
+          { zh: "今天星期三。", py: "Jīntiān xīngqīsān.", id: "Hari ini hari Rabu." },
+          { zh: "昨天星期二。", py: "Zuótiān xīngqī'èr.", id: "Kemarin hari Selasa." },
+          { zh: "前天星期一。", py: "Qiántiān xīngqīyī.", id: "Kemarin lusa hari Senin." },
+          { zh: "星期三有中文课。", py: "Xīngqīsān yǒu Zhōngwén kè.", id: "Hari Rabu ada pelajaran bahasa Mandarin." },
+          { zh: "星期四有数学课。", py: "Xīngqīsì yǒu shùxué kè.", id: "Hari Kamis ada pelajaran matematika." },
+          { zh: "星期五有美术课。", py: "Xīngqīwǔ yǒu měishù kè.", id: "Hari Jumat ada pelajaran kesenian/melukis." }
+        ],
+        readingText: {
+          title: "明天星期一",
+          paragraphs: [
+            {
+              zh: "星期天上午，妈妈问小明：“明天你有体育课吗？”",
+              py: "Xīngqītiān shàngwǔ, māma wèn Xiǎomíng: “Míngtiān nǐ yǒu tǐyù kè ma?”",
+              id: "Minggu pagi, ibu bertanya kepada Xiao Ming: “Besok kamu ada pelajaran olahraga?”"
+            },
+            {
+              zh: "小明说：“明天是星期一，我们班有中文课和美术课，没有体育课。后天星期二，有体育课。”",
+              py: "Xiǎomíng shuō: “Míngtiān shì xīngqīyī, wǒmen bān yǒu Zhōngwén kè hé měishù kè, méiyǒu tǐyù kè. Hòutiān xīngqī'èr, yǒu tǐyù kè.”",
+              id: "Xiao Ming menjawab: “Besok hari Senin, kelas kami ada pelajaran Mandarin dan kesenian, tidak ada olahraga. Lusa hari Selasa baru ada pelajaran olahraga.”"
+            }
+          ]
+        },
+        vocabulary: [
+          { zh: "星期", py: "xīngqī", id: "minggu / pekan" },
+          { zh: "星期一", py: "xīngqīyī", id: "Senin" },
+          { zh: "星期二", py: "xīngqī'èr", id: "Selasa" },
+          { zh: "星期三", py: "xīngqīsān", id: "Rabu" },
+          { zh: "星期四", py: "xīngqīsì", id: "Kamis" },
+          { zh: "星期五", py: "xīngqīwǔ", id: "Jumat" },
+          { zh: "星期六", py: "xīngqīliù", id: "Sabtu" },
+          { zh: "星期天", py: "xīngqītiān", id: "Minggu" },
+          { zh: "后天", py: "hòutiān", id: "lusa" },
+          { zh: "前天", py: "qiántiān", id: "kemarin lusa" },
+          { zh: "数学", py: "shùxué", id: "matematika" },
+          { zh: "美术", py: "měishù", id: "seni rupa / melukis" },
+          { zh: "上午", py: "shàngwǔ", id: "pagi menjelang siang" },
+          { zh: "体育", py: "tǐyù", id: "olahraga" }
+        ]
+      },
+      {
+        id: 3,
+        unitId: 1,
+        title: "第三课 现在八点半",
+        titlePinyin: "Dì sān kè: Xiànzài bā diǎn bàn",
+        titleId: "Pelajaran 3: Sekarang Pukul Delapan Tiga Puluh",
+        themeIcon: "⏰",
+        sentences: [
+          { zh: "现在几点？", py: "Xiànzài jǐ diǎn?", id: "Sekarang jam berapa?" },
+          { zh: "现在八点。", py: "Xiànzài bā diǎn.", id: "Sekarang jam 8 tepat." },
+          { zh: "现在十一点零五分。", py: "Xiànzài shíyī diǎn líng wǔ fēn.", id: "Sekarang jam 11 lewat 5 menit." },
+          { zh: "现在十一点一刻。", py: "Xiànzài shíyī diǎn yī kè.", id: "Sekarang jam 11 lewat 15 menit (seperempat)." },
+          { zh: "现在十一点半。", py: "Xiànzài shíyī diǎn bàn.", id: "Sekarang jam 11 lewat 30 menit (setengah 12)." },
+          { zh: "现在差十分十二点。", py: "Xiànzài chà shí fēn shí'èr diǎn.", id: "Sekarang jam 12 kurang 10 menit." },
+          { zh: "你几点洗澡？", py: "Nǐ jǐ diǎn xǐ zǎo?", id: "Kamu jam berapa mandi?" },
+          { zh: "我早上七点十分洗澡。", py: "Wǒ zǎoshang qī diǎn shí fēn xǐ zǎo.", id: "Saya mandi jam 7 lewat 10 menit pagi." },
+          { zh: "你几点睡觉？", py: "Nǐ jǐ diǎn shuì jiào?", id: "Kamu jam berapa tidur?" },
+          { zh: "我晚上八点四十睡觉。", py: "Wǒ wǎnshang bā diǎn sìshí shuì jiào.", id: "Saya tidur jam 8 lewat 40 menit malam." }
+        ],
+        readingText: {
+          title: "现在八点半",
+          paragraphs: [
+            {
+              zh: "我早上七点十分起床，七点半吃早饭。",
+              py: "Wǒ zǎoshang qī diǎn shí fēn qǐchuáng, qī diǎn bàn chī zǎofàn.",
+              id: "Saya bangun pukul 7:10 pagi, pukul 7:30 sarapan pagi."
+            },
+            {
+              zh: "差十分八点，我和弟弟一起去学校。我们八点半开始上课，中午十二点吃午饭。",
+              py: "Chà shí fēn bā diǎn, wǒ hé dìdi yīqǐ qù xuéxiào. Wǒmen bā diǎn bàn kāishǐ shàngkè, zhōngwǔ shí'èr diǎn chī wǔfàn.",
+              id: "Pukul 8 kurang 10, saya dan adik pergi ke sekolah bersama. Kami mulai belajar pukul 8:30, makan siang pukul 12:00."
+            },
+            {
+              zh: "下午三点，我和弟弟一起回家。",
+              py: "Xiàwǔ sān diǎn, wǒ hé dìdi yīqǐ huí jiā.",
+              id: "Pukul 3 sore, saya dan adik pulang ke rumah bersama."
+            }
+          ]
+        },
+        vocabulary: [
+          { zh: "现在", py: "xiànzài", id: "sekarang" },
+          { zh: "点", py: "diǎn", id: "jam / pukul / titik" },
+          { zh: "半", py: "bàn", id: "setengah (30 menit)" },
+          { zh: "零", py: "líng", id: "nol" },
+          { zh: "分", py: "fēn", id: "menit" },
+          { zh: "刻", py: "kè", id: "seperempat jam (15 menit)" },
+          { zh: "差", py: "chà", id: "kurang" },
+          { zh: "洗澡", py: "xǐ zǎo", id: "mandi" },
+          { zh: "睡觉", py: "shuì jiào", id: "tidur" },
+          { zh: "起床", py: "qǐ chuáng", id: "bangun tidur" },
+          { zh: "开始", py: "kāishǐ", id: "mulai" }
+        ]
+      },
+      {
+        id: 4,
+        unitId: 1,
+        title: "第四课 今天的天气怎么样",
+        titlePinyin: "Dì sì kè: Jīntiān de tiānqì zěnmeyàng",
+        titleId: "Pelajaran 4: Bagaimana Cuaca Hari Ini?",
+        themeIcon: "⛅",
+        sentences: [
+          { zh: "今天的天气怎么样？", py: "Jīntiān de tiānqì zěnmeyàng?", id: "Bagaimana cuaca hari ini?" },
+          { zh: "今天的天气非常好。", py: "Jīntiān de tiānqì fēicháng hǎo.", id: "Cuaca hari ini sangat baik." },
+          { zh: "这条裙子怎么样？", py: "Zhè tiáo qúnzi zěnmeyàng?", id: "Bagaimana dengan rok ini?" },
+          { zh: "这条裙子很好看。", py: "Zhè tiáo qúnzi hěn hǎokàn.", id: "Rok ini sangat bagus dipandang." },
+          { zh: "这件衣服不大也不小，很合适。", py: "Zhè jiàn yīfu bù dà yě bù xiǎo, hěn héshì.", id: "Baju ini tidak terlalu besar dan tidak terlalu kecil, sangat pas." },
+          { zh: "今天的天气不冷也不热，很舒服。", py: "Jīntiān de tiānqì bù lěng yě bù rè, hěn shūfu.", id: "Cuaca hari ini tidak dingin dan tidak panas, sangat nyaman." }
+        ],
+        readingText: {
+          title: "今天的天气怎么样",
+          paragraphs: [
+            {
+              zh: "中国一年有四个季节：春天、夏天、秋天和冬天。",
+              py: "Zhōngguó yī nián yǒu sì gè jìjié: chūntiān, xiàtiān, qiūtiān hé dōngtiān.",
+              id: "Tiongkok dalam setahun memiliki 4 musim: musim semi, musim panas, musim gugur, dan musim dingin."
+            },
+            {
+              zh: "春天很暖和，夏天很热，秋天很凉快，冬天很冷。",
+              py: "Chūntiān hěn nuǎnhuo, xiàtiān hěn rè, qiūtiān hěn liángkuai, dōngtiān hěn lěng.",
+              id: "Musim semi sangat hangat, musim panas sangat panas, musim gugur sangat sejuk, musim dingin sangat dingin."
+            },
+            {
+              zh: "现在是春天，天气很好，不冷也不热。",
+              py: "Xiànzài shì chūntiān, tiānqì hěn hǎo, bù lěng yě bù rè.",
+              id: "Sekarang adalah musim semi, cuacanya sangat bagus, tidak dingin dan tidak panas."
+            }
+          ]
+        },
+        vocabulary: [
+          { zh: "怎么样", py: "zěnmeyàng", id: "bagaimana" },
+          { zh: "合适", py: "héshì", id: "cocok / pas" },
+          { zh: "冷", py: "lěng", id: "dingin" },
+          { zh: "热", py: "rè", id: "panas" },
+          { zh: "舒服", py: "shūfu", id: "nyaman" },
+          { zh: "季节", py: "jìjié", id: "musim" },
+          { zh: "春天", py: "chūntiān", id: "musim semi" },
+          { zh: "夏天", py: "xiàtiān", id: "musim panas" },
+          { zh: "秋天", py: "qiūtiān", id: "musim gugur" },
+          { zh: "冬天", py: "dōngtiān", id: "musim dingin" },
+          { zh: "暖和", py: "nuǎnhuo", id: "hangat" },
+          { zh: "凉快", py: "liángkuai", id: "sejuk" }
+        ]
+      },
+      {
+        id: 5,
+        unitId: 1,
+        title: "第五课 北京的四季",
+        titlePinyin: "Dì wǔ kè: Běijīng de sìjì",
+        titleId: "Pelajaran 5: Empat Musim di Beijing",
+        themeIcon: "🍁",
+        readingText: {
+          title: "北京的四季",
+          paragraphs: [
+            {
+              zh: "北京是中国的首都，它是一个美丽的城市。",
+              py: "Běijīng shì Zhōngguó de shǒudū, tā shì yí gè měilì de chéngshì.",
+              id: "Beijing adalah ibu kota Tiongkok, ia adalah sebuah kota yang indah."
+            },
+            {
+              zh: "那儿有四个季节：三月、四月、五月是春天；六月、七月、八月是夏天；九月、十月、十一月是秋天；十二月、一月、二月是冬天。",
+              py: "Nàr yǒu sì gè jìjié: sān yuè, sì yuè, wǔ yuè shì chūntiān; liù yuè, qī yuè, bā yuè shì xiàtiān; jiǔ yuè, shí yuè, shíyī yuè shì qiūtiān; shí'èr yuè, yī yuè, èr yuè shì dōngtiān.",
+              id: "Di sana ada 4 musim: Maret, April, Mei adalah musim semi; Juni, Juli, Agustus adalah musim panas; September, Oktober, November adalah musim gugur; Desember, Januari, Februari adalah musim dingin."
+            },
+            {
+              zh: "北京的春天常常刮风。夏天非常热。秋天很凉快，不冷也不热。冬天很冷，有时候下雪。",
+              py: "Běijīng de chūntiān chángcháng guā fēng. Xiàtiān fēicháng rè. Qiūtiān hěn liángkuai, bù lěng yě bù rè. Dōngtiān hěn lěng, yǒu shíhou xià xuě.",
+              id: "Musim semi di Beijing sering berangin. Musim panas sangat panas. Musim gugur sangat sejuk, tidak dingin dan tidak panas. Musim dingin sangat dingin, kadang-kadang turun salju."
+            }
+          ]
+        },
+        dialogueActivity: {
+          type: "dialogue",
+          title: "说一说 (Percakapan)",
+          sentences: [
+            { role: "小玲", zh: "小华，你的生日是几月几号？", py: "Xiǎohuá, nǐ de shēngrì shì jǐ yuè jǐ hào?", id: "Xiao Hua, ulang tahunmu tanggal berapa bulan berapa?" },
+            { role: "小华", zh: "五月六号。", py: "Wǔ yuè liù hào.", id: "Tanggal 6 Mei." },
+            { role: "小玲", zh: "今天是五月五号，明天就是你的生日！", py: "Jīntiān shì wǔ yuè wǔ hào, míngtiān jiù shì nǐ de shēngrì!", id: "Hari ini tanggal 5 Mei, besok adalah hari ulang tahunmu!" },
+            { role: "小华", zh: "是啊！姐姐，明天和我一起去游乐场，好吗？", py: "Shì a! Jiějie, míngtiān hé wǒ yīqǐ qù yóulèchǎng, hǎo ma?", id: "Iya! Kakak, besok pergi ke taman hiburan bersamaku, mau ya?" },
+            { role: "小玲", zh: "好啊！几点去？", py: "Hǎo a! Jǐ diǎn qù?", id: "Boleh! Jam berapa perginya?" },
+            { role: "小华", zh: "九点半怎么样？", py: "Jiǔ diǎn bàn zěnmeyàng?", id: "Pukul 9:30 bagaimana?" },
+            { role: "小玲", zh: "好的！", py: "Hǎo de!", id: "Baiklah!" }
+          ]
+        },
+        vocabulary: [
+          { zh: "首都", py: "shǒudū", id: "ibu kota" },
+          { zh: "美丽", py: "měilì", id: "indah / cantik" },
+          { zh: "城市", py: "chéngshì", id: "kota" },
+          { zh: "刮", py: "guā", id: "bertiup / berhembus (angin)" },
+          { zh: "有时候", py: "yǒu shíhou", id: "kadang-kadang" },
+          { zh: "下", py: "xià", id: "turun (hujan/salju)" },
+          { zh: "雪", py: "xuě", id: "salju" },
+          { zh: "生日", py: "shēngrì", id: "ulang tahun" },
+          { zh: "号", py: "hào", id: "tanggal / nomor" },
+          { zh: "就", py: "jiù", id: "maka / langsung" },
+          { zh: "北京", py: "Běijīng", id: "Beijing" }
+        ]
+      }
+    ]
+  },
+  {
+    unitId: 2,
+    unitTitle: "第二单元 (Unit 2): Pelajaran, Hadiah & Kegemaran",
+    unitDesc: "Mempelajari aktivitas sekolah, memberi hadiah, masakan lezat, hobi, dan pesta ulang tahun.",
+    dinoMascot: "🦕 Bronto Si Penjelajah Kata",
+    lessons: [
+      {
+        id: 6,
+        unitId: 2,
+        title: "第六课 陈老师教我们中文课",
+        titlePinyin: "Dì liù kè: Chén lǎoshī jiāo wǒmen Zhōngwén kè",
+        titleId: "Pelajaran 6: Guru Chen Mengajar Pelajaran Mandarin Kami",
+        themeIcon: "👨‍🏫",
+        sentences: [
+          { zh: "爸爸教弟弟书法。", py: "Bàba jiāo dìdi shūfǎ.", id: "Ayah mengajari adik kaligrafi." },
+          { zh: "妈妈教妹妹中文歌。", py: "Māma jiāo mèimei Zhōngwén gē.", id: "Ibu mengajari adik perempuan lagu Mandarin." },
+          { zh: "体育老师教我们中国功夫。", py: "Tǐyù lǎoshī jiāo wǒmen Zhōngguó gōngfu.", id: "Guru olahraga mengajari kami kungfu Tiongkok." },
+          { zh: "叔叔常上网，还常看电视。", py: "Shūshu cháng shàngwǎng, hái cháng kàn diànshì.", id: "Paman sering berinternet, juga sering menonton TV." },
+          { zh: "箱子里有一些衣服，还有一些日用品。", py: "Xiāngzi lǐ yǒu yīxiē yīfu, hái yǒu yīxiē rìyòngpǐn.", id: "Di dalam koper ada sejumlah pakaian, juga ada sejumlah kebutuhan harian." },
+          { zh: "妹妹喜欢甜的，还喜欢酸的。", py: "Mèimei xǐhuan tián de, hái xǐhuan suān de.", id: "Adik perempuan suka yang manis, juga suka yang masam." }
+        ],
+        readingText: {
+          title: "陈老师教我们中文课",
+          paragraphs: [
+            {
+              zh: "这学期，陈老师教我们中文课，李老师教我们音乐课。",
+              py: "Zhè xuéqī, Chén lǎoshī jiāo wǒmen Zhōngwén kè, Lǐ lǎoshī jiāo wǒmen yīnyuè kè.",
+              id: "Semester ini, Guru Chen mengajari kami pelajaran Mandarin, Guru Li mengajari kami pelajaran musik."
+            },
+            {
+              zh: "今天星期一，上午我们班有中文课。陈老师教我们生词，还教我们句子和课文。",
+              py: "Jīntiān xīngqīyī, shàngwǔ wǒmen bān yǒu Zhōngwén kè. Chén lǎoshī jiāo wǒmen shēngcí, hái jiāo wǒmen jùzi hé kèwén.",
+              id: "Hari ini Senin, pagi hari kelas kami ada pelajaran Mandarin. Guru Chen mengajari kami kosakata baru, juga kalimat dan teks bacaan."
+            },
+            {
+              zh: "下午我们有音乐课，李老师教我们中文歌。大家都很开心。",
+              py: "Xiàwǔ wǒmen yǒu yīnyuè kè, Lǐ lǎoshī jiāo wǒmen Zhōngwén gē. Dàjiā dōu hěn kāixīn.",
+              id: "Sore hari kami ada pelajaran musik, Guru Li mengajari kami lagu Mandarin. Semua orang sangat gembira."
+            }
+          ]
+        },
+        poemActivity: {
+          title: "月之故乡 (Kampung Halaman Rembulan)",
+          lines: [
+            { zh: "天上一个月亮，水里一个月亮，", py: "Tiān shang yí gè yuèliang, shuǐ li yí gè yuèliang," },
+            { zh: "一个在水里，一个在天上。", py: "Yí gè zài shuǐ li, yí gè zài tiān shang." },
+            { zh: "低头看水里，抬头看天上，", py: "Dī tóu kàn shuǐ li, tái tóu kàn tiān shang," },
+            { zh: "看月亮，思故乡，", py: "Kàn yuèliang, sī gùxiāng," },
+            { zh: "一个在水里，一个在天上。", py: "Yí gè zài shuǐ li, yí gè zài tiān shang." }
+          ]
+        },
+        vocabulary: [
+          { zh: "书法", py: "shūfǎ", id: "kaligrafi" },
+          { zh: "功夫", py: "gōngfu", id: "kungfu" },
+          { zh: "上网", py: "shàng wǎng", id: "berselancar di internet" },
+          { zh: "还", py: "hái", id: "masih / juga" },
+          { zh: "箱子", py: "xiāngzi", id: "koper / peti" },
+          { zh: "日用品", py: "rìyòngpǐn", id: "keperluan sehari-hari" },
+          { zh: "甜", py: "tián", id: "manis" },
+          { zh: "酸", py: "suān", id: "asam / masam" },
+          { zh: "音乐", py: "yīnyuè", id: "musik" },
+          { zh: "生词", py: "shēngcí", id: "kosakata baru" },
+          { zh: "句子", py: "jùzi", id: "kalimat" },
+          { zh: "课文", py: "kèwén", id: "teks bacaan" },
+          { zh: "大家", py: "dàjiā", id: "semua orang" },
+          { zh: "开心", py: "kāixīn", id: "senang / gembira" }
+        ]
+      },
+      {
+        id: 7,
+        unitId: 2,
+        title: "第七课 我给妈妈一件礼物",
+        titlePinyin: "Dì qī kè: Wǒ gěi māma yí jiàn lǐwù",
+        titleId: "Pelajaran 7: Saya Memberi Ibu Sebuah Hadiah",
+        themeIcon: "🎁",
+        sentences: [
+          { zh: "爸爸给妈妈一件礼物。", py: "Bàba gěi māma yí jiàn lǐwù.", id: "Ayah memberi ibu sebuah hadiah." },
+          { zh: "我们给老师一束鲜花。", py: "Wǒmen gěi lǎoshī yí shù xiānhuā.", id: "Kami memberi guru seikat bunga segar." },
+          { zh: "我问老师一个问题。", py: "Wǒ wèn lǎoshī yí gè wèntí.", id: "Saya menanyakan guru sebuah pertanyaan." },
+          { zh: "他问我今天星期几。", py: "Tā wèn wǒ jīntiān xīngqījǐ.", id: "Dia bertanya kepada saya hari ini hari apa." },
+          { zh: "他告诉我一个秘密。", py: "Tā gàosu wǒ yí gè mìmì.", id: "Dia memberitahu saya sebuah rahasia." },
+          { zh: "姑姑告诉我一件事情。", py: "Gūgu gàosu wǒ yí jiàn shìqing.", id: "Bibi memberitahu saya suatu hal." }
+        ],
+        readingText: {
+          title: "我给妈妈一件礼物",
+          paragraphs: [
+            {
+              zh: "今天有中文课，老师教同学们三个汉字。",
+              py: "Jīntiān yǒu Zhōngwén kè, lǎoshī jiāo tóngxuémen sān gè hànzì.",
+              id: "Hari ini ada pelajaran Mandarin, guru mengajari teman-teman tiga karakter Hanzi."
+            },
+            {
+              zh: "晚上，小明给妈妈一封信。他对妈妈说：“妈妈，这是我给您的礼物！”",
+              py: "Wǎnshang, Xiǎomíng gěi māma yì fēng xìn. Tā duì māma shuō: “Māma, zhè shì wǒ gěi nín de lǐwù!”",
+              id: "Malam hari, Xiao Ming memberi ibu sepucuk surat. Dia berkata kepada ibu: “Mama, ini hadiah dari saya untuk Ibu!”"
+            },
+            {
+              zh: "信上有三个汉字：我爱你！",
+              py: "Xìn shang yǒu sān gè hànzì: Wǒ ài nǐ!",
+              id: "Di dalam surat ada tiga karakter Hanzi: Aku cinta padamu (我爱你)!"
+            }
+          ]
+        },
+        vocabulary: [
+          { zh: "给", py: "gěi", id: "memberi" },
+          { zh: "礼物", py: "lǐwù", id: "hadiah / kado" },
+          { zh: "束", py: "shù", id: "ikat / buket" },
+          { zh: "鲜花", py: "xiānhuā", id: "bunga segar" },
+          { zh: "问题", py: "wèntí", id: "pertanyaan / masalah" },
+          { zh: "告诉", py: "gàosu", id: "memberitahu" },
+          { zh: "秘密", py: "mìmì", id: "rahasia" },
+          { zh: "姑姑", py: "gūgu", id: "bibi (saudari ayah)" },
+          { zh: "事情", py: "shìqing", id: "hal / urusan" },
+          { zh: "封", py: "fēng", id: "pucuk (kata satuan surat)" },
+          { zh: "信", py: "xìn", id: "surat" },
+          { zh: "您", py: "nín", id: "Anda / Beliau (sopan)" }
+        ]
+      },
+      {
+        id: 8,
+        unitId: 2,
+        title: "第八课 奶奶请我们吃中国菜",
+        titlePinyin: "Dì bā kè: Nǎinai qǐng wǒmen chī Zhōngguó cài",
+        titleId: "Pelajaran 8: Nenek Mengundang Kami Makan Masakan Tiongkok",
+        themeIcon: "🥟",
+        sentences: [
+          { zh: "爷爷教小华写汉字。", py: "Yéye jiāo Xiǎohuá xiě hànzì.", id: "Kakek mengajari Xiao Hua menulis Hanzi." },
+          { zh: "李老师教我们唱歌。", py: "Lǐ lǎoshī jiāo wǒmen chàng gē.", id: "Guru Li mengajari kami bernyanyi." },
+          { zh: "小玲请小华吃水果。", py: "Xiǎolíng qǐng Xiǎohuá chī shuǐguǒ.", id: "Xiao Ling mempersilakan Xiao Hua makan buah." },
+          { zh: "姑姑请我们看杂技。", py: "Gūgu qǐng wǒmen kàn zájì.", id: "Bibi mentraktir kami menonton akrobat." },
+          { zh: "老师让我回答问题。", py: "Lǎoshī ràng wǒ huídá wèntí.", id: "Guru menyuruh saya menjawab pertanyaan." },
+          { zh: "妈妈让我洗袜子。", py: "Māma ràng wǒ xǐ wàzi.", id: "Ibu menyuruh saya mencuci kaos kaki." },
+          { zh: "祝你生日快乐！", py: "Zhù nǐ shēngrì kuàilè!", id: "Selamat ulang tahun untukmu!" },
+          { zh: "祝你中秋节快乐！", py: "Zhù nǐ Zhōngqiū Jié kuàilè!", id: "Selamat Hari Festival Musim Gugur!" },
+          { zh: "祝你新年快乐！", py: "Zhù nǐ xīnnián kuàilè!", id: "Selamat Tahun Baru untukmu!" }
+        ],
+        readingText: {
+          title: "奶奶请我们吃中国菜",
+          paragraphs: [
+            {
+              zh: "今天中秋节，我们和奶奶一起过。",
+              py: "Jīntiān Zhōngqiū Jié, wǒmen hé nǎinai yīqǐ guò.",
+              id: "Hari ini Festival Musim Gugur, kami merayakannya bersama nenek."
+            },
+            {
+              zh: "奶奶非常高兴，她请我们吃中国菜。妈妈和爸爸送给奶奶一盒茶叶，我和弟弟妹妹送给奶奶一条围巾。",
+              py: "Nǎinai fēicháng gāoxìng, tā qǐng wǒmen chī Zhōngguó cài. Māma hé bàba sòng gěi nǎinai yì hé cháyè, wǒ hé dìdi mèimei sòng gěi nǎinai yì tiáo wéijīn.",
+              id: "Nenek sangat senang, beliau mentraktir kami makan masakan Tiongkok. Ibu dan ayah menghadiahkan sekotak daun teh untuk nenek, saya dan adik-adik menghadiahkan sehelai syal."
+            },
+            {
+              zh: "我们一起祝她中秋节快乐！",
+              py: "Wǒmen yīqǐ zhù tā Zhōngqiū Jié kuàilè!",
+              id: "Kami bersama-sama mengucapkan Selamat Festival Musim Gugur untuknya!"
+            }
+          ]
+        },
+        vocabulary: [
+          { zh: "请", py: "qǐng", id: "silakan / mengundang / mentraktir" },
+          { zh: "菜", py: "cài", id: "sayuran / hidangan / lauk" },
+          { zh: "唱", py: "chàng", id: "bernyanyi" },
+          { zh: "杂技", py: "zájì", id: "akrobat" },
+          { zh: "让", py: "ràng", id: "menyuruh / membiarkan" },
+          { zh: "洗", py: "xǐ", id: "mencuci" },
+          { zh: "袜子", py: "wàzi", id: "kaos kaki" },
+          { zh: "祝", py: "zhù", id: "mendoakan / selamat" },
+          { zh: "快乐", py: "kuàilè", id: "gembira / bahagia" },
+          { zh: "中秋节", py: "Zhōngqiū Jié", id: "Festival Musim Gugur (Kue Bulan)" },
+          { zh: "新年", py: "xīnnián", id: "Tahun Baru" },
+          { zh: "过", py: "guò", id: "merayakan / melewati" },
+          { zh: "送", py: "sòng", id: "mengantar / menghadiahkan" },
+          { zh: "茶叶", py: "cháyè", id: "daun teh" },
+          { zh: "围巾", py: "wéijīn", id: "syal / selendang" }
+        ]
+      },
+      {
+        id: 9,
+        unitId: 2,
+        title: "第九课 小红喜欢看电影",
+        titlePinyin: "Dì jiǔ kè: Xiǎohóng xǐhuan kàn diànyǐng",
+        titleId: "Pelajaran 9: Xiao Hong Suka Menonton Film",
+        themeIcon: "🎬",
+        sentences: [
+          { zh: "奶奶喜欢听京剧。", py: "Nǎinai xǐhuan tīng jīngjù.", id: "Nenek suka mendengarkan Opera Beijing." },
+          { zh: "小强喜欢看电影。", py: "Xiǎoqiáng xǐhuan kàn diànyǐng.", id: "Xiao Qiang suka menonton film." },
+          { zh: "姐姐爱唱歌。", py: "Jiějie ài chàng gē.", id: "Kakak perempuan gemar bernyanyi." },
+          { zh: "弟弟爱吃糖。", py: "Dìdi ài chī táng.", id: "Adik laki-laki gemar makan permen." },
+          { zh: "妹妹爱画画儿，不爱写字。", py: "Mèimei ài huà huàr, bú ài xiě zì.", id: "Adik perempuan gemar menggambar, tidak gemar menulis huruf." },
+          { zh: "爷爷喜欢喝茶，不喜欢喝可乐。", py: "Yéye xǐhuan hē chá, bù xǐhuan hē kělè.", id: "Kakek suka minum teh, tidak suka minum kola." }
+        ],
+        readingText: {
+          title: "小红喜欢看电影",
+          paragraphs: [
+            {
+              zh: "小红喜欢看电影，她特别爱看中国电影，小华也喜欢看。",
+              py: "Xiǎohóng xǐhuan kàn diànyǐng, tā tèbié ài kàn Zhōngguó diànyǐng, Xiǎohuá yě xǐhuan kàn.",
+              id: "Xiao Hong suka menonton film, dia terutama gemar menonton film Tiongkok, Xiao Hua juga suka menonton."
+            },
+            {
+              zh: "今天电影院演中国电影，听说很有意思。小红很高兴，她打算请小华一起去看电影。",
+              py: "Jīntiān diànyǐngyuàn yǎn Zhōngguó diànyǐng, tīngshuō hěn yǒu yìsi. Xiǎohóng hěn gāoxìng, tā dǎsuàn qǐng Xiǎohuá yīqǐ qù kàn diànyǐng.",
+              id: "Hari ini bioskop memutar film Tiongkok, kabarnya sangat menarik. Xiao Hong sangat senang, ia berencana mengajak Xiao Hua menonton film bersama."
+            }
+          ]
+        },
+        vocabulary: [
+          { zh: "电影", py: "diànyǐng", id: "film" },
+          { zh: "京剧", py: "jīngjù", id: "Opera Beijing" },
+          { zh: "糖", py: "táng", id: "gula / permen" },
+          { zh: "画", py: "huà", id: "melukis / gambar" },
+          { zh: "画儿", py: "huàr", id: "lukisan / gambar" },
+          { zh: "可乐", py: "kělè", id: "minuman kola" },
+          { zh: "特别", py: "tèbié", id: "sangat / istimewa / spesial" },
+          { zh: "电影院", py: "diànyǐngyuàn", id: "bioskop" },
+          { zh: "演", py: "yǎn", id: "memutar / memainkan peran" },
+          { zh: "听说", py: "tīngshuō", id: "kabarnya / dengar-dengar" },
+          { zh: "有意思", py: "yǒu yìsi", id: "menarik" },
+          { zh: "打算", py: "dǎsuàn", id: "berencana" }
+        ]
+      },
+      {
+        id: 10,
+        unitId: 2,
+        title: "第十课 祝你生日快乐",
+        titlePinyin: "Dì shí kè: Zhù nǐ shēngrì kuàilè",
+        titleId: "Pelajaran 10: Selamat Ulang Tahun Untukmu",
+        themeIcon: "🎂",
+        readingText: {
+          title: "祝你生日快乐",
+          paragraphs: [
+            {
+              zh: "小猫、小兔子和小山羊是好朋友。今天是小山羊的生日，他请朋友们吃饭。",
+              py: "Xiǎomāo, xiǎo tùzi hé xiǎo shānyáng shì hǎo péngyou. Jīntiān shì xiǎo shānyáng de shēngrì, tā qǐng péngyoumen chīfàn.",
+              id: "Kucing kecil, kelinci kecil, dan kambing kecil adalah sahabat baik. Hari ini ulang tahun kambing kecil, ia mengundang sahabat-sahabatnya makan."
+            },
+            {
+              zh: "小猫爱吃鱼，小山羊给他准备了一条鱼。小兔子爱吃胡萝卜，小山羊给他准备了一个胡萝卜。",
+              py: "Xiǎomāo ài chī yú, xiǎo shānyáng gěi tā zhǔnbèi le yì tiáo yú. Xiǎo tùzi ài chī húluóbo, xiǎo shānyáng gěi tā zhǔnbèi le yí gè húluóbo.",
+              id: "Kucing kecil gemar makan ikan, kambing kecil menyiapkannya seekor ikan. Kelinci kecil gemar makan wortel, kambing kecil menyiapkannya sebatang wortel."
+            },
+            {
+              zh: "小猫和小兔子送给小山羊一篮青菜，他们一起对他说：“祝你生日快乐！”",
+              py: "Xiǎomāo hé xiǎo tùzi sòng gěi xiǎo shānyáng yì lán qīngcài, tāmen yīqǐ duì tā shuō: “Zhù nǐ shēngrì kuàilè!”",
+              id: "Kucing kecil dan kelinci kecil menghadiahkan sekeranjang sayuran hijau untuk kambing kecil, mereka serentak berkata: “Selamat ulang tahun untukmu!”"
+            }
+          ]
+        },
+        dialogueActivity: {
+          type: "dialogue",
+          title: "说一说 (Dialog Perayaan)",
+          sentences: [
+            { role: "小山羊", zh: "今天是我的生日，我请朋友们吃饭。", py: "Jīntiān shì wǒ de shēngrì, wǒ qǐng péngyoumen chīfàn.", id: "Hari ini ulang tahunku, aku mentraktir teman-teman makan." },
+            { role: "小猫", zh: "小山羊，小山羊，我来了！我送给你一篮青菜！", py: "Xiǎo shānyáng, xiǎo shānyáng, wǒ lái le! Wǒ sòng gěi nǐ yì lán qīngcài!", id: "Kambing kecil, aku datang! Aku menghadiahkanmu sekeranjang sayur!" },
+            { role: "小山羊", zh: "啊，青菜！我爱吃青菜。谢谢！", py: "A, qīngcài! Wǒ ài chī qīngcài. Xièxie!", id: "Ah, sayuran! Aku suka makan sayur. Terima kasih!" },
+            { role: "小兔子", zh: "小山羊，小山羊，我来了！我送给你一个胡萝卜！", py: "Xiǎo shānyáng, xiǎo shānyáng, wǒ lái le! Wǒ sòng gěi nǐ yí gè húluóbo!", id: "Kambing kecil, aku datang! Aku menghadiahkanmu sebuah wortel!" },
+            { role: "小山羊", zh: "啊，胡萝卜！我也爱吃胡萝卜。谢谢你！", py: "A, húluóbo! Wǒ yě ài chī húluóbo. Xièxie nǐ!", id: "Ah, wortel! Aku juga suka makan wortel. Terima kasih!" },
+            { role: "小猫小兔", zh: "祝你生日快乐！", py: "Zhù nǐ shēngrì kuàilè!", id: "Selamat ulang tahun untukmu!" }
+          ]
+        },
+        vocabulary: [
+          { zh: "兔子", py: "tùzi", id: "kelinci" },
+          { zh: "山羊", py: "shānyáng", id: "kambing" },
+          { zh: "鱼", py: "yú", id: "ikan" },
+          { zh: "准备", py: "zhǔnbèi", id: "mempersiapkan" },
+          { zh: "胡萝卜", py: "húluóbo", id: "wortel" },
+          { zh: "篮", py: "lán", id: "keranjang" },
+          { zh: "青菜", py: "qīngcài", id: "sayuran hijau" },
+          { zh: "来", py: "lái", id: "datang" }
+        ]
+      }
+    ]
+  },
+  {
+    unitId: 3,
+    unitTitle: "第三单元 (Unit 3): Pantai, Tamasya & Olahraga",
+    unitDesc: "Mempelajari liburan di pantai, membantu orang tua, kebun binatang, olahraga taman, dan piknik alam.",
+    dinoMascot: "🌴 Tricey Si Petualang Alam",
+    lessons: [
+      {
+        id: 11,
+        unitId: 3,
+        title: "第十一课 我们在海边玩沙子",
+        titlePinyin: "Dì shíyī kè: Wǒmen zài hǎibiān wán shāzi",
+        titleId: "Pelajaran 11: Kami Bermain Pasir di Tepi Pantai",
+        themeIcon: "🏖️",
+        sentences: [
+          { zh: "我们在海边玩沙子。", py: "Wǒmen zài hǎibiān wán shāzi.", id: "Kami bermain pasir di tepi pantai." },
+          { zh: "哥哥在中国学汉语。", py: "Gēge zài Zhōngguó xué Hànyǔ.", id: "Kakak laki-laki belajar bahasa Mandarin di Tiongkok." },
+          { zh: "你爸爸在哪儿工作？", py: "Nǐ bàba zài nǎr gōngzuò?", id: "Di mana ayahmu bekerja?" },
+          { zh: "你妹妹在哪儿上学？", py: "Nǐ mèimei zài nǎr shàngxué?", id: "Di mana adik perempuanmu bersekolah?" },
+          { zh: "中国菜好吃极了！", py: "Zhōngguó cài hǎochī jí le!", id: "Masakan Tiongkok enak sekali!" },
+          { zh: "这幅画儿好看极了！", py: "Zhè fú huàr hǎokàn jí le!", id: "Lukisan ini indah sekali!" },
+          { zh: "爸爸不在公司工作。", py: "Bàba bú zài gōngsī gōngzuò.", id: "Ayah tidak bekerja di kantor perusahaan." },
+          { zh: "今天我不在家吃晚饭。", py: "Jīntiān wǒ bú zài jiā chī wǎnfàn.", id: "Hari ini saya tidak makan malam di rumah." }
+        ],
+        readingText: {
+          title: "我们在海边玩沙子",
+          paragraphs: [
+            {
+              zh: "昨天是星期天，爸爸妈妈不上班。我们全家一起去海边玩。",
+              py: "Zuótiān shì xīngqītiān, bàba māma bù shàngbān. Wǒmen quánjiā yīqǐ qù hǎibiān wán.",
+              id: "Kemarin adalah hari Minggu, ayah dan ibu tidak bekerja. Kami sekeluarga pergi bermain ke pantai bersama."
+            },
+            {
+              zh: "海边的风景美极了！天很蓝，海也很蓝，很多人在海里游泳。",
+              py: "Hǎibiān de fēngjǐng měi jí le! Tiān hěn lán, hǎi yě hěn lán, hěn duō rén zài hǎi li yóuyǒng.",
+              id: "Pemandangan pantai indah sekali! Langit sangat biru, laut juga sangat biru, banyak orang berenang di laut."
+            },
+            {
+              zh: "爸爸和妈妈在海边打排球，我和弟弟在海边玩沙子，妹妹在海边晒太阳。这一天好玩极了！",
+              py: "Bàba hé māma zài hǎibiān dǎ páiqiú, wǒ hé dìdi zài hǎibiān wán shāzi, mèimei zài hǎibiān shài tàiyáng. Zhè yì tiān hǎowán jí le!",
+              id: "Ayah dan ibu bermain voli di pantai, saya dan adik bermain pasir di pantai, adik perempuan berjemur di bawah sinar matahari. Hari itu sangat menyenangkan!"
+            }
+          ]
+        },
+        vocabulary: [
+          { zh: "海", py: "hǎi", id: "laut" },
+          { zh: "玩", py: "wánr", id: "bermain" },
+          { zh: "沙子", py: "shāzi", id: "pasir" },
+          { zh: "工作", py: "gōngzuò", id: "bekerja / pekerjaan" },
+          { zh: "…极了", py: "…jí le", id: "amat sangat…" },
+          { zh: "幅", py: "fú", id: "lembar (kata satuan lukisan)" },
+          { zh: "公司", py: "gōngsī", id: "kantor perusahaan" },
+          { zh: "上班", py: "shàng bān", id: "berangkat kerja" },
+          { zh: "全", py: "quán", id: "seluruh / semua" },
+          { zh: "风景", py: "fēngjǐng", id: "pemandangan" },
+          { zh: "美", py: "měi", id: "indah / cantik" },
+          { zh: "游泳", py: "yóuyǒng", id: "berenang" },
+          { zh: "晒", py: "shài", id: "berjemur / terpapar sinar matahari" },
+          { zh: "太阳", py: "tàiyáng", id: "matahari" }
+        ]
+      },
+      {
+        id: 12,
+        unitId: 3,
+        title: "第十二课 小花猫给外婆送鱼",
+        titlePinyin: "Dì shí'èr kè: Xiǎohuāmāo gěi wàipó sòng yú",
+        titleId: "Pelajaran 12: Kucing Belang Mengantar Ikan untuk Nenek",
+        themeIcon: "🐱",
+        sentences: [
+          { zh: "姐姐给外公打电话。", py: "Jiějie gěi wàigōng dǎ diànhuà.", id: "Kakak perempuan menelepon kakek luar." },
+          { zh: "奶奶给我讲故事。", py: "Nǎinai gěi wǒ jiǎng gùshi.", id: "Nenek menceritakan dongeng kepada saya." },
+          { zh: "我跟妈妈去商店。", py: "Wǒ gēn māma qù shāngdiàn.", id: "Saya ikut ibu pergi ke toko." },
+          { zh: "妹妹跟姐姐去植物园。", py: "Mèimei gēn jiějie qù zhíwùyuán.", id: "Adik perempuan ikut kakak pergi ke kebun raya." },
+          { zh: "小华跟小红一起下棋。", py: "Xiǎohuá gēn Xiǎohóng yīqǐ xià qí.", id: "Xiao Hua bermain catur bersama Xiao Hong." },
+          { zh: "哥哥跟弟弟一起打乒乓球。", py: "Gēge gēn dìdi yīqǐ dǎ pīngpāngqiú.", id: "Kakak dan adik laki-laki bermain tenis meja bersama." }
+        ],
+        readingText: {
+          title: "小花猫给外婆送鱼",
+          paragraphs: [
+            {
+              zh: "猫妈妈让小花猫去外婆家，给外婆送两条鱼。",
+              py: "Māo māma ràng xiǎohuāmāo qù wàipó jiā, gěi wàipó sòng liǎng tiáo yú.",
+              id: "Mama kucing menyuruh kucing belang pergi ke rumah nenek mengantarkan dua ekor ikan."
+            },
+            {
+              zh: "小花猫说：“妈妈，我不敢自己去，你跟我一起去吧。”",
+              py: "Xiǎohuāmāo shuō: “Māma, wǒ bù gǎn zìjǐ qù, nǐ gēn wǒ yīqǐ qù ba.”",
+              id: "Kucing belang berkata: “Mama, aku tidak berani pergi sendiri, pergilah bersamaku.”"
+            },
+            {
+              zh: "妈妈说：“你是个勇敢的孩子，你已经长大了，自己去吧。妈妈在家洗衣服。”",
+              py: "Māma shuō: “Nǐ shì gè yǒnggǎn de háizi, nǐ yǐjīng zhǎngdà le, zìjǐ qù ba. Māma zài jiā xǐ yīfu.”",
+              id: "Mama berkata: “Kamu anak yang pemberani, kamu sudah tumbuh besar, pergilah sendiri. Mama mencuci pakaian di rumah.”"
+            },
+            {
+              zh: "小花猫说：“好吧。妈妈，再见！”",
+              py: "Xiǎohuāmāo shuō: “Hǎo ba. Māma, zàijiàn!”",
+              id: "Kucing belang berkata: “Baiklah. Mama, selamat tinggal!”"
+            }
+          ]
+        },
+        poemActivity: {
+          title: "谁跟谁好 (Siapa Berteman Dengan Siapa)",
+          lines: [
+            { zh: "白云跟风好，风往哪里刮，云往哪里跑；", py: "Bái yún gēn fēng hǎo, fēng wǎng nǎli guā, yún wǎng nǎli pǎo;" },
+            { zh: "蜜蜂跟花好，蜜蜂来采蜜，小花抬头笑；", py: "Mìfēng gēn huā hǎo, mìfēng lái cǎi mì, xiǎo huā tái tóu xiào;" },
+            { zh: "我跟同学好，大家唱着歌，一起上学校。", py: "Wǒ gēn tóngxué hǎo, dàjiā chàng zhe gē, yīqǐ shàng xuéxiào." }
+          ]
+        },
+        vocabulary: [
+          { zh: "外婆", py: "wàipó", id: "nenek (pihak ibu)" },
+          { zh: "外公", py: "wàigōng", id: "kakek (pihak ibu)" },
+          { zh: "故事", py: "gùshi", id: "cerita / dongeng" },
+          { zh: "跟", py: "gēn", id: "bersama / dengan" },
+          { zh: "商店", py: "shāngdiàn", id: "toko" },
+          { zh: "植物园", py: "zhíwùyuán", id: "kebun raya / botani" },
+          { zh: "下棋", py: "xià qí", id: "bermain catur" },
+          { zh: "敢", py: "gǎn", id: "berani" },
+          { zh: "自己", py: "zìjǐ", id: "sendiri" },
+          { zh: "勇敢", py: "yǒnggǎn", id: "pemberani" },
+          { zh: "孩子", py: "háizi", id: "anak-anak" },
+          { zh: "已经", py: "yǐjīng", id: "sudah" },
+          { zh: "长大", py: "zhǎngdà", id: "tumbuh dewasa / besar" }
+        ]
+      },
+      {
+        id: 13,
+        unitId: 3,
+        title: "第十三课 爷爷去公园打太极拳",
+        titlePinyin: "Dì shísān kè: Yéye qù gōngyuán dǎ tàijíquán",
+        titleId: "Pelajaran 13: Kakek Pergi ke Taman Berlatih Taichi",
+        themeIcon: "🥋",
+        sentences: [
+          { zh: "我去动物园看熊猫。", py: "Wǒ qù dòngwùyuán kàn xióngmāo.", id: "Saya pergi ke kebun binatang melihat panda." },
+          { zh: "妈妈去商店买东西。", py: "Māma qù shāngdiàn mǎi dōngxi.", id: "Ibu pergi ke toko membeli barang." },
+          { zh: "小红来我家看电视。", py: "Xiǎohóng lái wǒ jiā kàn diànshì.", id: "Xiao Hong datang ke rumahku menonton TV." },
+          { zh: "爸爸来学校接我。", py: "Bàba lái xuéxiào jiē wǒ.", id: "Ayah datang ke sekolah menjemputku." },
+          { zh: "他到邮局取包裹。", py: "Tā dào yóujú qǔ bāoguǒ.", id: "Dia pergi ke kantor pos mengambil paket." },
+          { zh: "她到办公室找王老师。", py: "Tā dào bàngōngshì zhǎo Wáng lǎoshī.", id: "Dia pergi ke kantor mencari Guru Wang." },
+          { zh: "我回教室拿钥匙。", py: "Wǒ huí jiàoshì ná yàoshi.", id: "Saya kembali ke kelas mengambil kunci." },
+          { zh: "我回家换衣服。", py: "Wǒ huí jiā huàn yīfu.", id: "Saya pulang ke rumah ganti baju." }
+        ],
+        readingText: {
+          title: "爷爷去公园打太极拳",
+          paragraphs: [
+            {
+              zh: "爷爷和爸爸都很喜欢锻炼身体。",
+              py: "Yéye hé bàba dōu hěn xǐhuan duànliàn shēntǐ.",
+              id: "Kakek dan ayah sangat suka berolahraga menjaga kebugaran tubuh."
+            },
+            {
+              zh: "爷爷爱打太极拳，早上他常常去公园打太极拳。",
+              py: "Yéye ài dǎ tàijíquán, zǎoshang tā chángcháng qù gōngyuán dǎ tàijíquán.",
+              id: "Kakek gemar bermain taichi, pagi hari beliau sering pergi ke taman berlatih taichi."
+            },
+            {
+              zh: "爸爸喜欢跑步，周末我常常跟他一起到海边跑步。我们的身体都很健康。",
+              py: "Bàba xǐhuan pǎobù, zhōumò wǒ chángcháng gēn tā yīqǐ dào hǎibiān pǎobù. Wǒmen de shēntǐ dōu hěn jiànkāng.",
+              id: "Ayah suka berlari, akhir pekan saya sering ikut lari bersamanya ke tepi pantai. Tubuh kami semuanya sangat sehat."
+            }
+          ]
+        },
+        vocabulary: [
+          { zh: "太极拳", py: "tàijíquán", id: "taichi" },
+          { zh: "熊猫", py: "xióngmāo", id: "panda" },
+          { zh: "买", py: "mǎi", id: "membeli" },
+          { zh: "东西", py: "dōngxi", id: "barang / benda" },
+          { zh: "接", py: "jiē", id: "menjemput / menerima" },
+          { zh: "到", py: "dào", id: "tiba / menuju ke" },
+          { zh: "取", py: "qǔ", id: "mengambil" },
+          { zh: "包裹", py: "bāoguǒ", id: "paket / bungkusan" },
+          { zh: "找", py: "zhǎo", id: "mencari" },
+          { zh: "拿", py: "ná", id: "mengambil / memegang" },
+          { zh: "钥匙", py: "yàoshi", id: "kunci" },
+          { zh: "换", py: "huàn", id: "mengganti / menukar" },
+          { zh: "跑步", py: "pǎo bù", id: "lari pagi / jogging" },
+          { zh: "健康", py: "jiànkāng", id: "sehat" }
+        ]
+      },
+      {
+        id: 14,
+        unitId: 3,
+        title: "第十四课 我们坐车去动物园",
+        titlePinyin: "Dì shísì kè: Wǒmen zuò chē qù dòngwùyuán",
+        titleId: "Pelajaran 14: Kami Naik Kendaraan ke Kebun Binatang",
+        themeIcon: "🐘",
+        sentences: [
+          { zh: "妈妈坐火车去外婆家。", py: "Māma zuò huǒchē qù wàipó jiā.", id: "Ibu naik kereta api ke rumah nenek." },
+          { zh: "哥哥坐飞机去香港。", py: "Gēge zuò fēijī qù Xiānggǎng.", id: "Kakak naik pesawat terbang ke Hong Kong." },
+          { zh: "我们用筷子吃饭。", py: "Wǒmen yòng kuàizi chī fàn.", id: "Kami makan nasi menggunakan sumpit." },
+          { zh: "叔叔用手机上网。", py: "Shūshu yòng shǒujī shàng wǎng.", id: "Paman berinternet menggunakan telepon seluler." },
+          { zh: "我帮老师擦黑板。", py: "Wǒ bāng lǎoshī cā hēibǎn.", id: "Saya membantu guru menghapus papan tulis." },
+          { zh: "姐姐帮妈妈洗碗。", py: "Jiějie bāng māma xǐ wǎn.", id: "Kakak membantu ibu mencuci mangkuk." }
+        ],
+        readingText: {
+          title: "我们坐车去动物园",
+          paragraphs: [
+            {
+              zh: "今天，我们坐车去动物园。动物园里有很多种动物。",
+              py: "Jīntiān, wǒmen zuò chē qù dòngwùyuán. Dòngwùyuán lǐ yǒu hěn duō zhǒng dòngwù.",
+              id: "Hari ini, kami naik mobil pergi ke kebun binatang. Di dalam kebun binatang ada beraneka ragam satwa."
+            },
+            {
+              zh: "大猴子教小猴子爬山，老虎妈妈帮小老虎洗脸，大象用长鼻子吸水，大熊猫在草地上吃竹子。",
+              py: "Dà hóuzi jiāo xiǎo hóuzi pá shān, lǎohǔ māma bāng xiǎo lǎohǔ xǐ liǎn, dàxiàng yòng cháng bízi xī shuǐ, dàxióngmāo zài cǎodì shang chī zhúzi.",
+              id: "Monyet besar mengajari monyet kecil memanjat gunung, induk harimau membantu anak harimau membasuh muka, gajah menyedot air dengan belalainya yang panjang, panda raksasa memakan bambu di padang rumput."
+            },
+            {
+              zh: "同学们都很喜欢它们，大家说：“动物是我们的好朋友。”",
+              py: "Tóngxuémen dōu hěn xǐhuan tāmen, dàjiā shuō: “Dòngwù shì wǒmen de hǎo péngyou.”",
+              id: "Semua teman sangat menyukai mereka, semuanya berkata: “Hewan adalah sahabat baik kita.”"
+            }
+          ]
+        },
+        vocabulary: [
+          { zh: "车", py: "chē", id: "mobil / kendaraan" },
+          { zh: "火车", py: "huǒchē", id: "kereta api" },
+          { zh: "飞机", py: "fēijī", id: "pesawat terbang" },
+          { zh: "手机", py: "shǒujī", id: "telepon genggam / HP" },
+          { zh: "帮", py: "bāng", id: "membantu / menolong" },
+          { zh: "擦", py: "cā", id: "mengusap / menghapus" },
+          { zh: "种", py: "zhǒng", id: "jenis / macam" },
+          { zh: "老虎", py: "lǎohǔ", id: "harimau" },
+          { zh: "脸", py: "liǎn", id: "wajah / muka" },
+          { zh: "大象", py: "dàxiàng", id: "gajah" },
+          { zh: "吸", py: "xī", id: "menghisap / menyedot" },
+          { zh: "水", py: "shuǐ", id: "air" },
+          { zh: "草地", py: "cǎodì", id: "padang rumput" },
+          { zh: "竹子", py: "zhúzi", id: "bambu" },
+          { zh: "香港", py: "Xiānggǎng", id: "Hong Kong" }
+        ]
+      },
+      {
+        id: 15,
+        unitId: 3,
+        title: "第十五课 大家去郊游",
+        titlePinyin: "Dì shíwǔ kè: Dàjiā qù jiāoyóu",
+        titleId: "Pelajaran 15: Semua Orang Pergi Berpiknik",
+        themeIcon: "🏕️",
+        readingText: {
+          title: "大家去郊游",
+          paragraphs: [
+            {
+              zh: "星期天，天气非常晴朗，学校组织我们去郊游。",
+              py: "Xīngqītiān, tiānqì fēicháng qínglǎng, xuéxiào zǔzhī wǒmen qù jiāoyóu.",
+              id: "Hari Minggu, cuaca amat cerah, sekolah mengorganisir kami untuk bertamasya ke pinggiran kota."
+            },
+            {
+              zh: "早上，我们坐车到了郊外。那儿的风景特别美，有山也有水。",
+              py: "Zǎoshang, wǒmen zuò chē dào le jiāowài. Nàr de fēngjǐng tèbié měi, yǒu shān yě yǒu shuǐ.",
+              id: "Pagi hari, kami naik mobil tiba di luar kota. Pemandangan di sana sangat indah, ada gunung dan juga ada air sungai."
+            },
+            {
+              zh: "上午，我们爬山、放风筝。下午，我们在山下唱歌、跳舞、捉迷藏，大家开心极了！",
+              py: "Shàngwǔ, wǒmen pá shān, fàng fēngzheng. Xiàwǔ, wǒmen zài shān xià chàng gē, tiào wǔ, zhuō mícáng, dàjiā kāixīn jí le!",
+              id: "Pagi hingga siang kami mendaki gunung, menerbangkan layang-layang. Siang hingga sore kami bernyanyi di kaki gunung, menari, dan bermain petak umpet, semuanya gembira sekali!"
+            }
+          ]
+        },
+        poemActivity: {
+          title: "古诗: 一望二三里 (Puisi: Menatap 2-3 Li)",
+          lines: [
+            { zh: "一望二三里，", py: "Yí wàng èr sān lǐ,", id: "Memandang sejauh dua tiga li," },
+            { zh: "烟村四五家。", py: "Yān cūn sì wǔ jiā.", id: "Desa berasap empat lima rumah." },
+            { zh: "亭台六七座，", py: "Tíng tái liù qī zuò,", id: "Paviliun peristirahatan enam tujuh buah," },
+            { zh: "八九十枝花。", py: "Bā jiǔ shí zhī huā.", id: "Delapan sembilan sepuluh tangkai bunga." }
+          ]
+        },
+        vocabulary: [
+          { zh: "郊游", py: "jiāoyóu", id: "tamasya / piknik" },
+          { zh: "晴朗", py: "qínglǎng", id: "cerah" },
+          { zh: "组织", py: "zǔzhī", id: "mengorganisir / menyelenggarakan" },
+          { zh: "郊外", py: "jiāowài", id: "pinggiran luar kota" },
+          { zh: "放", py: "fàng", id: "melepas / menerbangkan" },
+          { zh: "风筝", py: "fēngzheng", id: "layang-layang" },
+          { zh: "跳舞", py: "tiào wǔ", id: "menari" },
+          { zh: "捉迷藏", py: "zhuō mícáng", id: "petak umpet" }
+        ]
+      }
+    ]
+  }
+];
+
+window.HAN_YU_3_UNITS = HAN_YU_3_UNITS;
+
+
+// Data Guratan Hanzi untuk Han Yu 3 (60 Karakter: 20 per Unit)
+// Berisi metadata guratan, urutan guratan, radikal, contoh kata, dan panduan tracing.
+
+const HAN_YU_3_STROKES = {
+  // UNIT 1 (20 Hanzi)
+  "unit1": [
+    {
+      id: "u1_1",
+      unit: 1,
+      char: "月",
+      pinyin: "yuè",
+      meaning: "Bulan / Kalender",
+      radical: "月 (yuè)",
+      strokeCount: 4,
+      strokeNames: ["撇 (Piě)", "横折钩 (Héng-zhé-gōu)", "横 (Héng)", "横 (Héng)"],
+      examples: ["一月 (Januari)", "月亮 (Bulan)", "上个月 (Bulan lalu)"],
+      dinoTip: "🦖 Rexy: Mulai dengan guratan lengkung ke bawah (撇) di sisi kiri!",
+      paths: [
+        "M 30 20 Q 30 60 20 85",
+        "M 30 20 L 70 20 L 70 85 Q 70 90 60 90 L 52 80",
+        "M 30 42 L 70 42",
+        "M 30 62 L 70 62"
+      ]
+    },
+    {
+      id: "u1_2",
+      unit: 1,
+      char: "日",
+      pinyin: "rì",
+      meaning: "Matahari / Hari / Tanggal",
+      radical: "日 (rì)",
+      strokeCount: 4,
+      strokeNames: ["竖 (Shù)", "横折 (Héng-zhé)", "横 (Héng)", "横 (Héng)"],
+      examples: ["生日 (Ulang tahun)", "今日 (Hari ini)", "五日 (Tanggal 5)"],
+      dinoTip: "🦕 Bronto: Gambar kotak luar dulu, lalu tutup garis tengah dan bawah!",
+      paths: [
+        "M 28 22 L 28 82",
+        "M 28 22 L 72 22 L 72 82",
+        "M 28 52 L 72 52",
+        "M 28 82 L 72 82"
+      ]
+    },
+    {
+      id: "u1_3",
+      unit: 1,
+      char: "年",
+      pinyin: "nián",
+      meaning: "Tahun",
+      radical: "干 (gān)",
+      strokeCount: 6,
+      strokeNames: ["撇 (Piě)", "横 (Héng)", "竖 (Shù)", "横 (Héng)", "横 (Héng)", "竖 (Shù)"],
+      examples: ["去年 (Tahun lalu)", "今年 (Tahun ini)", "新年 (Tahun baru)"],
+      dinoTip: "🌴 Tricey: Guratan terakhir adalah garis lurus panjang dari atas ke bawah!",
+      paths: [
+        "M 45 15 L 30 30",
+        "M 25 30 L 75 30",
+        "M 35 30 L 35 50",
+        "M 28 50 L 68 50",
+        "M 15 68 L 85 68",
+        "M 50 30 L 50 92"
+      ]
+    },
+    {
+      id: "u1_4",
+      unit: 1,
+      char: "天",
+      pinyin: "tiān",
+      meaning: "Hari / Langit",
+      radical: "大 (dà)",
+      strokeCount: 4,
+      strokeNames: ["横 (Héng)", "横 (Héng)", "撇 (Piě)", "捺 (Nà)"],
+      examples: ["今天 (Hari ini)", "明天 (Besok)", "春天 (Musim semi)"],
+      dinoTip: "🦖 Rexy: Garis horizontal atas lebih pendek dari garis horizontal kedua!",
+      paths: [
+        "M 30 25 L 70 25",
+        "M 18 45 L 82 45",
+        "M 50 25 Q 45 65 20 85",
+        "M 50 45 Q 60 70 82 85"
+      ]
+    },
+    {
+      id: "u1_5",
+      unit: 1,
+      char: "今",
+      pinyin: "jīn",
+      meaning: "Sekarang / Kini",
+      radical: "人 (rén)",
+      strokeCount: 4,
+      strokeNames: ["撇 (Piě)", "捺 (Nà)", "点 (Diǎn)", "横折钩 (Héng-zhé-gōu)"],
+      examples: ["今天 (Hari ini)", "今年 (Tahun ini)", "今日 (Kini)"],
+      dinoTip: "🦕 Bronto: Payung atas '人' membentang lebar menaungi bagian bawah!",
+      paths: [
+        "M 50 15 Q 35 35 18 55",
+        "M 50 15 Q 65 35 82 55",
+        "M 48 40 L 48 48",
+        "M 32 60 L 68 60 L 62 88 L 52 82"
+      ]
+    },
+    {
+      id: "u1_6",
+      unit: 1,
+      char: "明",
+      pinyin: "míng",
+      meaning: "Terang / Besok",
+      radical: "日 (rì)",
+      strokeCount: 8,
+      strokeNames: ["竖", "横折", "横", "横", "撇", "横折钩", "横", "横"],
+      examples: ["明天 (Besok)", "明白 (Mengerti)", "光明 (Terang)"],
+      dinoTip: "🦖 Rexy: Gabungan '日' (matahari) di kiri dan '月' (bulan) di kanan!",
+      paths: [
+        "M 18 30 L 18 72",
+        "M 18 30 L 42 30 L 42 72",
+        "M 18 50 L 42 50",
+        "M 18 72 L 42 72",
+        "M 56 20 Q 56 60 48 85",
+        "M 56 20 L 84 20 L 84 85 Q 84 90 76 90 L 70 82",
+        "M 56 42 L 84 42",
+        "M 56 62 L 84 62"
+      ]
+    },
+    {
+      id: "u1_7",
+      unit: 1,
+      char: "昨",
+      pinyin: "zuó",
+      meaning: "Kemarin",
+      radical: "日 (rì)",
+      strokeCount: 9,
+      strokeNames: ["竖", "横折", "横", "横", "撇", "横", "竖", "横", "横"],
+      examples: ["昨天 (Kemarin)", "昨日 (Hari kemarin)"],
+      dinoTip: "🌴 Tricey: Di sebelah kiri ada radikal '日', di kanan ada '乍'!",
+      paths: [
+        "M 16 30 L 16 72",
+        "M 16 30 L 38 30 L 38 72",
+        "M 16 50 L 38 50",
+        "M 16 72 L 38 72",
+        "M 65 20 L 52 40",
+        "M 45 40 L 85 40",
+        "M 55 40 L 55 88",
+        "M 55 60 L 82 60",
+        "M 55 82 L 85 82"
+      ]
+    },
+    {
+      id: "u1_8",
+      unit: 1,
+      char: "星",
+      pinyin: "xīng",
+      meaning: "Bintang / Pekan",
+      radical: "日 (rì)",
+      strokeCount: 9,
+      strokeNames: ["竖", "横折", "横", "横", "撇", "横", "横", "竖", "横"],
+      examples: ["星期 (Pekan/Minggu)", "星期一 (Senin)", "星星 (Bintang)"],
+      dinoTip: "🦕 Bronto: Bagian atas adalah '日', bagian bawah adalah '生'!",
+      paths: [
+        "M 30 15 L 30 40",
+        "M 30 15 L 70 15 L 70 40",
+        "M 30 28 L 70 28",
+        "M 30 40 L 70 40",
+        "M 35 50 L 25 65",
+        "M 25 60 L 75 60",
+        "M 50 48 L 50 82",
+        "M 30 72 L 70 72",
+        "M 15 88 L 85 88"
+      ]
+    },
+    {
+      id: "u1_9",
+      unit: 1,
+      char: "期",
+      pinyin: "qī",
+      meaning: "Periode / Waktu",
+      radical: "月 (yuè)",
+      strokeCount: 12,
+      strokeNames: ["横", "竖", "竖", "横", "横", "横", "撇", "捺", "撇", "横折钩", "横", "横"],
+      examples: ["星期 (Minggu)", "学期 (Semester)", "假期 (Liburan)"],
+      dinoTip: "🦖 Rexy: Sisi kiri adalah '其', sisi kanan adalah '月'!",
+      paths: [
+        "M 20 28 L 52 28",
+        "M 28 20 L 28 65",
+        "M 44 20 L 44 65",
+        "M 22 42 L 50 42",
+        "M 22 55 L 50 55",
+        "M 12 68 L 58 68",
+        "M 30 70 L 18 88",
+        "M 42 70 L 52 88",
+        "M 64 22 Q 64 60 56 86",
+        "M 64 22 L 86 22 L 86 86 Q 86 90 78 90 L 72 82",
+        "M 64 44 L 86 44",
+        "M 64 64 L 86 64"
+      ]
+    },
+    {
+      id: "u1_10",
+      unit: 1,
+      char: "点",
+      pinyin: "diǎn",
+      meaning: "Jam / Pukul / Titik",
+      radical: "灬 (huǒ)",
+      strokeCount: 9,
+      strokeNames: ["竖", "横折", "横", "竖", "横", "点", "点", "点", "点"],
+      examples: ["八点 (Pukul 8)", "几点 (Jam berapa)", "点心 (Dimsum)"],
+      dinoTip: "🌴 Tricey: 4 titik (四点底) di bagian bawah melambangkan api!",
+      paths: [
+        "M 30 25 L 30 65",
+        "M 30 25 L 70 25 L 70 65",
+        "M 30 45 L 70 45",
+        "M 50 25 L 50 65",
+        "M 30 65 L 70 65",
+        "M 20 80 L 15 90",
+        "M 38 80 L 40 90",
+        "M 58 80 L 60 90",
+        "M 78 80 L 85 90"
+      ]
+    },
+    {
+      id: "u1_11",
+      unit: 1,
+      char: "半",
+      pinyin: "bàn",
+      meaning: "Setengah / Paruh",
+      radical: "十 (shí)",
+      strokeCount: 5,
+      strokeNames: ["点 (Diǎn)", "撇 (Piě)", "横 (Héng)", "横 (Héng)", "竖 (Shù)"],
+      examples: ["八点半 (Pukul 8.30)", "一半 (Separuh)", "半天 (Setengah hari)"],
+      dinoTip: "🦖 Rexy: Dua titik di atas miring ke dalam seperti tanduk dino!",
+      paths: [
+        "M 35 22 L 40 32",
+        "M 65 22 L 58 32",
+        "M 28 42 L 72 42",
+        "M 15 62 L 85 62",
+        "M 50 20 L 50 92"
+      ]
+    },
+    {
+      id: "u1_12",
+      unit: 1,
+      char: "分",
+      pinyin: "fēn",
+      meaning: "Menit / Membagi",
+      radical: "刀 (dāo)",
+      strokeCount: 4,
+      strokeNames: ["撇 (Piě)", "捺 (Nà)", "横折钩 (Héng-zhé-gōu)", "撇 (Piě)"],
+      examples: ["五分 (5 menit)", "分钟 (Menit)", "分开 (Berpisah)"],
+      dinoTip: "🦕 Bronto: Atas '八' (delapan), bawah '刀' (pisau pemotong)!",
+      paths: [
+        "M 45 18 L 22 42",
+        "M 55 18 L 78 42",
+        "M 35 52 L 68 52 L 62 88 L 52 80",
+        "M 50 56 Q 42 72 25 85"
+      ]
+    },
+    {
+      id: "u1_13",
+      unit: 1,
+      char: "冷",
+      pinyin: "lěng",
+      meaning: "Dingin",
+      radical: "冫 (bīng)",
+      strokeCount: 7,
+      strokeNames: ["点", "提", "撇", "捺", "点", "横撇", "捺"],
+      examples: ["很冷 (Sangat dingin)", "冷水 (Air dingin)", "不冷 (Tidak dingin)"],
+      dinoTip: "🌴 Tricey: Dua titik es di kiri menandakan suhu beku zaman es!",
+      paths: [
+        "M 22 28 L 26 36",
+        "M 18 72 L 32 60",
+        "M 55 18 L 36 45",
+        "M 56 22 L 78 45",
+        "M 52 48 L 54 56",
+        "M 42 62 L 66 62 L 48 85",
+        "M 52 70 L 76 88"
+      ]
+    },
+    {
+      id: "u1_14",
+      unit: 1,
+      char: "热",
+      pinyin: "rè",
+      meaning: "Panas",
+      radical: "灬 (huǒ)",
+      strokeCount: 10,
+      strokeNames: ["横", "竖", "横", "撇", "竖弯钩", "点", "点", "点", "点", "点"],
+      examples: ["很热 (Sangat panas)", "热天 (Hari panas)", "热水 (Air panas)"],
+      dinoTip: "🦖 Rexy: Bawahnya ada 4 titik api lahar gunung berapi purba!",
+      paths: [
+        "M 22 26 L 48 26",
+        "M 34 16 L 34 40",
+        "M 18 42 L 52 42",
+        "M 32 44 L 20 65",
+        "M 55 18 L 55 45 Q 55 60 72 60 L 80 60 L 80 50",
+        "M 65 35 L 72 45",
+        "M 18 82 L 14 92",
+        "M 38 82 L 40 92",
+        "M 58 82 L 60 92",
+        "M 78 82 L 84 92"
+      ]
+    },
+    {
+      id: "u1_15",
+      unit: 1,
+      char: "春",
+      pinyin: "chūn",
+      meaning: "Musim Semi",
+      radical: "日 (rì)",
+      strokeCount: 9,
+      strokeNames: ["横", "横", "横", "撇", "捺", "竖", "横折", "横", "横"],
+      examples: ["春天 (Musim semi)", "春季 (Musim semi)", "春节 (Imlek)"],
+      dinoTip: "🦕 Bronto: Tiga garis horizontal mewakili tunas musim semi di bawah mentari!",
+      paths: [
+        "M 28 22 L 72 22",
+        "M 32 34 L 68 34",
+        "M 18 46 L 82 46",
+        "M 50 15 Q 40 55 16 78",
+        "M 52 46 Q 66 65 85 78",
+        "M 35 60 L 35 90",
+        "M 35 60 L 65 60 L 65 90",
+        "M 35 75 L 65 75",
+        "M 35 90 L 65 90"
+      ]
+    },
+    {
+      id: "u1_16",
+      unit: 1,
+      char: "夏",
+      pinyin: "xià",
+      meaning: "Musim Panas",
+      radical: "夂 (zhǐ)",
+      strokeCount: 10,
+      strokeNames: ["横", "撇", "竖", "横折", "横", "横", "横", "撇", "横撇", "捺"],
+      examples: ["夏天 (Musim panas)", "夏季 (Musim panas)", "夏令营 (Summer camp)"],
+      dinoTip: "🌴 Tricey: Bentuk kokoh seperti dinosaurus perkasa di musim panas!",
+      paths: [
+        "M 25 18 L 75 18",
+        "M 45 20 L 32 40",
+        "M 30 35 L 30 65",
+        "M 30 35 L 70 35 L 70 65",
+        "M 30 45 L 70 45",
+        "M 30 55 L 70 55",
+        "M 30 65 L 70 65",
+        "M 45 68 L 28 88",
+        "M 42 72 L 68 72 L 48 92",
+        "M 52 75 L 82 92"
+      ]
+    },
+    {
+      id: "u1_17",
+      unit: 1,
+      char: "秋",
+      pinyin: "qiū",
+      meaning: "Musim Gugur",
+      radical: "禾 (hé)",
+      strokeCount: 9,
+      strokeNames: ["撇", "横", "竖", "撇", "点", "点", "撇", "撇", "捺"],
+      examples: ["秋天 (Musim gugur)", "中秋节 (Festival Kue Bulan)", "秋季 (Musim gugur)"],
+      dinoTip: "🦖 Rexy: Kiri adalah padi emas '禾', kanan adalah api unggun '火'!",
+      paths: [
+        "M 38 18 L 22 28",
+        "M 12 40 L 48 40",
+        "M 32 28 L 32 88",
+        "M 32 42 L 15 65",
+        "M 34 50 L 46 62",
+        "M 58 35 L 52 48",
+        "M 82 30 L 72 45",
+        "M 68 22 Q 65 60 52 86",
+        "M 68 50 L 88 86"
+      ]
+    },
+    {
+      id: "u1_18",
+      unit: 1,
+      char: "冬",
+      pinyin: "dōng",
+      meaning: "Musim Dingin",
+      radical: "夂 (zhǐ)",
+      strokeCount: 5,
+      strokeNames: ["撇 (Piě)", "横撇 (Héng-piě)", "捺 (Nà)", "点 (Diǎn)", "点 (Diǎn)"],
+      examples: ["冬天 (Musim dingin)", "冬季 (Musim dingin)", "冬雪 (Salju dingin)"],
+      dinoTip: "🦕 Bronto: Dua titik di bawah adalah butiran salju musim dingin!",
+      paths: [
+        "M 48 18 L 30 38",
+        "M 32 30 L 68 30 L 42 55",
+        "M 48 38 Q 62 60 82 68",
+        "M 42 72 L 40 80",
+        "M 55 82 L 58 92"
+      ]
+    },
+    {
+      id: "u1_19",
+      unit: 1,
+      char: "雨",
+      pinyin: "yǔ",
+      meaning: "Hujan",
+      radical: "雨 (yǔ)",
+      strokeCount: 8,
+      strokeNames: ["横", "竖", "横折钩", "竖", "点", "点", "点", "点"],
+      examples: ["下雨 (Turun hujan)", "雨水 (Air hujan)", "大雨 (Hujan deras)"],
+      dinoTip: "🌴 Tricey: Garis atas awan, dan 4 titik di dalam kotak adalah rintik hujan!",
+      paths: [
+        "M 25 22 L 75 22",
+        "M 50 24 L 50 45",
+        "M 22 45 L 78 45 L 78 88 L 68 88",
+        "M 50 45 L 50 88",
+        "M 32 58 L 30 68",
+        "M 32 75 L 30 84",
+        "M 66 58 L 68 68",
+        "M 66 75 L 68 84"
+      ]
+    },
+    {
+      id: "u1_20",
+      unit: 1,
+      char: "雪",
+      pinyin: "xuě",
+      meaning: "Salju",
+      radical: "雨 (yǔ)",
+      strokeCount: 11,
+      strokeNames: ["横", "点", "横撇", "竖", "点", "点", "点", "点", "横折", "横", "横"],
+      examples: ["下雪 (Turun salju)", "白雪 (Salju putih)", "雪人 (Manusia salju)"],
+      dinoTip: "🦖 Rexy: Di atas bermahkota radikal '雨' (hujan salju)!",
+      paths: [
+        "M 28 15 L 72 15",
+        "M 50 16 L 50 30",
+        "M 24 30 L 76 30 L 76 56",
+        "M 50 30 L 50 56",
+        "M 32 38 L 30 46",
+        "M 32 48 L 30 54",
+        "M 68 38 L 70 46",
+        "M 68 48 L 70 54",
+        "M 32 65 L 70 65 L 70 88",
+        "M 32 76 L 68 76",
+        "M 22 88 L 78 88"
+      ]
+    }
+  ],
+
+  // UNIT 2 (20 Hanzi)
+  "unit2": [
+    {
+      id: "u2_1",
+      unit: 2,
+      char: "书",
+      pinyin: "shū",
+      meaning: "Buku / Kaligrafi",
+      radical: "乛 (zhé)",
+      strokeCount: 4,
+      strokeNames: ["横折 (Héng-zhé)", "横折钩 (Héng-zhé-gōu)", "竖 (Shù)", "点 (Diǎn)"],
+      examples: ["书法 (Kaligrafi)", "中文书 (Buku Mandarin)", "买书 (Beli buku)"],
+      dinoTip: "🦖 Rexy: Jangan lupakan titik penutup di pojok kanan atas!",
+      paths: [
+        "M 28 22 L 68 22 L 68 40",
+        "M 28 42 L 72 42 L 70 75 L 58 70",
+        "M 48 18 L 48 90",
+        "M 66 28 L 72 35"
+      ]
+    },
+    {
+      id: "u2_2",
+      unit: 2,
+      char: "歌",
+      pinyin: "gē",
+      meaning: "Lagu / Menyanyi",
+      radical: "欠 (qiàn)",
+      strokeCount: 14,
+      strokeNames: ["横", "竖", "横折", "横", "竖钩", "横", "竖", "横折", "横", "竖钩", "撇", "横撇", "撇", "捺"],
+      examples: ["唱歌 (Bernyanyi)", "中文歌 (Lagu Mandarin)", "国歌 (Lagu kebangsaan)"],
+      dinoTip: "🦕 Bronto: Kiri ada dua '哥', kanan ada radikal napas '欠'!",
+      paths: [
+        "M 15 22 L 45 22",
+        "M 22 28 L 22 42",
+        "M 22 28 L 38 28 L 38 42",
+        "M 22 42 L 38 42",
+        "M 40 22 L 40 50 L 32 45",
+        "M 15 56 L 45 56",
+        "M 22 62 L 22 78",
+        "M 22 62 L 38 62 L 38 78",
+        "M 22 78 L 38 78",
+        "M 40 56 L 40 90 L 32 82",
+        "M 65 20 L 52 40",
+        "M 55 38 L 82 38 L 65 60",
+        "M 65 52 Q 60 75 48 90",
+        "M 66 60 Q 75 75 88 90"
+      ]
+    },
+    {
+      id: "u2_3",
+      unit: 2,
+      char: "给",
+      pinyin: "gěi",
+      meaning: "Memberi / Untuk",
+      radical: "纟 (sī)",
+      strokeCount: 9,
+      strokeNames: ["撇折", "撇折", "提", "撇", "捺", "横", "竖", "横折", "横"],
+      examples: ["送给 (Menghadiahkan)", "给你 (Untukmu)", "交给 (Menyerahkan)"],
+      dinoTip: "🌴 Tricey: Kiri radikal sutra benang '纟', kanan '合' (bersatu)!",
+      paths: [
+        "M 28 18 L 18 36 L 34 30",
+        "M 30 34 L 16 54 L 38 48",
+        "M 20 72 L 35 55",
+        "M 62 18 L 45 38",
+        "M 64 20 L 82 38",
+        "M 48 48 L 78 48",
+        "M 50 62 L 50 85",
+        "M 50 62 L 76 62 L 76 85",
+        "M 50 85 L 76 85"
+      ]
+    },
+    {
+      id: "u2_4",
+      unit: 2,
+      char: "礼",
+      pinyin: "lǐ",
+      meaning: "Hadiah / Kesopanan",
+      radical: "礻 (shì)",
+      strokeCount: 5,
+      strokeNames: ["点 (Diǎn)", "横撇 (Héng-piě)", "竖 (Shù)", "点 (Diǎn)", "竖弯钩 (Shù-wān-gōu)"],
+      examples: ["礼物 (Hadiah)", "有礼貌 (Sopan)", "礼品 (Cenderamata)"],
+      dinoTip: "🦖 Rexy: Guratan terakhir meliuk manis ke kanan seperti ekor stegosaurus!",
+      paths: [
+        "M 28 18 L 32 26",
+        "M 20 32 L 40 32 L 26 50",
+        "M 30 46 L 30 88",
+        "M 35 55 L 42 65",
+        "M 58 20 L 58 75 Q 58 88 75 88 L 84 88 L 84 76"
+      ]
+    },
+    {
+      id: "u2_5",
+      unit: 2,
+      char: "物",
+      pinyin: "wù",
+      meaning: "Barang / Makhluk",
+      radical: "牜 (niú)",
+      strokeCount: 8,
+      strokeNames: ["撇", "横", "竖", "提", "撇", "横折钩", "撇", "撇"],
+      examples: ["动物 (Hewan)", "礼物 (Kado)", "植物 (Tumbuhan)"],
+      dinoTip: "🦕 Bronto: Radikal sapi '牜' di kiri menyapa kita!",
+      paths: [
+        "M 28 20 L 18 35",
+        "M 14 42 L 40 42",
+        "M 30 25 L 30 78",
+        "M 14 72 L 40 55",
+        "M 60 22 L 48 42",
+        "M 48 40 L 82 40 L 78 88 L 68 82",
+        "M 62 48 L 52 75",
+        "M 74 48 L 64 85"
+      ]
+    },
+    {
+      id: "u2_6",
+      unit: 2,
+      char: "花",
+      pinyin: "huā",
+      meaning: "Bunga",
+      radical: "艹 (cǎo)",
+      strokeCount: 7,
+      strokeNames: ["横", "竖", "竖", "撇", "竖", "撇", "竖弯钩"],
+      examples: ["鲜花 (Bunga segar)", "小花 (Bunga kecil)", "花园 (Taman bunga)"],
+      dinoTip: "🌴 Tricey: Atap rumput '艹' di atas mekarkan bunga purba!",
+      paths: [
+        "M 18 25 L 82 25",
+        "M 35 15 L 35 36",
+        "M 65 15 L 65 36",
+        "M 40 40 L 26 58",
+        "M 35 52 L 35 88",
+        "M 65 42 L 50 62",
+        "M 55 42 L 55 78 Q 55 88 72 88 L 82 88 L 82 76"
+      ]
+    },
+    {
+      id: "u2_7",
+      unit: 2,
+      char: "问",
+      pinyin: "wèn",
+      meaning: "Bertanya",
+      radical: "门 (mén)",
+      strokeCount: 6,
+      strokeNames: ["点", "竖", "横折钩", "竖", "横折", "横"],
+      examples: ["问题 (Pertanyaan)", "请问 (Permisi tanya)", "问好 (Menyapa)"],
+      dinoTip: "🦖 Rexy: Di dalam gerbang '门' ada mulut '口' yang bertanya!",
+      paths: [
+        "M 26 22 L 28 30",
+        "M 24 35 L 24 85",
+        "M 24 38 L 76 38 L 76 85 L 68 78",
+        "M 40 54 L 40 76",
+        "M 40 54 L 60 54 L 60 76",
+        "M 40 76 L 60 76"
+      ]
+    },
+    {
+      id: "u2_8",
+      unit: 2,
+      char: "信",
+      pinyin: "xìn",
+      meaning: "Surat / Percaya",
+      radical: "亻 (rén)",
+      strokeCount: 9,
+      strokeNames: ["撇", "竖", "点", "横", "横", "横", "竖", "横折", "横"],
+      examples: ["一封信 (Sepucuk surat)", "写信 (Menulis surat)", "相信 (Percaya)"],
+      dinoTip: "🦕 Bronto: Manusia '亻' memegang kata-kata '言' yang jujur!",
+      paths: [
+        "M 32 18 L 16 46",
+        "M 25 40 L 25 88",
+        "M 55 18 L 57 26",
+        "M 40 35 L 75 35",
+        "M 46 46 L 70 46",
+        "M 46 56 L 70 56",
+        "M 46 66 L 46 86",
+        "M 46 66 L 70 66 L 70 86",
+        "M 46 86 L 70 86"
+      ]
+    },
+    {
+      id: "u2_9",
+      unit: 2,
+      char: "请",
+      pinyin: "qǐng",
+      meaning: "Silakan / Mengundang",
+      radical: "讠 (yán)",
+      strokeCount: 10,
+      strokeNames: ["点", "横折提", "横", "横", "竖", "横", "竖", "横折钩", "横", "横"],
+      examples: ["请客 (Mentraktir)", "请坐 (Silakan duduk)", "请问 (Permisi)"],
+      dinoTip: "🌴 Tricey: Di kiri kata '讠', di kanan biru bersih '青'!",
+      paths: [
+        "M 22 22 L 25 28",
+        "M 16 40 L 32 40 L 22 62 L 35 52",
+        "M 45 22 L 78 22",
+        "M 48 32 L 75 32",
+        "M 60 16 L 60 44",
+        "M 40 44 L 84 44",
+        "M 48 54 L 48 90",
+        "M 48 54 L 78 54 L 78 90 L 70 84",
+        "M 48 66 L 78 66",
+        "M 48 78 L 78 78"
+      ]
+    },
+    {
+      id: "u2_10",
+      unit: 2,
+      char: "菜",
+      pinyin: "cài",
+      meaning: "Sayuran / Masakan",
+      radical: "艹 (cǎo)",
+      strokeCount: 11,
+      strokeNames: ["横", "竖", "竖", "撇", "点", "点", "撇", "横", "竖", "撇", "捺"],
+      examples: ["中国菜 (Masakan Tiongkok)", "青菜 (Sayuran hijau)", "买菜 (Beli sayur)"],
+      dinoTip: "🦖 Rexy: Daun segar di atas '艹', di bawah ada pohon '木' penuh daun!",
+      paths: [
+        "M 18 22 L 82 22",
+        "M 35 14 L 35 30",
+        "M 65 14 L 65 30",
+        "M 50 32 L 35 44",
+        "M 35 45 L 42 54",
+        "M 65 38 L 72 48",
+        "M 50 48 L 44 58",
+        "M 20 64 L 80 64",
+        "M 50 56 L 50 92",
+        "M 50 64 L 28 85",
+        "M 50 64 L 74 85"
+      ]
+    },
+    {
+      id: "u2_11",
+      unit: 2,
+      char: "唱",
+      pinyin: "chàng",
+      meaning: "Bernyanyi",
+      radical: "口 (kǒu)",
+      strokeCount: 11,
+      strokeNames: ["竖", "横折", "横", "竖", "横折", "横", "横", "竖", "横折", "横", "横"],
+      examples: ["唱歌 (Bernyanyi)", "唱中文歌 (Menyanyikan lagu Mandarin)"],
+      dinoTip: "🦕 Bronto: Mulut '口' bernyanyi dua matahari '昌' bersinar ceria!",
+      paths: [
+        "M 14 36 L 14 65",
+        "M 14 36 L 36 36 L 36 65",
+        "M 14 65 L 36 65",
+        "M 48 20 L 48 48",
+        "M 48 20 L 80 20 L 80 48",
+        "M 48 34 L 80 34",
+        "M 48 48 L 80 48",
+        "M 45 56 L 45 88",
+        "M 45 56 L 84 56 L 84 88",
+        "M 45 72 L 84 72",
+        "M 45 88 L 84 88"
+      ]
+    },
+    {
+      id: "u2_12",
+      unit: 2,
+      char: "洗",
+      pinyin: "xǐ",
+      meaning: "Mencuci",
+      radical: "氵 (shuǐ)",
+      strokeCount: 9,
+      strokeNames: ["点", "点", "提", "撇", "横", "竖", "横", "撇", "竖弯钩"],
+      examples: ["洗澡 (Mandi)", "洗脸 (Cuci muka)", "洗衣服 (Cuci baju)"],
+      dinoTip: "🌴 Tricey: Cipratan air '氵' mencuci bersih kaki dinosaurus!",
+      paths: [
+        "M 25 22 L 30 30",
+        "M 20 44 L 26 52",
+        "M 16 78 L 32 60",
+        "M 58 18 L 45 32",
+        "M 40 34 L 78 34",
+        "M 58 34 L 58 52",
+        "M 36 52 L 84 52",
+        "M 50 56 Q 42 74 28 88",
+        "M 62 54 L 62 76 Q 62 88 78 88 L 88 88 L 88 76"
+      ]
+    },
+    {
+      id: "u2_13",
+      unit: 2,
+      char: "祝",
+      pinyin: "zhù",
+      meaning: "Mendoakan / Selamat",
+      radical: "礻 (shì)",
+      strokeCount: 9,
+      strokeNames: ["点", "横撇", "竖", "点", "竖", "横折", "横", "撇", "竖弯钩"],
+      examples: ["祝你 (Mendoakanmu)", "庆祝 (Merayakan)", "祝贺 (Selamat)"],
+      dinoTip: "🦖 Rexy: Radikal berkah '礻' di sebelah kiri menyertai doa!",
+      paths: [
+        "M 24 18 L 28 26",
+        "M 16 32 L 36 32 L 22 50",
+        "M 26 46 L 26 88",
+        "M 32 55 L 40 65",
+        "M 50 28 L 50 52",
+        "M 50 28 L 78 28 L 78 52",
+        "M 50 52 L 78 52",
+        "M 56 56 Q 48 74 36 88",
+        "M 68 54 L 68 76 Q 68 88 82 88 L 88 88 L 88 76"
+      ]
+    },
+    {
+      id: "u2_14",
+      unit: 2,
+      char: "快",
+      pinyin: "kuài",
+      meaning: "Cepat / Gembira",
+      radical: "忄 (xīn)",
+      strokeCount: 7,
+      strokeNames: ["点", "点", "竖", "横折", "横", "撇", "捺"],
+      examples: ["快乐 (Gembira)", "赶快 (Cepat-cepat)", "飞快 (Sangat cepat)"],
+      dinoTip: "🦕 Bronto: Hati gembira '忄' membuat lari secepat raptor!",
+      paths: [
+        "M 18 36 L 24 44",
+        "M 38 32 L 32 42",
+        "M 28 16 L 28 90",
+        "M 50 32 L 76 32 L 76 56",
+        "M 45 56 L 82 56",
+        "M 60 18 Q 55 58 38 86",
+        "M 62 58 L 86 86"
+      ]
+    },
+    {
+      id: "u2_15",
+      unit: 2,
+      char: "乐",
+      pinyin: "lè",
+      meaning: "Senang / Musik (yuè)",
+      radical: "丿 (piě)",
+      strokeCount: 5,
+      strokeNames: ["撇 (Piě)", "竖折 (Shù-zhé)", "竖钩 (Shù-gōu)", "点 (Diǎn)", "点 (Diǎn)"],
+      examples: ["快乐 (Bahagia)", "音乐 (Musik)", "可乐 (Kola)"],
+      dinoTip: "🌴 Tricey: Ekor dinosaurus mengibaskan kegembiraan!",
+      paths: [
+        "M 50 16 L 36 28",
+        "M 30 36 L 30 55 L 72 55",
+        "M 52 28 L 52 88 L 42 80",
+        "M 35 66 L 30 76",
+        "M 68 66 L 75 76"
+      ]
+    },
+    {
+      id: "u2_16",
+      unit: 2,
+      char: "电",
+      pinyin: "diàn",
+      meaning: "Listrik / Film",
+      radical: "田 (tián)",
+      strokeCount: 5,
+      strokeNames: ["竖", "横折", "横", "横", "竖弯钩"],
+      examples: ["电影 (Film)", "电视 (Televisi)", "电话 (Telepon)"],
+      dinoTip: "🦖 Rexy: Petir purba menyambar menembus ladang '田'!",
+      paths: [
+        "M 25 24 L 25 65",
+        "M 25 24 L 75 24 L 75 65",
+        "M 25 44 L 75 44",
+        "M 25 65 L 75 65",
+        "M 50 14 L 50 78 Q 50 90 70 90 L 85 90 L 85 76"
+      ]
+    },
+    {
+      id: "u2_17",
+      unit: 2,
+      char: "影",
+      pinyin: "yǐng",
+      meaning: "Bayangan / Gambar",
+      radical: "彡 (shān)",
+      strokeCount: 15,
+      strokeNames: ["竖", "横折", "横", "横", "点", "横", "点", "撇", "横", "竖", "横折", "横", "撇", "撇", "撇"],
+      examples: ["电影 (Bioskop)", "影子 (Bayangan)", "影响 (Pengaruh)"],
+      dinoTip: "🦕 Bronto: Tiga garis bulu miring '彡' di kanan adalah efek bayangan!",
+      paths: [
+        "M 22 16 L 22 34",
+        "M 22 16 L 50 16 L 50 34",
+        "M 22 25 L 50 25",
+        "M 22 34 L 50 34",
+        "M 36 38 L 38 45",
+        "M 20 46 L 52 46",
+        "M 26 50 L 22 58",
+        "M 44 48 L 48 56",
+        "M 16 62 L 56 62",
+        "M 30 68 L 30 88",
+        "M 30 68 L 46 68 L 46 88",
+        "M 30 88 L 46 88",
+        "M 78 28 L 62 42",
+        "M 82 48 L 64 64",
+        "M 86 68 L 65 88"
+      ]
+    },
+    {
+      id: "u2_18",
+      unit: 2,
+      char: "鱼",
+      pinyin: "yú",
+      meaning: "Ikan",
+      radical: "鱼 (yú)",
+      strokeCount: 8,
+      strokeNames: ["撇", "横撇", "竖", "横折", "横", "竖", "横", "横"],
+      examples: ["吃鱼 (Makan ikan)", "金鱼 (Ikan mas)", "钓鱼 (Memancing)"],
+      dinoTip: "🌴 Tricey: Kepala ikan di atas, badan bergaris sisik, dan ekor lurus!",
+      paths: [
+        "M 48 14 L 38 26",
+        "M 38 26 L 66 26 L 48 40",
+        "M 30 40 L 30 76",
+        "M 30 40 L 72 40 L 72 76",
+        "M 30 58 L 72 58",
+        "M 50 40 L 50 76",
+        "M 30 76 L 72 76",
+        "M 18 90 L 82 90"
+      ]
+    },
+    {
+      id: "u2_19",
+      unit: 2,
+      char: "羊",
+      pinyin: "yáng",
+      meaning: "Kambing / Domba",
+      radical: "羊 (yáng)",
+      strokeCount: 6,
+      strokeNames: ["点 (Diǎn)", "撇 (Piě)", "横 (Héng)", "横 (Héng)", "横 (Héng)", "竖 (Shù)"],
+      examples: ["山羊 (Kambing)", "绵羊 (Domba)", "羊肉 (Daging kambing)"],
+      dinoTip: "🦖 Rexy: Dua titik tanduk di atas, tiga garis badan, dan ekor lurus ke bawah!",
+      paths: [
+        "M 36 18 L 42 28",
+        "M 64 18 L 58 28",
+        "M 26 38 L 74 38",
+        "M 30 52 L 70 52",
+        "M 16 68 L 84 68",
+        "M 50 38 L 50 92"
+      ]
+    },
+    {
+      id: "u2_20",
+      unit: 2,
+      char: "来",
+      pinyin: "lái",
+      meaning: "Datang / Kemari",
+      radical: "木 (mù)",
+      strokeCount: 7,
+      strokeNames: ["横", "点", "撇", "横", "竖", "撇", "捺"],
+      examples: ["来到 (Tiba)", "过来 (Kemari)", "开学来 (Saat sekolah mulai)"],
+      dinoTip: "🦕 Bronto: Pohon besar '木' dengan dua buah manis di kiri kanannya!",
+      paths: [
+        "M 28 20 L 72 20",
+        "M 36 28 L 40 38",
+        "M 64 28 L 60 38",
+        "M 16 48 L 84 48",
+        "M 50 20 L 50 92",
+        "M 50 48 L 24 78",
+        "M 50 48 L 78 78"
+      ]
+    }
+  ],
+
+  // UNIT 3 (20 Hanzi)
+  "unit3": [
+    {
+      id: "u3_1",
+      unit: 3,
+      char: "海",
+      pinyin: "hǎi",
+      meaning: "Laut / Samudra",
+      radical: "氵 (shuǐ)",
+      strokeCount: 10,
+      strokeNames: ["点", "点", "提", "撇", "横", "竖折", "横折钩", "点", "横", "点"],
+      examples: ["海边 (Tepi pantai)", "大海 (Laut luas)", "游泳海里 (Berenang di laut)"],
+      dinoTip: "🦖 Rexy: Air laut '氵' di kiri menyapa ibu laut '每' di kanan!",
+      paths: [
+        "M 22 22 L 26 30",
+        "M 18 44 L 24 52",
+        "M 14 78 L 30 60",
+        "M 58 18 L 44 32",
+        "M 40 34 L 78 34",
+        "M 45 42 L 45 68 L 75 68",
+        "M 55 42 L 78 42 L 74 90 L 62 82",
+        "M 58 52 L 60 58",
+        "M 34 76 L 88 76",
+        "M 58 80 L 60 86"
+      ]
+    },
+    {
+      id: "u3_2",
+      unit: 3,
+      char: "玩",
+      pinyin: "wán",
+      meaning: "Bermain",
+      radical: "王 (wáng)",
+      strokeCount: 8,
+      strokeNames: ["横", "横", "竖", "提", "横", "横", "撇", "竖弯钩"],
+      examples: ["好玩 (Sangat seru)", "玩沙子 (Bermain pasir)", "玩具 (Mainan)"],
+      dinoTip: "🦕 Bronto: Raja dino '王' dan teman '元' asyik bermain bersama!",
+      paths: [
+        "M 18 25 L 42 25",
+        "M 18 45 L 40 45",
+        "M 30 25 L 30 75",
+        "M 16 75 L 42 62",
+        "M 52 28 L 84 28",
+        "M 48 48 L 88 48",
+        "M 62 50 Q 56 72 44 88",
+        "M 74 48 L 74 76 Q 74 88 86 88 L 92 88 L 92 76"
+      ]
+    },
+    {
+      id: "u3_3",
+      unit: 3,
+      char: "沙",
+      pinyin: "shā",
+      meaning: "Pasir",
+      radical: "氵 (shuǐ)",
+      strokeCount: 7,
+      strokeNames: ["点", "点", "提", "竖", "撇", "点", "撇"],
+      examples: ["沙子 (Pasir)", "沙滩 (Pantai berpasir)", "沙发 (Sofa)"],
+      dinoTip: "🌴 Tricey: Air ombak '氵' membasahi butiran pasir '少'!",
+      paths: [
+        "M 25 22 L 30 30",
+        "M 20 44 L 26 52",
+        "M 16 78 L 32 60",
+        "M 62 18 L 62 65",
+        "M 50 38 L 38 56",
+        "M 74 38 L 82 50",
+        "M 78 52 Q 65 74 45 88"
+      ]
+    },
+    {
+      id: "u3_4",
+      unit: 3,
+      char: "工",
+      pinyin: "gōng",
+      meaning: "Kerja / Tukang",
+      radical: "工 (gōng)",
+      strokeCount: 3,
+      strokeNames: ["横 (Héng)", "竖 (Shù)", "横 (Héng)"],
+      examples: ["工作 (Bekerja)", "工人 (Pekerja)", "功夫 (Kungfu)"],
+      dinoTip: "🦖 Rexy: 3 guratan kokoh seperti balok jembatan Jurassic!",
+      paths: [
+        "M 22 22 L 78 22",
+        "M 50 24 L 50 78",
+        "M 15 78 L 85 78"
+      ]
+    },
+    {
+      id: "u3_5",
+      unit: 3,
+      char: "作",
+      pinyin: "zuò",
+      meaning: "Membuat / Bekerja",
+      radical: "亻 (rén)",
+      strokeCount: 7,
+      strokeNames: ["撇", "竖", "撇", "横", "竖", "横", "横"],
+      examples: ["工作 (Pekerjaan)", "作业 (PR)", "昨天 (Kemarin)"],
+      dinoTip: "🦕 Bronto: Manusia '亻' bekerja membuat karya '乍'!",
+      paths: [
+        "M 32 20 L 16 48",
+        "M 25 42 L 25 88",
+        "M 65 22 L 52 40",
+        "M 45 40 L 85 40",
+        "M 55 40 L 55 88",
+        "M 55 60 L 82 60",
+        "M 55 82 L 85 82"
+      ]
+    },
+    {
+      id: "u3_6",
+      unit: 3,
+      char: "游",
+      pinyin: "yóu",
+      meaning: "Berenang / Berwisata",
+      radical: "氵 (shuǐ)",
+      strokeCount: 12,
+      strokeNames: ["点", "点", "提", "点", "横", "横折钩", "撇", "撇", "横", "横", "竖折", "横"],
+      examples: ["游泳 (Berenang)", "郊游 (Piknik)", "游乐场 (Taman bermain)"],
+      dinoTip: "🌴 Tricey: Air '氵', bendera penjelajah, dan anak kecil berenang!",
+      paths: [
+        "M 18 22 L 22 30",
+        "M 14 44 L 20 52",
+        "M 10 78 L 26 60",
+        "M 42 16 L 46 24",
+        "M 32 28 L 56 28",
+        "M 52 30 L 52 50 L 44 46",
+        "M 42 34 L 32 50",
+        "M 74 18 L 62 34",
+        "M 58 36 L 88 36",
+        "M 60 52 L 86 52",
+        "M 64 54 L 64 88 L 84 88",
+        "M 55 70 L 92 70"
+      ]
+    },
+    {
+      id: "u3_7",
+      unit: 3,
+      char: "阳",
+      pinyin: "yáng",
+      meaning: "Matahari / Terang",
+      radical: "阝 (fù)",
+      strokeCount: 6,
+      strokeNames: ["横折折折钩/横撇弯钩", "竖", "竖", "横折", "横", "横"],
+      examples: ["太阳 (Matahari)", "阳光 (Sinar matahari)", "晒太阳 (Berjemur)"],
+      dinoTip: "🦖 Rexy: Telinga bukit '阝' di kiri, matahari '日' di kanan!",
+      paths: [
+        "M 26 22 L 44 22 L 36 38 Q 48 48 38 60 L 28 56",
+        "M 26 22 L 26 90",
+        "M 50 32 L 50 78",
+        "M 50 32 L 82 32 L 82 78",
+        "M 50 55 L 82 55",
+        "M 50 78 L 82 78"
+      ]
+    },
+    {
+      id: "u3_8",
+      unit: 3,
+      char: "哥",
+      pinyin: "gē",
+      meaning: "Kakak Laki-laki",
+      radical: "口 (kǒu)",
+      strokeCount: 10,
+      strokeNames: ["横", "竖", "横折", "横", "竖", "横", "竖", "横折", "横", "竖钩"],
+      examples: ["哥哥 (Abang)", "大哥 (Kakak sulung)"],
+      dinoTip: "🦕 Bronto: Dua tingkat nyanyian ceria dari kakak tertua!",
+      paths: [
+        "M 22 22 L 78 22",
+        "M 32 28 L 32 44",
+        "M 32 28 L 65 28 L 65 44",
+        "M 32 44 L 65 44",
+        "M 68 22 L 68 50",
+        "M 15 56 L 85 56",
+        "M 32 62 L 32 78",
+        "M 32 62 L 65 62 L 65 78",
+        "M 32 78 L 65 78",
+        "M 68 56 L 68 92 L 56 84"
+      ]
+    },
+    {
+      id: "u3_9",
+      unit: 3,
+      char: "公",
+      pinyin: "gōng",
+      meaning: "Umum / Kakek",
+      radical: "八 (bā)",
+      strokeCount: 4,
+      strokeNames: ["撇 (Piě)", "捺 (Nà)", "撇折 (Piě-zhé)", "点 (Diǎn)"],
+      examples: ["公园 (Taman)", "公司 (Perusahaan)", "外公 (Kakek luar)"],
+      dinoTip: "🌴 Tricey: Atap '八' di atas, dan bentuk segitiga di bawah!",
+      paths: [
+        "M 45 18 L 22 42",
+        "M 55 18 L 78 42",
+        "M 45 52 L 30 78 L 72 78",
+        "M 58 60 L 68 70"
+      ]
+    },
+    {
+      id: "u3_10",
+      unit: 3,
+      char: "园",
+      pinyin: "yuán",
+      meaning: "Taman / Kebun",
+      radical: "囗 (wéi)",
+      strokeCount: 7,
+      strokeNames: ["竖", "横折", "横", "横", "撇", "竖弯钩", "横"],
+      examples: ["公园 (Taman umum)", "动物园 (Kebun binatang)", "植物园 (Kebun raya)"],
+      dinoTip: "🦖 Rexy: Pagar luar '囗' mengelilingi taman dinosaurus '元'!",
+      paths: [
+        "M 20 20 L 20 85",
+        "M 20 20 L 80 20 L 80 85",
+        "M 35 36 L 65 36",
+        "M 30 50 L 70 50",
+        "M 44 54 Q 38 68 30 78",
+        "M 54 52 L 54 68 Q 54 78 64 78 L 70 78",
+        "M 20 85 L 80 85"
+      ]
+    },
+    {
+      id: "u3_11",
+      unit: 3,
+      char: "买",
+      pinyin: "mǎi",
+      meaning: "Membeli",
+      radical: "乛 (zhé)",
+      strokeCount: 6,
+      strokeNames: ["横钩", "点", "点", "撇", "横", "点"],
+      examples: ["买东西 (Beli barang)", "买菜 (Beli sayur)", "买书 (Beli buku)"],
+      dinoTip: "🦕 Bronto: Siapkan koin dino untuk membeli bekal piknik!",
+      paths: [
+        "M 25 24 L 75 24 L 68 36",
+        "M 38 38 L 42 46",
+        "M 62 38 L 58 46",
+        "M 50 48 L 26 78",
+        "M 20 62 L 80 62",
+        "M 55 68 L 72 82"
+      ]
+    },
+    {
+      id: "u3_12",
+      unit: 3,
+      char: "东",
+      pinyin: "dōng",
+      meaning: "Timur / Barang (dōngxi)",
+      radical: "一 (yī)",
+      strokeCount: 5,
+      strokeNames: ["横", "撇折", "竖钩", "撇", "点"],
+      examples: ["东西 (Barang)", "东方 (Arah timur)", "东边 (Sebelah timur)"],
+      dinoTip: "🌴 Tricey: Matahari Jurassic terbit dari arah timur '东'!",
+      paths: [
+        "M 22 25 L 78 25",
+        "M 48 28 L 30 52 L 72 52",
+        "M 50 26 L 50 90 L 40 82",
+        "M 42 56 L 22 78",
+        "M 58 56 L 78 78"
+      ]
+    },
+    {
+      id: "u3_13",
+      unit: 3,
+      char: "西",
+      pinyin: "xī",
+      meaning: "Barat / Barang (dōngxi)",
+      radical: "覀 (yà)",
+      strokeCount: 6,
+      strokeNames: ["横", "竖", "横折", "撇", "竖弯", "横"],
+      examples: ["东西 (Barang)", "西方 (Barat)", "西班牙 (Spanyol)"],
+      dinoTip: "🦖 Rexy: Wadah sarang dinosaurus yang rapi!",
+      paths: [
+        "M 22 22 L 78 22",
+        "M 26 38 L 26 84",
+        "M 26 38 L 74 38 L 74 84",
+        "M 42 40 L 36 68",
+        "M 58 40 L 58 64 L 68 64",
+        "M 26 84 L 74 84"
+      ]
+    },
+    {
+      id: "u3_14",
+      unit: 3,
+      char: "跑",
+      pinyin: "pǎo",
+      meaning: "Berlari",
+      radical: "足 (zú)",
+      strokeCount: 12,
+      strokeNames: ["竖", "横折", "横", "竖", "横", "竖", "提", "撇", "横折钩", "竖", "横折", "横"],
+      examples: ["跑步 (Jogging/Lari)", "跑得快 (Lari cepat)", "跑来跑去 (Lari ke sana kemari)"],
+      dinoTip: "🦕 Bronto: Kaki kuat '⻊' berlari kencang seperti T-Rex!",
+      paths: [
+        "M 16 28 L 16 52",
+        "M 16 28 L 38 28 L 38 52",
+        "M 16 52 L 38 52",
+        "M 26 52 L 26 75",
+        "M 16 64 L 38 64",
+        "M 18 84 L 18 70",
+        "M 18 84 L 38 72",
+        "M 60 18 L 48 36",
+        "M 48 34 L 84 34 L 80 88 L 70 82",
+        "M 54 48 L 54 75",
+        "M 54 48 L 76 48 L 76 75",
+        "M 54 75 L 76 75"
+      ]
+    },
+    {
+      id: "u3_15",
+      unit: 3,
+      char: "步",
+      pinyin: "bù",
+      meaning: "Langkah",
+      radical: "止 (zhǐ)",
+      strokeCount: 7,
+      strokeNames: ["竖", "横", "竖", "横", "竖", "撇", "点"],
+      examples: ["跑步 (Berlari)", "散步 (Jalan santai)", "进步 (Kemajuan)"],
+      dinoTip: "🌴 Tricey: Jejak langkah kaki dinosaurus di tanah prasejarah!",
+      paths: [
+        "M 50 18 L 50 48",
+        "M 50 32 L 75 32",
+        "M 30 32 L 30 48",
+        "M 18 48 L 82 48",
+        "M 45 52 L 45 88",
+        "M 35 62 L 22 78",
+        "M 65 62 L 75 75"
+      ]
+    },
+    {
+      id: "u3_16",
+      unit: 3,
+      char: "车",
+      pinyin: "chē",
+      meaning: "Mobil / Kereta / Kendaraan",
+      radical: "车 (chē)",
+      strokeCount: 4,
+      strokeNames: ["横 (Héng)", "撇折 (Piě-zhé)", "横 (Héng)", "竖 (Shù)"],
+      examples: ["坐车 (Naik kendaraan)", "火车 (Kereta api)", "汽车 (Mobil)"],
+      dinoTip: "🦖 Rexy: Roda dan poros kereta melaju menembus hutan!",
+      paths: [
+        "M 25 24 L 75 24",
+        "M 50 28 L 30 56 L 72 56",
+        "M 15 56 L 85 56",
+        "M 50 16 L 50 92"
+      ]
+    },
+    {
+      id: "u3_17",
+      unit: 3,
+      char: "机",
+      pinyin: "jī",
+      meaning: "Pesawat / Mesin",
+      radical: "木 (mù)",
+      strokeCount: 6,
+      strokeNames: ["横", "竖", "撇", "点", "撇", "竖弯钩"],
+      examples: ["飞机 (Pesawat terbang)", "手机 (Handphone)", "机会 (Kesempatan)"],
+      dinoTip: "🦕 Bronto: Kayu '木' dan sayap '几' terbang di angkasa!",
+      paths: [
+        "M 15 36 L 45 36",
+        "M 32 20 L 32 88",
+        "M 32 38 L 16 62",
+        "M 35 48 L 45 58",
+        "M 60 22 Q 55 60 48 86",
+        "M 60 22 L 82 22 L 82 76 Q 82 88 94 88 L 94 76"
+      ]
+    },
+    {
+      id: "u3_18",
+      unit: 3,
+      char: "帮",
+      pinyin: "bāng",
+      meaning: "Membantu / Menolong",
+      radical: "巾 (jīn)",
+      strokeCount: 9,
+      strokeNames: ["横", "横", "横", "撇", "横折钩", "竖", "竖", "横折钩", "竖"],
+      examples: ["帮忙 (Menolong)", "帮助 (Membantu)", "帮妈妈 (Membantu ibu)"],
+      dinoTip: "🌴 Tricey: Selalu siap tolong-menolong sesama sahabat dino!",
+      paths: [
+        "M 22 20 L 48 20",
+        "M 22 30 L 48 30",
+        "M 18 40 L 52 40",
+        "M 32 42 L 20 62",
+        "M 55 18 L 82 18 L 78 52 L 68 46",
+        "M 66 22 L 66 52",
+        "M 28 62 L 28 85",
+        "M 28 62 L 72 62 L 72 85 L 65 78",
+        "M 50 56 L 50 92"
+      ]
+    },
+    {
+      id: "u3_19",
+      unit: 3,
+      char: "水",
+      pinyin: "shuǐ",
+      meaning: "Air",
+      radical: "水 (shuǐ)",
+      strokeCount: 4,
+      strokeNames: ["竖钩 (Shù-gōu)", "横撇 (Héng-piě)", "撇 (Piě)", "捺 (Nà)"],
+      examples: ["喝水 (Minum air)", "水果 (Buah)", "雨水 (Air hujan)"],
+      dinoTip: "🦖 Rexy: Sungai air jernih mengalir di tengah lembah dinosaurus!",
+      paths: [
+        "M 50 16 L 50 88 L 38 76",
+        "M 38 35 L 20 50 L 32 60",
+        "M 74 25 L 56 50",
+        "M 56 46 L 82 82"
+      ]
+    },
+    {
+      id: "u3_20",
+      unit: 3,
+      char: "草",
+      pinyin: "cǎo",
+      meaning: "Rumput",
+      radical: "艹 (cǎo)",
+      strokeCount: 9,
+      strokeNames: ["横", "竖", "竖", "竖", "横折", "横", "横", "横", "竖"],
+      examples: ["草地 (Padang rumput)", "青草 (Rumput hijau)", "吃草 (Makan rumput)"],
+      dinoTip: "🦕 Bronto: Makanan favorit brontosaurus di padang savana!",
+      paths: [
+        "M 18 24 L 82 24",
+        "M 35 15 L 35 34",
+        "M 65 15 L 65 34",
+        "M 30 42 L 30 65",
+        "M 30 42 L 70 42 L 70 65",
+        "M 30 54 L 70 54",
+        "M 30 65 L 70 65",
+        "M 15 78 L 85 78",
+        "M 50 66 L 50 92"
+      ]
+    }
+  ]
+};
+
+window.HAN_YU_3_STROKES = HAN_YU_3_STROKES;
+
+
+// Bank Soal Latihan Standar YCT Level 2 (Youth Chinese Test 2)
+// Sesuai materi kurikulum HAN YU 3 (Unit 1, Unit 2, Unit 3)
+
+const YCT2_QUIZ_DATA = {
+  // UNIT 1: Waktu, Kalender & Cuaca (Unit 1: Lessons 1-5)
+  "unit1": [
+    {
+      id: "u1_q1",
+      unit: 1,
+      part: "listening_tf",
+      partName: "听力 - 判断对错 (Listening: Benar / Salah)",
+      imageEmoji: "🎄",
+      audioZh: "昨天是圣诞节，十二月二十五日。",
+      audioPy: "Zuótiān shì Shèngdàn Jié, shí'èr yuè èrshíwǔ rì.",
+      promptZh: "昨天是十二月二十五日 (圣诞节)。",
+      promptPy: "Zuótiān shì shí'èr yuè èrshíwǔ rì (Shèngdàn Jié).",
+      promptId: "Dengarkan audio! Apakah audio sesuai dengan gambar Hari Natal (25 Desember)?",
+      correctAnswer: true,
+      explanation: "Audio menyebutkan '昨天是圣诞节，十二月二十五日' (Kemarin adalah hari Natal, 25 Desember), sesuai dengan gambar dan teks."
+    },
+    {
+      id: "u1_q2",
+      unit: 1,
+      part: "listening_tf",
+      partName: "听力 - 判断对错 (Listening: Benar / Salah)",
+      imageEmoji: "❄️",
+      audioZh: "今天天气非常热，没有风。",
+      audioPy: "Jīntiān tiānqì fēicháng rè, méiyǒu fēng.",
+      promptZh: "冬天很冷，常常下雪。",
+      promptPy: "Dōngtiān hěn lěng, chángcháng xià xuě.",
+      promptId: "Dengarkan audio! Apakah audio cuaca panas sesuai dengan gambar musim dingin bersalju?",
+      correctAnswer: false,
+      explanation: "Audio menyatakan '今天天气非常热' (hari ini sangat panas), sedangkan gambar menunjukkan musim dingin bersalju (下雪)."
+    },
+    {
+      id: "u1_q3",
+      unit: 1,
+      part: "listening_choice",
+      partName: "听力 - 听音选图 (Listening: Pilih Gambar yang Tepat)",
+      imageEmoji: "🎧",
+      audioZh: "现在差十分八点，我和弟弟去学校。",
+      audioPy: "Xiànzài chà shí fēn bā diǎn, wǒ hé dìdi qù xuéxiào.",
+      promptZh: "现在几点去学校？",
+      promptPy: "Xiànzài jǐ diǎn qù xuéxiào?",
+      promptId: "Dengarkan audio! Jam berapa mereka pergi ke sekolah?",
+      options: [
+        { label: "A", textZh: "7:50 (差十分八点)", textId: "Pukul 07:50 (Jam 8 kurang 10)" },
+        { label: "B", textZh: "8:30 (八点半)", textId: "Pukul 08:30 (Jam 8 lewat 30)" },
+        { label: "C", textZh: "12:00 (十二点)", textId: "Pukul 12:00 (Jam 12 tepat)" }
+      ],
+      correctAnswer: 0,
+      explanation: "'差十分八点' (chà shí fēn bā diǎn) artinya jam 8 kurang 10 menit, yaitu pukul 07:50."
+    },
+    {
+      id: "u1_q4",
+      unit: 1,
+      part: "reading_tf",
+      partName: "阅读 - 看图判断 (Reading: Benar / Salah)",
+      imageEmoji: "🍁",
+      promptZh: "秋天很凉快，不冷也不热。",
+      promptPy: "Qiūtiān hěn liángkuai, bù lěng yě bù rè.",
+      promptId: "Apakah kalimat '秋天很凉快' (Musim gugur sangat sejuk) sesuai dengan gambar daun musim gugur?",
+      correctAnswer: true,
+      explanation: "Gambar daun maple gugur melambangkan '秋天' (musim gugur) yang udaranya sejuk (凉快)."
+    },
+    {
+      id: "u1_q5",
+      unit: 1,
+      part: "fill_blank",
+      partName: "阅读 - 选词填空 (Reading: Melengkapi Kalimat)",
+      imageEmoji: "🗓️",
+      promptZh: "昨天是星期一，今天是星期二，明天是____。",
+      promptPy: "Zuótiān shì xīngqīyī, jīntiān shì xīngqī'èr, míngtiān shì ____.",
+      promptId: "Pilihlah kata yang tepat untuk melengkapi urutan hari di atas!",
+      options: [
+        { label: "A", textZh: "星期天 (xīngqītiān)", textId: "Hari Minggu" },
+        { label: "B", textZh: "星期三 (xīngqīsān)", textId: "Hari Rabu" },
+        { label: "C", textZh: "星期五 (xīngqīwǔ)", textId: "Hari Jumat" }
+      ],
+      correctAnswer: 1,
+      explanation: "Setelah Senin (星期一) dan Selasa (星期二), besoknya (明天) adalah hari Rabu (星期三)."
+    },
+    {
+      id: "u1_q6",
+      unit: 1,
+      part: "dialogue",
+      partName: "阅读 - 情景对话 (Reading: Dialog Sehari-hari)",
+      imageEmoji: "💬",
+      promptZh: "问：“今天几月几号？”\n答：“____”",
+      promptPy: "Wèn: “Jīntiān jǐ yuè jǐ hào?”\n Dá: “____”",
+      promptId: "Bagaimana jawaban yang tepat untuk pertanyaan menanyakan tanggal hari ini?",
+      options: [
+        { label: "A", textZh: "今天五月六号。", textId: "Hari ini tanggal 6 Mei." },
+        { label: "B", textZh: "现在八点半。", textId: "Sekarang pukul 08:30." },
+        { label: "C", textZh: "今天天气很好。", textId: "Hari ini cuaca sangat baik." }
+      ],
+      correctAnswer: 0,
+      explanation: "Pertanyaan '几月几号' menanyakan bulan dan tanggal, sehingga dijawab dengan format tanggal '五月六号'."
+    }
+  ],
+
+  // UNIT 2: Pelajaran, Hadiah & Kegemaran (Unit 2: Lessons 6-10)
+  "unit2": [
+    {
+      id: "u2_q1",
+      unit: 2,
+      part: "listening_tf",
+      partName: "听力 - 判断对错 (Listening: Benar / Salah)",
+      imageEmoji: "🎵",
+      audioZh: "李老师教我们唱歌，我们都很开心。",
+      audioPy: "Lǐ lǎoshī jiāo wǒmen chàng gē, wǒmen dōu hěn kāixīn.",
+      promptZh: "李老师教我们唱歌。",
+      promptPy: "Lǐ lǎoshī jiāo wǒmen chàng gē.",
+      promptId: "Dengarkan audio! Apakah audio sesuai dengan gambar bernyanyi musik?",
+      correctAnswer: true,
+      explanation: "Audio menyatakan Guru Li mengajari kami bernyanyi (教我们唱歌), sesuai dengan gambar not balok musik."
+    },
+    {
+      id: "u2_q2",
+      unit: 2,
+      part: "listening_choice",
+      partName: "听力 - 听音选图 (Listening: Pilihan Ganda)",
+      imageEmoji: "🎁",
+      audioZh: "小明给妈妈一封信，信上写着：我爱你！",
+      audioPy: "Xiǎomíng gěi māma yì fēng xìn, xìn shang xiě zhe: Wǒ ài nǐ!",
+      promptZh: "小明给妈妈什么礼物？",
+      promptPy: "Xiǎomíng gěi māma shénme lǐwù?",
+      promptId: "Dengarkan audio! Hadiah apa yang diberikan Xiao Ming kepada ibunya?",
+      options: [
+        { label: "A", textZh: "一封信 (yì fēng xìn)", textId: "Sepucuk surat bertuliskan '我爱你'" },
+        { label: "B", textZh: "一盒茶叶 (yì hé cháyè)", textId: "Sekotak daun teh" },
+        { label: "C", textZh: "一条围巾 (yì tiáo wéijīn)", textId: "Sehelai syal" }
+      ],
+      correctAnswer: 0,
+      explanation: "Di bab 7, Xiao Ming memberikan surat (一封信) yang bertuliskan tiga huruf '我爱你' kepada ibunya."
+    },
+    {
+      id: "u2_q3",
+      unit: 2,
+      part: "reading_tf",
+      partName: "阅读 - 看图判断 (Reading: Benar / Salah)",
+      imageEmoji: "🥕",
+      promptZh: "小山羊给小兔子准备了一条鱼。",
+      promptPy: "Xiǎo shānyáng gěi xiǎo tùzi zhǔnbèi le yì tiáo yú.",
+      promptId: "Apakah kambing kecil menyiapkan ikan untuk kelinci kecil?",
+      correctAnswer: false,
+      explanation: "Salah! Kelinci kecil suka wortel (胡萝卜), sedangkan yang disiapkan seekor ikan (一条鱼) adalah untuk kucing kecil (小猫)."
+    },
+    {
+      id: "u2_q4",
+      unit: 2,
+      part: "fill_blank",
+      partName: "阅读 - 选词填空 (Reading: Melengkapi Kalimat)",
+      imageEmoji: "🎂",
+      promptZh: "今天是小华的生日，我们一起祝他生日____！",
+      promptPy: "Jīntiān shì Xiǎohuá de shēngrì, wǒmen yīqǐ zhù tā shēngrì ____!",
+      promptId: "Pilihlah kata yang tepat untuk ucapan selamat ulang tahun!",
+      options: [
+        { label: "A", textZh: "好看 (hǎokàn)", textId: "Bagus / cantik" },
+        { label: "B", textZh: "快乐 (kuàilè)", textId: "Bahagia / gembira" },
+        { label: "C", textZh: "暖和 (nuǎnhuo)", textId: "Hangat" }
+      ],
+      correctAnswer: 1,
+      explanation: "Ucapan selamat ulang tahun dalam bahasa Mandarin adalah '祝你生日快乐' (Zhù nǐ shēngrì kuàilè!)."
+    },
+    {
+      id: "u2_q5",
+      unit: 2,
+      part: "dialogue",
+      partName: "阅读 - 情景对话 (Reading: Respon Dialog)",
+      imageEmoji: "🎬",
+      promptZh: "问：“听说今天电影院演中国电影，你打算去吗？”\n答：“____”",
+      promptPy: "Wèn: “Tīngshuō jīntiān diànyǐngyuàn yǎn Zhōngguó diànyǐng, nǐ dǎsuàn qù ma?”\n Dá: “____”",
+      promptId: "Manakah respon yang paling tepat untuk ajakan menonton bioskop?",
+      options: [
+        { label: "A", textZh: "我想去，电影很有意思！", textId: "Saya mau pergi, filmnya sangat menarik!" },
+        { label: "B", textZh: "我正在洗袜子呢。", textId: "Saya sedang mencuci kaos kaki." },
+        { label: "C", textZh: "现在是差十分十二点。", textId: "Sekarang jam 12 kurang 10." }
+      ],
+      correctAnswer: 0,
+      explanation: "Pertanyaan menanyakan rencana menonton film Mandarin di bioskop, jawaban tepat menyatakan ketertarikan menonton film yang menarik."
+    }
+  ],
+
+  // UNIT 3: Pantai, Tamasya & Satwa (Unit 3: Lessons 11-15)
+  "unit3": [
+    {
+      id: "u3_q1",
+      unit: 3,
+      part: "listening_tf",
+      partName: "听力 - 判断对错 (Listening: Benar / Salah)",
+      imageEmoji: "🏖️",
+      audioZh: "我们全家一起去海边玩，我们在海边玩沙子。",
+      audioPy: "Wǒmen quánjiā yīqǐ qù hǎibiān wán, wǒmen zài hǎibiān wán shāzi.",
+      promptZh: "我们在海边玩沙子。",
+      promptPy: "Wǒmen zài hǎibiān wán shāzi.",
+      promptId: "Dengarkan audio! Apakah benar mereka sekeluarga bermain pasir di pantai?",
+      correctAnswer: true,
+      explanation: "Audio dan teks menyatakan '我们在海边玩沙子' (Kami bermain pasir di pantai)."
+    },
+    {
+      id: "u3_q2",
+      unit: 3,
+      part: "listening_choice",
+      partName: "听力 - 听音选图 (Listening: Pilihan Ganda)",
+      imageEmoji: "🐼",
+      audioZh: "动物园里，大熊猫在草地上吃竹子。",
+      audioPy: "Dòngwùyuán lǐ, dàxióngmāo zài cǎodì shang chī zhúzi.",
+      promptZh: "大熊猫在做什么？",
+      promptPy: "Dàxióngmāo zài zuò shénme?",
+      promptId: "Dengarkan audio! Apa yang sedang dilakukan panda raksasa?",
+      options: [
+        { label: "A", textZh: "在草地上吃竹子", textId: "Makan bambu di atas padang rumput" },
+        { label: "B", textZh: "用长鼻子吸水", textId: "Menghisap air dengan belalainya" },
+        { label: "C", textZh: "在山下捉迷藏", textId: "Bermain petak umpet di kaki gunung" }
+      ],
+      correctAnswer: 0,
+      explanation: "Audio menyatakan dengan jelas bahwa panda raksasa sedang makan bambu di padang rumput (在草地上吃竹子)."
+    },
+    {
+      id: "u3_q3",
+      unit: 3,
+      part: "reading_tf",
+      partName: "阅读 - 看图判断 (Reading: Benar / Salah)",
+      imageEmoji: "🥋",
+      promptZh: "爷爷每天早上常常去公园打太极拳。",
+      promptPy: "Yéye měitiān zǎoshang chángcháng qù gōngyuán dǎ tàijíquán.",
+      promptId: "Apakah kakek sering berlatih taichi di taman pada pagi hari?",
+      correctAnswer: true,
+      explanation: "Sesuai Bab 13, kakek gemar menjaga kesehatan dengan berlatih taichi di taman setiap pagi."
+    },
+    {
+      id: "u3_q4",
+      unit: 3,
+      part: "fill_blank",
+      partName: "阅读 - 选词填空 (Reading: Melengkapi Kalimat)",
+      imageEmoji: "🚗",
+      promptZh: "今天天气晴朗，我们坐____去动物园看动物。",
+      promptPy: "Jīntiān tiānqì qínglǎng, wǒmen zuò ____ qù dòngwùyuán kàn dòngwù.",
+      promptId: "Pilihlah alat transportasi yang tepat untuk kalimat di atas!",
+      options: [
+        { label: "A", textZh: "车 (chē)", textId: "Kendaraan / Mobil (坐车)" },
+        { label: "B", textZh: "筷子 (kuàizi)", textId: "Sumpit" },
+        { label: "C", textZh: "风筝 (fēngzheng)", textId: "Layang-layang" }
+      ],
+      correctAnswer: 0,
+      explanation: "Kata kerja '坐' (naik) berpasangan dengan alat transportasi kendaraan yaitu '车' (zuò chē = naik kendaraan/mobil)."
+    },
+    {
+      id: "u3_q5",
+      unit: 3,
+      part: "dialogue",
+      partName: "阅读 - 情景对话 (Reading: Respon Dialog)",
+      imageEmoji: "🪁",
+      promptZh: "问：“星期天去郊游，你们在郊外做了什么？”\n答：“____”",
+      promptPy: "Wèn: “Xīngqītiān qù jiāoyóu, nǐmen zài jiāowài zuò le shénme?”\n Dá: “____”",
+      promptId: "Manakah kegiatan piknik luar kota yang sesuai dengan Bab 15?",
+      options: [
+        { label: "A", textZh: "我们爬山、放风筝，还唱歌跳舞！", textId: "Kami mendaki gunung, main layang-layang, menyanyi & menari!" },
+        { label: "B", textZh: "我们在教室里做数学题。", textId: "Kami mengerjakan soal matematika di kelas." },
+        { label: "C", textZh: "我们在家洗衣服呢。", textId: "Kami mencuci pakaian di rumah." }
+      ],
+      correctAnswer: 0,
+      explanation: "Di bab 15 saat pergi tamasya/piknik (郊游), anak-anak mendaki gunung, menerbangkan layang-layang, bernyanyi dan menari."
+    }
+  ]
+};
+
+// Gabungan Semua Soal untuk Mode Grand Mock Exam YCT 2 (Simulasi Lengkap)
+YCT2_QUIZ_DATA["all"] = [
+  ...YCT2_QUIZ_DATA["unit1"],
+  ...YCT2_QUIZ_DATA["unit2"],
+  ...YCT2_QUIZ_DATA["unit3"]
+];
+
+window.YCT2_QUIZ_DATA = YCT2_QUIZ_DATA;
+
+
+// Audio Synthesizer & Prehistoric Sound Effects Engine
+// Menggunakan Web Speech API (zh-CN TTS) dan Web Audio API untuk efek suara dinosaurus tanpa file eksternal
+
+class DinoAudioEngine {
+  constructor() {
+    this.audioCtx = null;
+    this.synth = window.speechSynthesis;
+    this.chineseVoice = null;
+    this.isMuted = false;
+    this.speechRate = 0.85; // Default ramah anak
+    this.initVoices();
+  }
+
+  getAudioContext() {
+    if (!this.audioCtx) {
+      const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtxClass) {
+        this.audioCtx = new AudioCtxClass();
+      }
+    }
+    if (this.audioCtx && this.audioCtx.state === 'suspended') {
+      this.audioCtx.resume();
+    }
+    return this.audioCtx;
+  }
+
+  initVoices() {
+    if (!this.synth) return;
+    const loadVoices = () => {
+      const voices = this.synth.getVoices();
+      // Cari suara bahasa Mandarin zh-CN atau zh
+      this.chineseVoice = voices.find(v => v.lang.includes('zh-CN') || v.lang.includes('zh') || v.lang.includes('cmn')) || null;
+    };
+    loadVoices();
+    if (speechSynthesis.onvoiceschanged !== undefined) {
+      speechSynthesis.onvoiceschanged = loadVoices;
+    }
+  }
+
+  // Pengucapan Bahasa Mandarin (TTS)
+  speakChinese(text, customRate = null, onStart = null, onEnd = null) {
+    if (!this.synth || !text) return;
+    this.synth.cancel(); // Hentikan audio sebelumnya jika ada
+
+    const cleanText = text.replace(/[\(\)（）\d\.\,\!\?]/g, '').trim();
+    if (!cleanText) return;
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = 'zh-CN';
+    utterance.rate = customRate !== null ? customRate : this.speechRate;
+    utterance.pitch = 1.1; // Sedikit lebih ceria untuk nuansa anak
+
+    if (this.chineseVoice) {
+      utterance.voice = this.chineseVoice;
+    }
+
+    if (onStart) utterance.onstart = onStart;
+    if (onEnd) utterance.onend = onEnd;
+    utterance.onerror = (e) => {
+      console.warn("TTS Notice:", e);
+      if (onEnd) onEnd();
+    };
+
+    this.synth.speak(utterance);
+  }
+
+  stopSpeech() {
+    if (this.synth) {
+      this.synth.cancel();
+    }
+  }
+
+  setRate(rate) {
+    this.speechRate = rate;
+  }
+
+  toggleMute() {
+    this.isMuted = !this.isMuted;
+    if (this.isMuted) {
+      this.stopSpeech();
+    }
+    return this.isMuted;
+  }
+
+  // --- EFEK SUARA WEB AUDIO DINOSAURUS ---
+
+  // 1. Suara Auman Dinosaurus Imut (T-Rex Roar)
+  playRoar() {
+    if (this.isMuted) return;
+    const ctx = this.getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const filter = ctx.createBiquadFilter();
+
+    osc.type = 'sawtooth';
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(450, now);
+    filter.frequency.exponentialRampToValueAtTime(160, now + 0.6);
+
+    osc.frequency.setValueAtTime(140, now);
+    osc.frequency.linearRampToValueAtTime(260, now + 0.15);
+    osc.frequency.exponentialRampToValueAtTime(65, now + 0.7);
+
+    gain.gain.setValueAtTime(0.01, now);
+    gain.gain.linearRampToValueAtTime(0.3, now + 0.1);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
+
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start(now);
+    osc.stop(now + 0.7);
+  }
+
+  // 2. Suara Berhasil / Bintang Kemenangan (Victory Chime)
+  playSuccess() {
+    if (this.isMuted) return;
+    const ctx = this.getAudioContext();
+    if (!ctx) return;
+
+    const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+    notes.forEach((freq, index) => {
+      const now = ctx.currentTime + (index * 0.08);
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, now);
+
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.4);
+    });
+  }
+
+  // 3. Suara Salah / Coba Lagi (Buzzer Lembut)
+  playWrong() {
+    if (this.isMuted) return;
+    const ctx = this.getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(220, now);
+    osc.frequency.linearRampToValueAtTime(150, now + 0.25);
+
+    gain.gain.setValueAtTime(0.15, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start(now);
+    osc.stop(now + 0.3);
+  }
+
+  // 4. Suara Telur Menetas (Egg Crack & Pop)
+  playHatch() {
+    if (this.isMuted) return;
+    const ctx = this.getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    // Bagian 1: Retakan
+    const osc1 = ctx.createOscillator();
+    const gain1 = ctx.createGain();
+    osc1.type = 'square';
+    osc1.frequency.setValueAtTime(800, now);
+    osc1.frequency.exponentialRampToValueAtTime(300, now + 0.08);
+    gain1.gain.setValueAtTime(0.25, now);
+    gain1.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+
+    osc1.connect(gain1);
+    gain1.connect(ctx.destination);
+    osc1.start(now);
+    osc1.stop(now + 0.08);
+
+    // Bagian 2: Tunas Menetas gembira
+    setTimeout(() => {
+      const now2 = ctx.currentTime;
+      const osc2 = ctx.createOscillator();
+      const gain2 = ctx.createGain();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(440, now2);
+      osc2.frequency.exponentialRampToValueAtTime(880, now2 + 0.2);
+      gain2.gain.setValueAtTime(0.25, now2);
+      gain2.gain.exponentialRampToValueAtTime(0.001, now2 + 0.25);
+      osc2.connect(gain2);
+      gain2.connect(ctx.destination);
+      osc2.start(now2);
+      osc2.stop(now2 + 0.25);
+    }, 120);
+  }
+
+  // 5. Suara Goresan Guratan (Stroke Brush Sound)
+  playStroke() {
+    if (this.isMuted) return;
+    const ctx = this.getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(400 + Math.random() * 100, now);
+    osc.frequency.exponentialRampToValueAtTime(600, now + 0.1);
+
+    gain.gain.setValueAtTime(0.08, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start(now);
+    osc.stop(now + 0.12);
+  }
+
+  // 6. Suara Klik Tombol Prasejarah
+  playClick() {
+    if (this.isMuted) return;
+    const ctx = this.getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(800, now);
+    gain.gain.setValueAtTime(0.12, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start(now);
+    osc.stop(now + 0.05);
+  }
+}
+
+window.DinoAudio = new DinoAudioEngine();
+
+
+// Hanzi Stroke Animator & Interactive Tianzige Tracing Canvas Engine
+// Mendukung Animasi Urutan Guratan, Latihan Bebas, Mode Tracing, dan Kuis Langkah Guratan
+
+class DinoStrokeEngine {
+  constructor() {
+    this.currentCharData = null;
+    this.currentStrokeIndex = 0;
+    this.animInterval = null;
+    this.isDrawing = false;
+    this.userStrokes = [];
+    this.currentPath = [];
+    this.canvas = null;
+    this.ctx = null;
+    this.showGuide = true;
+    this.mode = 'free'; // 'free', 'step', 'quiz'
+  }
+
+  init(canvasElement) {
+    this.canvas = canvasElement;
+    if (!this.canvas) return;
+    this.ctx = this.canvas.getContext('2d');
+    this.setupEvents();
+    this.resizeCanvas();
+  }
+
+  resizeCanvas() {
+    if (!this.canvas) return;
+    const rect = this.canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    this.canvas.width = (rect.width || 340) * dpr;
+    this.canvas.height = (rect.height || 340) * dpr;
+    this.ctx.scale(dpr, dpr);
+    this.drawGrid();
+  }
+
+  setupEvents() {
+    const getPos = (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return {
+        x: clientX - rect.left,
+        y: clientY - rect.top
+      };
+    };
+
+    const startDraw = (e) => {
+      e.preventDefault();
+      this.isDrawing = true;
+      const pos = getPos(e);
+      this.currentPath = [pos];
+      if (window.DinoAudio) window.DinoAudio.playStroke();
+    };
+
+    const draw = (e) => {
+      if (!this.isDrawing) return;
+      e.preventDefault();
+      const pos = getPos(e);
+      this.currentPath.push(pos);
+      this.redrawCanvas();
+    };
+
+    const stopDraw = (e) => {
+      if (!this.isDrawing) return;
+      this.isDrawing = false;
+      if (this.currentPath.length > 1) {
+        this.userStrokes.push([...this.currentPath]);
+        this.evaluateUserProgress();
+      }
+      this.currentPath = [];
+      this.redrawCanvas();
+    };
+
+    // Mouse Events
+    this.canvas.addEventListener('mousedown', startDraw);
+    this.canvas.addEventListener('mousemove', draw);
+    this.canvas.addEventListener('mouseup', stopDraw);
+    this.canvas.addEventListener('mouseleave', stopDraw);
+
+    // Touch Events
+    this.canvas.addEventListener('touchstart', startDraw, { passive: false });
+    this.canvas.addEventListener('touchmove', draw, { passive: false });
+    this.canvas.addEventListener('touchend', stopDraw);
+    this.canvas.addEventListener('touchcancel', stopDraw);
+  }
+
+  loadCharacter(charData) {
+    this.currentCharData = charData;
+    this.currentStrokeIndex = 0;
+    this.userStrokes = [];
+    this.currentPath = [];
+    this.stopAnimation();
+    this.renderStrokeStepsContainer();
+    this.redrawCanvas();
+  }
+
+  // Menggambar Kotak Tianzige (田字格) Tradisional dengan Sentuhan Dinosaurus
+  drawGrid() {
+    if (!this.ctx || !this.canvas) return;
+    const rect = this.canvas.getBoundingClientRect();
+    const w = rect.width || 340;
+    const h = rect.height || 340;
+
+    // Background Tianzige
+    this.ctx.fillStyle = '#FFFEF5';
+    this.ctx.fillRect(0, 0, w, h);
+
+    // Border Luar Kotak
+    this.ctx.strokeStyle = '#E05A47';
+    this.ctx.lineWidth = 2.5;
+    this.ctx.strokeRect(6, 6, w - 12, h - 12);
+
+    // Garis Silang & Tengah Putus-putus
+    this.ctx.strokeStyle = '#F8A599';
+    this.ctx.lineWidth = 1.2;
+    this.ctx.setLineDash([6, 6]);
+
+    // Garis Horizontal Tengah
+    this.ctx.beginPath();
+    this.ctx.moveTo(6, h / 2);
+    this.ctx.lineTo(w - 6, h / 2);
+    this.ctx.stroke();
+
+    // Garis Vertikal Tengah
+    this.ctx.beginPath();
+    this.ctx.moveTo(w / 2, 6);
+    this.ctx.lineTo(w / 2, h - 6);
+    this.ctx.stroke();
+
+    // Garis Diagonal Mige (米字格)
+    this.ctx.strokeStyle = '#FDE2DC';
+    this.ctx.beginPath();
+    this.ctx.moveTo(6, 6);
+    this.ctx.lineTo(w - 6, h - 6);
+    this.ctx.moveTo(w - 6, 6);
+    this.ctx.lineTo(6, h - 6);
+    this.ctx.stroke();
+
+    this.ctx.setLineDash([]); // Reset line dash
+  }
+
+  redrawCanvas() {
+    if (!this.ctx || !this.canvas) return;
+    this.drawGrid();
+
+    // Gambar Panduan Bayangan Hanzi jika diaktifkan
+    if (this.showGuide && this.currentCharData) {
+      const rect = this.canvas.getBoundingClientRect();
+      const w = rect.width || 340;
+      const h = rect.height || 340;
+      this.ctx.save();
+      this.ctx.font = `${Math.floor(w * 0.72)}px "Noto Sans SC", "KaiTi", "SimSun", serif`;
+      this.ctx.textAlign = "center";
+      this.ctx.textBaseline = "middle";
+      this.ctx.fillStyle = "rgba(180, 195, 205, 0.28)";
+      this.ctx.fillText(this.currentCharData.char, w / 2, h / 2 + 10);
+      this.ctx.restore();
+    }
+
+    // Gambar Goresan Kuas Murid
+    this.ctx.save();
+    this.ctx.strokeStyle = "#1A3626"; // Tinta Dino Forest Green gelap
+    this.ctx.fillStyle = "#1A3626";
+    this.ctx.lineWidth = 14;
+    this.ctx.lineCap = "round";
+    this.ctx.lineJoin = "round";
+
+    // Gambar coretan yang sudah tersimpan
+    this.userStrokes.forEach(path => {
+      if (path.length < 2) return;
+      this.ctx.beginPath();
+      this.ctx.moveTo(path[0].x, path[0].y);
+      for (let i = 1; i < path.length; i++) {
+        this.ctx.lineTo(path[i].x, path[i].y);
+      }
+      this.ctx.stroke();
+    });
+
+    // Gambar coretan yang sedang berlangsung
+    if (this.currentPath.length > 1) {
+      this.ctx.strokeStyle = "#E05638"; // Warna aktif saat menggores
+      this.ctx.beginPath();
+      this.ctx.moveTo(this.currentPath[0].x, this.currentPath[0].y);
+      for (let i = 1; i < this.currentPath.length; i++) {
+        this.ctx.lineTo(this.currentPath[i].x, this.currentPath[i].y);
+      }
+      this.ctx.stroke();
+    }
+    this.ctx.restore();
+  }
+
+  clearCanvas() {
+    this.userStrokes = [];
+    this.currentPath = [];
+    this.redrawCanvas();
+    const feedback = document.getElementById("writerFeedback");
+    if (feedback) feedback.innerHTML = `<span class="dino-hint">🦖 Rexy: Silakan goreskan kuasmu di atas kotak Tianzige!</span>`;
+  }
+
+  undoStroke() {
+    if (this.userStrokes.length > 0) {
+      this.userStrokes.pop();
+      this.redrawCanvas();
+    }
+  }
+
+  toggleGuide() {
+    this.showGuide = !this.showGuide;
+    this.redrawCanvas();
+    return this.showGuide;
+  }
+
+  // Evaluasi Keberhasilan Menulis
+  evaluateUserProgress() {
+    if (!this.currentCharData) return;
+    const targetCount = this.currentCharData.strokeCount;
+    const currentCount = this.userStrokes.length;
+    const feedback = document.getElementById("writerFeedback");
+
+    if (currentCount === targetCount) {
+      if (window.DinoAudio) {
+        window.DinoAudio.playSuccess();
+        window.DinoAudio.playRoar();
+      }
+      if (feedback) {
+        feedback.innerHTML = `
+          <div class="dino-success-banner">
+            <span class="dino-badge-icon">🦖✨</span>
+            <div>
+              <strong>Luar Biasa! Karakter "${this.currentCharData.char}" Selesai!</strong>
+              <p>Kamu telah menyelesaikan seluruh ${targetCount} guratan dengan hebat!</p>
+            </div>
+          </div>
+        `;
+      }
+      if (window.DinoApp) {
+        window.DinoApp.recordCharacterMastered(this.currentCharData.id);
+      }
+    } else if (currentCount < targetCount) {
+      const strokeName = this.currentCharData.strokeNames[currentCount] || `Guratan ke-${currentCount + 1}`;
+      if (feedback) {
+        feedback.innerHTML = `<span class="dino-progress-text">🦖 Lanjutkan! Guratan berikutnya (${currentCount + 1}/${targetCount}): <strong>${strokeName}</strong></span>`;
+      }
+    } else {
+      if (feedback) {
+        feedback.innerHTML = `<span class="dino-warning-text">🦕 Jumlah goresan melebihi ${targetCount} guratan. Kamu bisa klik 'Bersihkan' untuk mengulang kembali!</span>`;
+      }
+    }
+  }
+
+  // Tampilkan visual langkah per langkah urutan guratan (Stroke Order Step Gallery)
+  renderStrokeStepsContainer() {
+    const container = document.getElementById("strokeStepsList");
+    if (!container || !this.currentCharData) return;
+
+    let html = ``;
+    const names = this.currentCharData.strokeNames || [];
+    for (let i = 0; i < this.currentCharData.strokeCount; i++) {
+      const name = names[i] || `Guratan ${i + 1}`;
+      html += `
+        <div class="stroke-step-card ${i === this.currentStrokeIndex ? 'active' : ''}" onclick="window.strokeEngine.previewStep(${i})">
+          <div class="stroke-step-num">${i + 1}</div>
+          <div class="stroke-step-name">${name}</div>
+        </div>
+      `;
+    }
+    container.innerHTML = html;
+  }
+
+  previewStep(index) {
+    this.currentStrokeIndex = index;
+    this.renderStrokeStepsContainer();
+    const feedback = document.getElementById("writerFeedback");
+    if (feedback && this.currentCharData) {
+      const strokeName = this.currentCharData.strokeNames[index] || `Guratan ${index + 1}`;
+      feedback.innerHTML = `<span class="dino-hint">🦕 Menampilkan langkah ke-${index + 1}: <strong>${strokeName}</strong></span>`;
+    }
+    if (window.DinoAudio && this.currentCharData) {
+      window.DinoAudio.playClick();
+    }
+  }
+
+  // Animasi otomatis urutan guratan
+  playAnimation() {
+    this.stopAnimation();
+    if (!this.currentCharData) return;
+    this.currentStrokeIndex = 0;
+    const total = this.currentCharData.strokeCount;
+
+    if (window.DinoAudio) {
+      window.DinoAudio.speakChinese(this.currentCharData.char);
+    }
+
+    this.animInterval = setInterval(() => {
+      this.currentStrokeIndex++;
+      this.renderStrokeStepsContainer();
+      if (window.DinoAudio) window.DinoAudio.playStroke();
+
+      if (this.currentStrokeIndex >= total) {
+        this.stopAnimation();
+        this.currentStrokeIndex = total - 1;
+        this.renderStrokeStepsContainer();
+      }
+    }, 900);
+  }
+
+  stopAnimation() {
+    if (this.animInterval) {
+      clearInterval(this.animInterval);
+      this.animInterval = null;
+    }
+  }
+}
+
+window.strokeEngine = new DinoStrokeEngine();
+
+
+// Dinosaur Certificate Generator & Egg Hatchery
+// Merender sertifikat kelulusan dinosaurus beresolusi tinggi pada HTML5 Canvas
+
+class DinoCertificateManager {
+  constructor() {
+    this.canvas = null;
+    this.ctx = null;
+  }
+
+  generateCertificate(studentName, score, title = "DINO MANDARIN MASTER", unitName = "HAN YU 3 (汉语 第三册)") {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1200;
+    canvas.height = 850;
+    const ctx = canvas.getContext("2d");
+
+    // 1. Background Prasejarah Cantik
+    const bgGrad = ctx.createLinearGradient(0, 0, 1200, 850);
+    bgGrad.addColorStop(0, "#FFFDF5");
+    bgGrad.addColorStop(0.5, "#F7FBEF");
+    bgGrad.addColorStop(1, "#EBF7EC");
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, 1200, 850);
+
+    // 2. Border Hiasan Emas & Hijau Dinosaurus
+    ctx.strokeStyle = "#2F855A";
+    ctx.lineWidth = 14;
+    ctx.strokeRect(30, 30, 1140, 790);
+
+    ctx.strokeStyle = "#D69E2E";
+    ctx.lineWidth = 4;
+    ctx.strokeRect(48, 48, 1104, 754);
+
+    // 3. Ornamen Pojok (Dino Footprints & Eggs)
+    ctx.font = "40px sans-serif";
+    ctx.fillText("🦖", 60, 100);
+    ctx.fillText("🦕", 1090, 100);
+    ctx.fillText("🌴", 60, 780);
+    ctx.fillText("🌋", 1090, 780);
+
+    // 4. Header Sertifikat
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#1E5E3A";
+    ctx.font = "bold 44px 'Noto Sans SC', 'Segoe UI', sans-serif";
+    ctx.fillText("🦕 JURASSIC MANDARIN ACADEMY 🦖", 600, 125);
+
+    ctx.fillStyle = "#B7791F";
+    ctx.font = "bold 26px sans-serif";
+    ctx.fillText("SERTIFIKAT KELULUSAN & PENGHARGAAN PRESTASI", 600, 175);
+
+    ctx.fillStyle = "#4A5568";
+    ctx.font = "20px sans-serif";
+    ctx.fillText("Dengan bangga menyatakan bahwa:", 600, 240);
+
+    // 5. Nama Siswa
+    ctx.fillStyle = "#1A202C";
+    ctx.font = "bold 52px 'Segoe UI', sans-serif";
+    ctx.fillText(studentName || "Siswa Teladan", 600, 315);
+
+    // Garis Bawah Nama
+    ctx.strokeStyle = "#38A169";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(350, 335);
+    ctx.lineTo(850, 335);
+    ctx.stroke();
+
+    // 6. Isi Keterangan Prestasi
+    ctx.fillStyle = "#2D3748";
+    ctx.font = "22px sans-serif";
+    ctx.fillText(`Telah berhasil menuntaskan materi belajar membaca, menulis guratan Hanzi,`, 600, 390);
+    ctx.fillText(`serta Latihan Ujian Standar YCT Level 2 pada buku kurikulum:`, 600, 425);
+
+    ctx.fillStyle = "#276749";
+    ctx.font = "bold 32px 'Noto Sans SC', sans-serif";
+    ctx.fillText(unitName, 600, 480);
+
+    // 7. Badge Gelar & Skor
+    ctx.fillStyle = "#C6F6D5";
+    ctx.beginPath();
+    ctx.roundRect(420, 520, 360, 90, 20);
+    ctx.fill();
+    ctx.strokeStyle = "#38A169";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.fillStyle = "#22543D";
+    ctx.font = "bold 28px sans-serif";
+    ctx.fillText(title, 600, 560);
+    ctx.font = "bold 22px sans-serif";
+    ctx.fillStyle = "#C05621";
+    ctx.fillText(`Nilai Skor YCT 2: ${score}% ⭐⭐⭐⭐⭐`, 600, 595);
+
+    // 8. Tanda Tangan & Tanggal
+    const today = new Date().toLocaleDateString("id-ID", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+
+    ctx.textAlign = "left";
+    ctx.fillStyle = "#4A5568";
+    ctx.font = "18px sans-serif";
+    ctx.fillText(`Tanggal: ${today}`, 120, 720);
+    ctx.fillText(`No. Verifikasi: DINO-HY3-${Math.floor(100000 + Math.random() * 900000)}`, 120, 750);
+
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#22543D";
+    ctx.font = "bold 22px sans-serif";
+    ctx.fillText("🦖 Tim Pengajar Han Yu 3", 1080, 720);
+    ctx.font = "16px sans-serif";
+    ctx.fillStyle = "#718096";
+    ctx.fillText("北京华文学院 - Han Yu Learning Center", 1080, 745);
+
+    return canvas;
+  }
+}
+
+window.DinoCertificate = new DinoCertificateManager();
+
+
+// Aplikasi Utama Pembelajaran Mandarin HAN YU 3 (Tema Dinosaurus)
+// Mengatur state, navigasi, interaksi audio, pembaca unit, game guratan, dan kuis YCT 2
+
+class DinoMandarinApp {
+  constructor() {
+    this.currentTab = 'reader';
+    this.selectedUnit = 1;
+    this.selectedLessonId = 1;
+    this.selectedWriterUnit = 1;
+    this.selectedCharId = "u1_1";
+    this.quizUnit = 1;
+    this.currentQuestionIdx = 0;
+    this.quizScore = 0;
+    this.quizAnswered = [];
+    this.activeUtteranceId = null;
+
+    // Data Kemajuan Tersimpan (LocalStorage)
+    this.state = this.loadState();
+  }
+
+  loadState() {
+    const saved = localStorage.getItem("hanyu3_dino_state");
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error("Gagal membaca state:", e);
+      }
+    }
+    return {
+      masteredChars: [],
+      completedLessons: [1],
+      quizScores: { unit1: 0, unit2: 0, unit3: 0, all: 0 },
+      studentName: "Dino Explorer",
+      totalStars: 0
+    };
+  }
+
+  saveState() {
+    localStorage.setItem("hanyu3_dino_state", JSON.stringify(this.state));
+    this.updateStatsDisplay();
+  }
+
+  init() {
+    this.bindNavigation();
+    this.bindReaderEvents();
+    this.bindWriterEvents();
+    this.bindQuizEvents();
+    this.bindModalEvents();
+
+    // Inisialisasi Canvas Stroke Engine
+    const canvas = document.getElementById("tianzigeCanvas");
+    if (canvas && window.strokeEngine) {
+      window.strokeEngine.init(canvas);
+    }
+
+    // Tampilkan data awal
+    this.renderLessonList();
+    this.loadLesson(1);
+    this.renderWriterCharGrid();
+    this.loadWriterChar("u1_1");
+    this.updateStatsDisplay();
+    this.renderHatchery();
+
+    console.log("🦕🦖 Jurassic Mandarin Han Yu 3 App Berhasil Dimuat!");
+  }
+
+  // Navigasi Antar Tab Utama
+  bindNavigation() {
+    const navButtons = document.querySelectorAll(".dino-nav-btn");
+    navButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetTab = btn.getAttribute("data-tab");
+        this.switchTab(targetTab);
+        if (window.DinoAudio) window.DinoAudio.playClick();
+      });
+    });
+
+    // Mute Audio Toggle
+    const muteBtn = document.getElementById("muteToggleBtn");
+    if (muteBtn) {
+      muteBtn.addEventListener("click", () => {
+        if (window.DinoAudio) {
+          const isMuted = window.DinoAudio.toggleMute();
+          muteBtn.innerHTML = isMuted ? "🔇 Suara Mati" : "🔊 Suara Aktif";
+          muteBtn.classList.toggle("muted", isMuted);
+        }
+      });
+    }
+  }
+
+  switchTab(tabId) {
+    this.currentTab = tabId;
+    document.querySelectorAll(".dino-nav-btn").forEach(b => {
+      b.classList.toggle("active", b.getAttribute("data-tab") === tabId);
+    });
+    document.querySelectorAll(".tab-pane").forEach(pane => {
+      pane.classList.toggle("active", pane.id === `tab-${tabId}`);
+    });
+
+    if (tabId === 'writer') {
+      setTimeout(() => {
+        if (window.strokeEngine) window.strokeEngine.resizeCanvas();
+      }, 100);
+    }
+  }
+
+  // ==========================================
+  // MODUL 1: CARA MEMBACA UNIT HAN YU 3
+  // ==========================================
+  bindReaderEvents() {
+    // Tombol Ganti Unit di Tab Membaca
+    const unitSelector = document.getElementById("readerUnitSelect");
+    if (unitSelector) {
+      unitSelector.addEventListener("change", (e) => {
+        this.selectedUnit = parseInt(e.target.value, 10);
+        this.renderLessonList();
+        const firstLesson = window.HAN_YU_3_UNITS.find(u => u.unitId === this.selectedUnit).lessons[0];
+        this.loadLesson(firstLesson.id);
+        if (window.DinoAudio) window.DinoAudio.playClick();
+      });
+    }
+
+    // Toggle Pinyin dan Terjemahan
+    const togglePinyin = document.getElementById("togglePinyinBtn");
+    if (togglePinyin) {
+      togglePinyin.addEventListener("click", () => {
+        document.body.classList.toggle("hide-pinyin");
+        togglePinyin.classList.toggle("active");
+      });
+    }
+
+    const toggleTrans = document.getElementById("toggleTransBtn");
+    if (toggleTrans) {
+      toggleTrans.addEventListener("click", () => {
+        document.body.classList.toggle("hide-translation");
+        toggleTrans.classList.toggle("active");
+      });
+    }
+
+    // Kecepatan Baca (Normal 0.9x / Pelan 0.65x)
+    const speedSelect = document.getElementById("speechSpeedSelect");
+    if (speedSelect) {
+      speedSelect.addEventListener("change", (e) => {
+        const speed = parseFloat(e.target.value);
+        if (window.DinoAudio) window.DinoAudio.setRate(speed);
+      });
+    }
+  }
+
+  renderLessonList() {
+    const container = document.getElementById("readerLessonList");
+    if (!container) return;
+
+    const unit = window.HAN_YU_3_UNITS.find(u => u.unitId === this.selectedUnit);
+    if (!unit) return;
+
+    let html = ``;
+    unit.lessons.forEach(l => {
+      const isSelected = l.id === this.selectedLessonId;
+      const isCompleted = this.state.completedLessons.includes(l.id);
+      html += `
+        <button class="lesson-chip-btn ${isSelected ? 'active' : ''}" onclick="window.DinoApp.loadLesson(${l.id})">
+          <span class="lesson-chip-icon">${l.themeIcon}</span>
+          <div class="lesson-chip-info">
+            <span class="lesson-chip-title">${l.title}</span>
+            <span class="lesson-chip-py">${l.titlePinyin}</span>
+          </div>
+          ${isCompleted ? '<span class="lesson-chip-done">✓</span>' : ''}
+        </button>
+      `;
+    });
+    container.innerHTML = html;
+  }
+
+  loadLesson(lessonId) {
+    this.selectedLessonId = lessonId;
+    let foundLesson = null;
+    let foundUnit = null;
+
+    for (const u of window.HAN_YU_3_UNITS) {
+      const match = u.lessons.find(l => l.id === lessonId);
+      if (match) {
+        foundLesson = match;
+        foundUnit = u;
+        break;
+      }
+    }
+
+    if (!foundLesson) return;
+    this.selectedUnit = foundUnit.unitId;
+
+    // Update dropdown unit jika berbeda
+    const unitSelect = document.getElementById("readerUnitSelect");
+    if (unitSelect && parseInt(unitSelect.value, 10) !== this.selectedUnit) {
+      unitSelect.value = this.selectedUnit;
+    }
+
+    this.renderLessonList();
+    this.renderLessonContent(foundLesson, foundUnit);
+
+    // Tandai bab telah dipelajari
+    if (!this.state.completedLessons.includes(lessonId)) {
+      this.state.completedLessons.push(lessonId);
+      this.state.totalStars += 2;
+      this.saveState();
+    }
+  }
+
+  renderLessonContent(lesson, unit) {
+    const container = document.getElementById("lessonDetailContainer");
+    if (!container) return;
+
+    let html = `
+      <div class="lesson-banner">
+        <div class="lesson-banner-header">
+          <span class="lesson-dino-badge">${unit.dinoMascot}</span>
+          <span class="lesson-theme-icon">${lesson.themeIcon}</span>
+        </div>
+        <h2 class="lesson-banner-title">${lesson.title}</h2>
+        <div class="lesson-banner-py">${lesson.titlePinyin}</div>
+        <div class="lesson-banner-id">${lesson.titleId}</div>
+        <div class="lesson-banner-actions">
+          <button class="dino-btn primary" onclick="window.DinoApp.playFullLessonAudio(${lesson.id})">
+            🔊 Dengarkan Seluruh Pelajaran
+          </button>
+        </div>
+      </div>
+    `;
+
+    // 1. 学句子 (Belajar Kalimat) jika ada
+    if (lesson.sentences && lesson.sentences.length > 0) {
+      html += `
+        <div class="lesson-section-box">
+          <div class="section-box-header">
+            <span class="section-box-icon">🗣️</span>
+            <h3>学句子 (Belajar Kalimat Inti)</h3>
+          </div>
+          <div class="sentences-list">
+      `;
+      lesson.sentences.forEach((s, idx) => {
+        html += `
+          <div class="sentence-item-card" id="sentence-${idx}">
+            <button class="audio-play-circle" onclick="window.DinoApp.playSpeech('${s.zh}')" title="Dengarkan Suara">
+              🔊
+            </button>
+            <div class="sentence-text-box">
+              <div class="sentence-py">${s.py}</div>
+              <div class="sentence-zh">${s.zh}</div>
+              <div class="sentence-id">${s.id}</div>
+            </div>
+          </div>
+        `;
+      });
+      html += `</div></div>`;
+    }
+
+    // 2. 读课文 (Membaca Teks Bacaan) jika ada
+    if (lesson.readingText) {
+      html += `
+        <div class="lesson-section-box">
+          <div class="section-box-header">
+            <span class="section-box-icon">📖</span>
+            <h3>读课文 (Membaca Teks Bacaan: ${lesson.readingText.title})</h3>
+          </div>
+          <div class="reading-paragraphs-box">
+      `;
+      lesson.readingText.paragraphs.forEach((p, idx) => {
+        html += `
+          <div class="paragraph-card" id="para-${idx}">
+            <div class="paragraph-header">
+              <span class="para-num">Paragraf ${idx + 1}</span>
+              <button class="audio-play-small" onclick="window.DinoApp.playSpeech('${p.zh}')">
+                🔊 Baca Baris Ini
+              </button>
+            </div>
+            <div class="para-py">${p.py}</div>
+            <div class="para-zh">${p.zh}</div>
+            <div class="para-id">${p.id}</div>
+          </div>
+        `;
+      });
+      html += `</div></div>`;
+    }
+
+    // 3. 说一说 / 玩游戏 / 诗歌 (Aktivitas Dialog/Puisi) jika ada
+    if (lesson.dialogueActivity) {
+      html += `
+        <div class="lesson-section-box">
+          <div class="section-box-header">
+            <span class="section-box-icon">🎭</span>
+            <h3>${lesson.dialogueActivity.title}</h3>
+          </div>
+      `;
+      if (lesson.dialogueActivity.sentences) {
+        html += `<div class="dialogue-chat-box">`;
+        lesson.dialogueActivity.sentences.forEach(d => {
+          html += `
+            <div class="dialogue-bubble">
+              <div class="dialogue-speaker">${d.role}</div>
+              <div class="dialogue-content">
+                <div class="sentence-py">${d.py}</div>
+                <div class="sentence-zh">${d.zh}</div>
+                <div class="sentence-id">${d.id}</div>
+              </div>
+              <button class="audio-play-small" onclick="window.DinoApp.playSpeech('${d.zh}')">🔊</button>
+            </div>
+          `;
+        });
+        html += `</div>`;
+      } else if (lesson.dialogueActivity.items) {
+        html += `<div class="game-items-grid">`;
+        lesson.dialogueActivity.items.forEach(it => {
+          html += `
+            <div class="game-item-card" onclick="window.DinoApp.playSpeech('${it.zh}')">
+              <div class="game-item-zh">${it.zh}</div>
+              <div class="game-item-py">${it.py}</div>
+              <div class="game-item-id">${it.id}</div>
+              <span class="audio-badge">🔊 Sentuh untuk Mendengar</span>
+            </div>
+          `;
+        });
+        html += `</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // 4. Puisi jika ada
+    if (lesson.poemActivity) {
+      html += `
+        <div class="lesson-section-box poem-box">
+          <div class="section-box-header">
+            <span class="section-box-icon">📜</span>
+            <h3>${lesson.poemActivity.title}</h3>
+          </div>
+          <div class="poem-lines-box">
+      `;
+      lesson.poemActivity.lines.forEach(line => {
+        html += `
+          <div class="poem-line" onclick="window.DinoApp.playSpeech('${line.zh}')">
+            <div class="poem-py">${line.py}</div>
+            <div class="poem-zh">${line.zh}</div>
+            ${line.id ? `<div class="poem-id">${line.id}</div>` : ''}
+          </div>
+        `;
+      });
+      html += `
+          </div>
+        </div>
+      `;
+    }
+
+    // 5. 记生词 (Kartu Flashcard Kosakata Bab Ini)
+    if (lesson.vocabulary && lesson.vocabulary.length > 0) {
+      html += `
+        <div class="lesson-section-box">
+          <div class="section-box-header">
+            <span class="section-box-icon">✨</span>
+            <h3>记生词 (Kosakata Baru - ${lesson.vocabulary.length} Kata)</h3>
+          </div>
+          <div class="vocab-grid">
+      `;
+      lesson.vocabulary.forEach(v => {
+        html += `
+          <div class="vocab-card" onclick="window.DinoApp.playSpeech('${v.zh}')">
+            <div class="vocab-card-header">
+              <span class="vocab-py">${v.py}</span>
+              <span class="vocab-audio-icon">🔊</span>
+            </div>
+            <div class="vocab-zh">${v.zh}</div>
+            <div class="vocab-id">${v.id}</div>
+          </div>
+        `;
+      });
+      html += `</div></div>`;
+    }
+
+    container.innerHTML = html;
+  }
+
+  playSpeech(text) {
+    if (window.DinoAudio) {
+      window.DinoAudio.speakChinese(text);
+    }
+  }
+
+  playFullLessonAudio(lessonId) {
+    let lesson = null;
+    for (const u of window.HAN_YU_3_UNITS) {
+      const match = u.lessons.find(l => l.id === lessonId);
+      if (match) {
+        lesson = match;
+        break;
+      }
+    }
+    if (!lesson) return;
+
+    let fullText = `${lesson.title}。`;
+    if (lesson.sentences) {
+      lesson.sentences.forEach(s => fullText += `${s.zh} `);
+    }
+    if (lesson.readingText) {
+      lesson.readingText.paragraphs.forEach(p => fullText += `${p.zh} `);
+    }
+
+    if (window.DinoAudio) {
+      window.DinoAudio.speakChinese(fullText);
+    }
+  }
+
+  // ==========================================
+  // MODUL 2: GAME MENULIS GURATAN (20 KATA / UNIT)
+  // ==========================================
+  bindWriterEvents() {
+    // Filter Unit Penulisan (Unit 1, Unit 2, Unit 3)
+    const unitPills = document.querySelectorAll(".writer-unit-pill");
+    unitPills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        const u = parseInt(pill.getAttribute("data-unit"), 10);
+        this.selectedWriterUnit = u;
+        unitPills.forEach(p => p.classList.toggle("active", p === pill));
+        this.renderWriterCharGrid();
+
+        // Muat karakter pertama di unit tersebut
+        const firstChar = window.HAN_YU_3_STROKES[`unit${u}`][0];
+        this.loadWriterChar(firstChar.id);
+        if (window.DinoAudio) window.DinoAudio.playClick();
+      });
+    });
+
+    // Kontrol Kanvas (Play, Clear, Undo, Toggle Guide)
+    const playAnimBtn = document.getElementById("animStrokeBtn");
+    if (playAnimBtn) {
+      playAnimBtn.addEventListener("click", () => {
+        if (window.strokeEngine) window.strokeEngine.playAnimation();
+      });
+    }
+
+    const clearBtn = document.getElementById("clearCanvasBtn");
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
+        if (window.strokeEngine) window.strokeEngine.clearCanvas();
+        if (window.DinoAudio) window.DinoAudio.playClick();
+      });
+    }
+
+    const undoBtn = document.getElementById("undoCanvasBtn");
+    if (undoBtn) {
+      undoBtn.addEventListener("click", () => {
+        if (window.strokeEngine) window.strokeEngine.undoStroke();
+        if (window.DinoAudio) window.DinoAudio.playClick();
+      });
+    }
+
+    const guideBtn = document.getElementById("toggleGuideBtn");
+    if (guideBtn) {
+      guideBtn.addEventListener("click", () => {
+        if (window.strokeEngine) {
+          const show = window.strokeEngine.toggleGuide();
+          guideBtn.classList.toggle("active", show);
+        }
+      });
+    }
+  }
+
+  renderWriterCharGrid() {
+    const container = document.getElementById("writerCharGrid");
+    if (!container) return;
+
+    const list = window.HAN_YU_3_STROKES[`unit${this.selectedWriterUnit}`] || [];
+    let html = ``;
+    list.forEach((item, index) => {
+      const isSelected = item.id === this.selectedCharId;
+      const isMastered = this.state.masteredChars.includes(item.id);
+      html += `
+        <button class="char-picker-card ${isSelected ? 'active' : ''} ${isMastered ? 'mastered' : ''}" 
+                onclick="window.DinoApp.loadWriterChar('${item.id}')">
+          <span class="char-picker-num">${index + 1}</span>
+          <span class="char-picker-hanzi">${item.char}</span>
+          <span class="char-picker-py">${item.pinyin}</span>
+          ${isMastered ? '<span class="char-picker-star">⭐</span>' : ''}
+        </button>
+      `;
+    });
+    container.innerHTML = html;
+  }
+
+  loadWriterChar(charId) {
+    this.selectedCharId = charId;
+    let found = null;
+    for (let u = 1; u <= 3; u++) {
+      const match = window.HAN_YU_3_STROKES[`unit${u}`].find(c => c.id === charId);
+      if (match) {
+        found = match;
+        break;
+      }
+    }
+    if (!found) return;
+
+    this.renderWriterCharGrid();
+
+    // Update Detail Panel Karakter
+    const charHanzi = document.getElementById("targetCharHanzi");
+    const charPy = document.getElementById("targetCharPy");
+    const charMeaning = document.getElementById("targetCharMeaning");
+    const charCount = document.getElementById("targetCharCount");
+    const charRadical = document.getElementById("targetCharRadical");
+    const charExamples = document.getElementById("targetCharExamples");
+    const dinoTip = document.getElementById("writerDinoTip");
+
+    if (charHanzi) charHanzi.innerText = found.char;
+    if (charPy) charPy.innerText = found.pinyin;
+    if (charMeaning) charMeaning.innerText = found.meaning;
+    if (charCount) charCount.innerText = `${found.strokeCount} Guratan`;
+    if (charRadical) charRadical.innerText = found.radical;
+    if (dinoTip) dinoTip.innerText = found.dinoTip;
+
+    if (charExamples && found.examples) {
+      charExamples.innerHTML = found.examples.map(ex => `<span class="example-tag">${ex}</span>`).join("");
+    }
+
+    // Muat ke Canvas Stroke Engine
+    if (window.strokeEngine) {
+      window.strokeEngine.loadCharacter(found);
+    }
+  }
+
+  recordCharacterMastered(charId) {
+    if (!this.state.masteredChars.includes(charId)) {
+      this.state.masteredChars.push(charId);
+      this.state.totalStars += 3;
+      this.saveState();
+      this.renderWriterCharGrid();
+      this.renderHatchery();
+
+      // Cek apakah menetas telur baru
+      if (this.state.masteredChars.length % 5 === 0) {
+        if (window.DinoAudio) window.DinoAudio.playHatch();
+      }
+    }
+  }
+
+  // ==========================================
+  // MODUL 3: LATIHAN SOAL TIPE YCT 2
+  // ==========================================
+  bindQuizEvents() {
+    const quizFilterPills = document.querySelectorAll(".quiz-unit-pill");
+    quizFilterPills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        const u = pill.getAttribute("data-unit");
+        this.quizUnit = u === "all" ? "all" : parseInt(u, 10);
+        quizFilterPills.forEach(p => p.classList.toggle("active", p === pill));
+        this.startQuiz();
+        if (window.DinoAudio) window.DinoAudio.playClick();
+      });
+    });
+  }
+
+  startQuiz() {
+    const questions = window.YCT2_QUIZ_DATA[this.quizUnit === "all" ? "all" : `unit${this.quizUnit}`] || [];
+    this.currentQuestionIdx = 0;
+    this.quizScore = 0;
+    this.quizAnswered = [];
+
+    const resultBox = document.getElementById("quizResultContainer");
+    const activeBox = document.getElementById("quizActiveContainer");
+    if (resultBox) resultBox.style.display = "none";
+    if (activeBox) activeBox.style.display = "block";
+
+    this.renderCurrentQuestion();
+  }
+
+  renderCurrentQuestion() {
+    const questions = window.YCT2_QUIZ_DATA[this.quizUnit === "all" ? "all" : `unit${this.quizUnit}`] || [];
+    const container = document.getElementById("quizQuestionCard");
+    const progressText = document.getElementById("quizProgressText");
+    const progressBar = document.getElementById("quizProgressBar");
+
+    if (this.currentQuestionIdx >= questions.length) {
+      this.showQuizResults();
+      return;
+    }
+
+    const q = questions[this.currentQuestionIdx];
+    if (progressText) progressText.innerText = `Soal ${this.currentQuestionIdx + 1} dari ${questions.length}`;
+    if (progressBar) progressBar.style.width = `${((this.currentQuestionIdx) / questions.length) * 100}%`;
+
+    let html = `
+      <div class="yct2-card">
+        <div class="yct2-header">
+          <span class="yct2-badge">${q.partName}</span>
+          <span class="yct2-emoji-illus">${q.imageEmoji}</span>
+        </div>
+    `;
+
+    // Tombol Audio Listening jika ada
+    if (q.audioZh) {
+      html += `
+        <div class="yct2-audio-prompt-box">
+          <button class="dino-btn primary large" onclick="window.DinoApp.playSpeech('${q.audioZh}')">
+            🔊 Putar Audio Soal (听录音)
+          </button>
+          <span class="yct2-audio-tip">Dengarkan kalimat Mandarin dengan seksama</span>
+        </div>
+      `;
+    }
+
+    html += `
+        <div class="yct2-prompt-box">
+          <div class="yct2-prompt-py">${q.promptPy || ''}</div>
+          <div class="yct2-prompt-zh">${q.promptZh || ''}</div>
+          <div class="yct2-prompt-id">${q.promptId}</div>
+        </div>
+        <div class="yct2-options-container" id="quizOptionsBox">
+    `;
+
+    // Tipe Benar / Salah (True / False)
+    if (q.part === 'listening_tf' || q.part === 'reading_tf') {
+      html += `
+        <div class="yct2-tf-row">
+          <button class="yct2-tf-btn true-btn" onclick="window.DinoApp.submitAnswer(true)">
+            <span class="tf-icon">✓</span>
+            <span>Benar (对 - Duì)</span>
+          </button>
+          <button class="yct2-tf-btn false-btn" onclick="window.DinoApp.submitAnswer(false)">
+            <span class="tf-icon">✗</span>
+            <span>Salah (错 - Cuò)</span>
+          </button>
+        </div>
+      `;
+    } else if (q.options) {
+      // Pilihan Ganda (A, B, C)
+      q.options.forEach((opt, idx) => {
+        html += `
+          <button class="yct2-option-btn" onclick="window.DinoApp.submitAnswer(${idx})">
+            <span class="opt-label">${opt.label}</span>
+            <div class="opt-content">
+              <span class="opt-zh">${opt.textZh}</span>
+              <span class="opt-id">${opt.textId}</span>
+            </div>
+          </button>
+        `;
+      });
+    }
+
+    html += `
+        </div>
+        <div id="quizExplanationBox" style="display:none;" class="quiz-explanation-card"></div>
+      </div>
+    `;
+
+    if (container) container.innerHTML = html;
+
+    // Putar otomatis audio soal jika bagian listening
+    if (q.audioZh) {
+      setTimeout(() => {
+        this.playSpeech(q.audioZh);
+      }, 300);
+    }
+  }
+
+  submitAnswer(userAns) {
+    const questions = window.YCT2_QUIZ_DATA[this.quizUnit === "all" ? "all" : `unit${this.quizUnit}`] || [];
+    const q = questions[this.currentQuestionIdx];
+    const isCorrect = userAns === q.correctAnswer;
+
+    if (isCorrect) {
+      this.quizScore++;
+      if (window.DinoAudio) {
+        window.DinoAudio.playSuccess();
+      }
+    } else {
+      if (window.DinoAudio) {
+        window.DinoAudio.playWrong();
+      }
+    }
+
+    // Tampilkan Penjelasan & Kunci Jawaban
+    const expBox = document.getElementById("quizExplanationBox");
+    const optionsBox = document.getElementById("quizOptionsBox");
+
+    if (optionsBox) {
+      // Nonaktifkan klik tombol
+      optionsBox.style.pointerEvents = "none";
+    }
+
+    if (expBox) {
+      expBox.style.display = "block";
+      expBox.innerHTML = `
+        <div class="exp-header ${isCorrect ? 'correct' : 'wrong'}">
+          <span>${isCorrect ? '🎉 Jawaban Benar (+1 Skor)!' : '❌ Jawaban Kurang Tepat'}</span>
+        </div>
+        <p class="exp-desc">${q.explanation}</p>
+        <button class="dino-btn primary mt-3" onclick="window.DinoApp.nextQuestion()">
+          Lanjut ke Soal Berikutnya ➔
+        </button>
+      `;
+    }
+  }
+
+  nextQuestion() {
+    this.currentQuestionIdx++;
+    this.renderCurrentQuestion();
+  }
+
+  showQuizResults() {
+    const questions = window.YCT2_QUIZ_DATA[this.quizUnit === "all" ? "all" : `unit${this.quizUnit}`] || [];
+    const activeBox = document.getElementById("quizActiveContainer");
+    const resultBox = document.getElementById("quizResultContainer");
+
+    if (activeBox) activeBox.style.display = "none";
+    if (resultBox) resultBox.style.display = "block";
+
+    const percentage = Math.round((this.quizScore / questions.length) * 100);
+
+    // Simpan skor
+    const key = this.quizUnit === "all" ? "all" : `unit${this.quizUnit}`;
+    if (percentage > (this.state.quizScores[key] || 0)) {
+      this.state.quizScores[key] = percentage;
+      this.state.totalStars += 5;
+      this.saveState();
+    }
+
+    let dinoRank = "🦖 T-Rex Master";
+    let dinoComment = "Luar biasa sempurna! Kamu telah menguasai kosakata dan pola kalimat YCT 2 dengan sangat gemilang!";
+    if (percentage < 60) {
+      dinoRank = "🥚 Dino Egg Explorer";
+      dinoComment = "Tetap semangat! Ulangi membaca materi unit dan coba kembali untuk meningkatkan skormu!";
+    } else if (percentage < 80) {
+      dinoRank = "🦕 Triceratops Scout";
+      dinoComment = "Hasil yang bagus! Sedikit lagi latihan menulis dan menyimak kamu akan meraih nilai 100%!";
+    }
+
+    if (resultBox) {
+      resultBox.innerHTML = `
+        <div class="result-card">
+          <div class="result-dino-hero">🏆</div>
+          <h2 class="result-title">Hasil Latihan YCT Level 2</h2>
+          <div class="result-score-circle">${percentage}%</div>
+          <div class="result-meta">
+            <span>Benar ${this.quizScore} dari ${questions.length} Soal</span>
+            <span class="result-rank-badge">${dinoRank}</span>
+          </div>
+          <p class="result-comment">${dinoComment}</p>
+          <div class="result-actions">
+            <button class="dino-btn primary large" onclick="window.DinoApp.openCertificateModal(${percentage}, '${dinoRank}')">
+              🎓 Buat & Unduh Sertifikat Dinosaurus
+            </button>
+            <button class="dino-btn secondary" onclick="window.DinoApp.startQuiz()">
+              🔄 Ulangi Latihan Soal
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    if (percentage >= 60 && window.DinoAudio) {
+      window.DinoAudio.playRoar();
+      window.DinoAudio.playSuccess();
+    }
+  }
+
+  // ==========================================
+  // MODUL 4: PENETASAN TELUR & SERTIFIKAT DINO
+  // ==========================================
+  renderHatchery() {
+    const container = document.getElementById("dinoHatcheryGrid");
+    if (!container) return;
+
+    const totalMastered = this.state.masteredChars.length;
+    const dinoStages = [
+      { count: 1, name: "Baby Rexy (T-Rex Cilik)", icon: "🦖", req: "1 Karakter", desc: "Mulai langkah petualangan aksara Mandarin!" },
+      { count: 5, name: "Bronto Herbivora", icon: "🦕", req: "5 Karakter", desc: "Memiliki leher panjang untuk menjangkau ilmu!" },
+      { count: 10, name: "Tricey Si Tanduk Tiga", icon: "🌴", req: "10 Karakter", desc: "Kuat dan gigih menghafal guratan Hanzi!" },
+      { count: 20, name: "Pterry Si Sayap Emas", icon: "🦅", req: "20 Karakter (Unit 1)", desc: "Terbang tinggi menembus ujian Unit 1!" },
+      { count: 40, name: "Steggy Si Punggung Kristal", icon: "💎", req: "40 Karakter (Unit 2)", desc: "Ketangguhan luar biasa menyelesaikan Unit 2!" },
+      { count: 60, name: "Grand Spinosaurus Sovereign", icon: "👑", req: "60 Karakter (Unit 3)", desc: "Raja Purba Aksara Mandarin Han Yu 3!" }
+    ];
+
+    let html = ``;
+    dinoStages.forEach(st => {
+      const isUnlocked = totalMastered >= st.count;
+      html += `
+        <div class="hatchery-card ${isUnlocked ? 'unlocked' : 'locked'}">
+          <div class="hatchery-icon">${isUnlocked ? st.icon : '🥚'}</div>
+          <div class="hatchery-name">${st.name}</div>
+          <div class="hatchery-req">Syarat: ${st.req}</div>
+          <div class="hatchery-desc">${isUnlocked ? st.desc : 'Karakter belum mencukupi untuk menetas'}</div>
+          <div class="hatchery-status">${isUnlocked ? '✓ Telah Menetas' : '🔒 Masih di dalam Telur'}</div>
+        </div>
+      `;
+    });
+    container.innerHTML = html;
+  }
+
+  updateStatsDisplay() {
+    const starCount = document.getElementById("headerStarCount");
+    const masteredCount = document.getElementById("headerMasteredCount");
+    const lessonCount = document.getElementById("headerLessonCount");
+
+    if (starCount) starCount.innerText = this.state.totalStars;
+    if (masteredCount) masteredCount.innerText = `${this.state.masteredChars.length}/60`;
+    if (lessonCount) lessonCount.innerText = `${this.state.completedLessons.length}/15`;
+  }
+
+  bindModalEvents() {
+    const modal = document.getElementById("certModal");
+    const closeBtn = document.getElementById("closeCertModalBtn");
+    const downloadBtn = document.getElementById("downloadCertBtn");
+
+    if (closeBtn && modal) {
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+    }
+
+    if (downloadBtn) {
+      downloadBtn.addEventListener("click", () => {
+        const certCanvas = document.getElementById("certCanvasPreview");
+        if (certCanvas) {
+          const link = document.createElement("a");
+          link.download = `Sertifikat_Mandarin_HY3_${this.state.studentName || 'Dino'}.png`;
+          link.href = certCanvas.toDataURL("image/png");
+          link.click();
+        }
+      });
+    }
+  }
+
+  openCertificateModal(score = 95, title = "DINO MANDARIN MASTER") {
+    const modal = document.getElementById("certModal");
+    const previewContainer = document.getElementById("certPreviewWrapper");
+    const nameInput = document.getElementById("studentNameInput");
+
+    if (!modal) return;
+    modal.style.display = "flex";
+
+    if (nameInput) {
+      nameInput.value = this.state.studentName || "Dino Explorer";
+      nameInput.oninput = (e) => {
+        this.state.studentName = e.target.value;
+        this.saveState();
+        this.renderCertCanvas(score, title);
+      };
+    }
+
+    this.renderCertCanvas(score, title);
+  }
+
+  renderCertCanvas(score, title) {
+    const previewContainer = document.getElementById("certPreviewWrapper");
+    if (!previewContainer || !window.DinoCertificate) return;
+
+    const unitName = this.quizUnit === "all" ? "HAN YU 3 (Semua Unit 1-3)" : `HAN YU 3 (Unit ${this.quizUnit})`;
+    const canvas = window.DinoCertificate.generateCertificate(
+      this.state.studentName || "Siswa Teladan",
+      score,
+      title,
+      unitName
+    );
+    canvas.id = "certCanvasPreview";
+    canvas.style.maxWidth = "100%";
+    canvas.style.height = "auto";
+    canvas.style.borderRadius = "12px";
+    canvas.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)";
+
+    previewContainer.innerHTML = "";
+    previewContainer.appendChild(canvas);
+  }
+}
+
+window.DinoApp = new DinoMandarinApp();
+document.addEventListener("DOMContentLoaded", () => {
+  window.DinoApp.init();
+});
+
+  </script>
 
 </body>
 </html>
