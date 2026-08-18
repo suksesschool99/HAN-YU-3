@@ -1,0 +1,601 @@
+/* ========================================================
+   MODUL 1: UNIT READER STYLING (PANDUAN MEMBACA HAN YU 3)
+   ======================================================== */
+
+.reader-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Sidebar List Pelajaran */
+.reader-sidebar {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #E2E8F0;
+  position: sticky;
+  top: 130px;
+  max-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reader-controls-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reader-select-label {
+  font-family: var(--font-dino);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dino-forest-dark);
+}
+
+.dino-select {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 2px solid #CBD5E1;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: #1E293B;
+  background: #F8FAFC;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dino-select:focus {
+  border-color: var(--dino-green-light);
+  box-shadow: 0 0 0 3px rgba(47, 133, 90, 0.15);
+}
+
+.reader-toggle-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.toggle-chip-btn {
+  flex: 1;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #475569;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.toggle-chip-btn.active {
+  background: var(--dino-mint);
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest);
+}
+
+.lesson-chips-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.lesson-chip-btn {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.lesson-chip-btn:hover {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+  transform: translateX(3px);
+}
+
+.lesson-chip-btn.active {
+  background: #DCFCE7;
+  border-color: var(--dino-green-light);
+  box-shadow: 0 4px 10px rgba(47, 133, 90, 0.15);
+}
+
+.lesson-chip-icon {
+  font-size: 1.4rem;
+}
+
+.lesson-chip-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lesson-chip-title {
+  display: block;
+  font-family: var(--font-chinese);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1E293B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lesson-chip-py {
+  display: block;
+  font-size: 0.76rem;
+  color: #64748B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lesson-chip-done {
+  background: #22C55E;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Area Detail Pelajaran */
+.reader-content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Banner Pelajaran */
+.lesson-banner {
+  background: linear-gradient(135deg, #1E5E3A 0%, #2F855A 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.lesson-banner::after {
+  content: '🦖';
+  position: absolute;
+  right: 1.5rem;
+  bottom: -0.5rem;
+  font-size: 6.5rem;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.lesson-banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-dino-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  backdrop-filter: blur(4px);
+}
+
+.lesson-theme-icon {
+  font-size: 1.8rem;
+}
+
+.lesson-banner-title {
+  font-family: var(--font-chinese);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  letter-spacing: 1px;
+}
+
+.lesson-banner-py {
+  font-size: 1.05rem;
+  color: #FEF08A;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.lesson-banner-id {
+  font-size: 0.95rem;
+  color: #DCFCE7;
+  margin-bottom: 1.25rem;
+}
+
+.lesson-banner-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Kotak Bagian (Sections) */
+.lesson-section-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid #F1F5F9;
+  padding-bottom: 0.75rem;
+}
+
+.section-box-icon {
+  font-size: 1.5rem;
+}
+
+.section-box-header h3 {
+  font-family: var(--font-dino);
+  font-size: 1.25rem;
+  color: var(--dino-forest-dark);
+}
+
+/* 1. Belajar Kalimat */
+.sentences-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.sentence-item-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.sentence-item-card:hover {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+}
+
+.audio-play-circle {
+  background: #DCFCE7;
+  border: 2px solid #86EFAC;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.audio-play-circle:hover {
+  background: #22C55E;
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.sentence-text-box {
+  flex: 1;
+}
+
+.sentence-py {
+  font-size: 0.92rem;
+  color: #0284C7;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.sentence-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.5px;
+}
+
+.sentence-id {
+  font-size: 0.88rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* 2. Paragraf Bacaan */
+.reading-paragraphs-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.paragraph-card {
+  background: #FFFDF7;
+  border: 1.5px solid #FEF3C7;
+  border-left: 5px solid #F59E0B;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.paragraph-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.para-num {
+  font-family: var(--font-dino);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #B45309;
+  background: #FEF3C7;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.audio-play-small {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.audio-play-small:hover {
+  background: var(--dino-mint);
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest);
+}
+
+.para-py {
+  font-size: 0.95rem;
+  color: #0284C7;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.para-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 0.4rem;
+  line-height: 1.6;
+  letter-spacing: 0.8px;
+}
+
+.para-id {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.4;
+}
+
+/* 3. Dialog & Puisi */
+.dialogue-chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.dialogue-bubble {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dialogue-speaker {
+  background: #E0F2FE;
+  color: #0369A1;
+  font-family: var(--font-dino);
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.dialogue-content {
+  flex: 1;
+}
+
+.game-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.game-item-card {
+  background: #F0FDF4;
+  border: 2px dashed #86EFAC;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.game-item-card:hover {
+  background: #DCFCE7;
+  transform: translateY(-3px);
+}
+
+.game-item-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--dino-forest-dark);
+}
+
+.game-item-py {
+  font-size: 0.88rem;
+  color: #0284C7;
+  font-weight: 600;
+}
+
+.game-item-id {
+  font-size: 0.82rem;
+  color: #475569;
+  margin: 0.3rem 0 0.5rem;
+}
+
+.audio-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #15803D;
+  background: #DCFCE7;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.poem-box {
+  background: #FAF5FF;
+  border-color: #E9D5FF;
+}
+
+.poem-lines-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.poem-line {
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.poem-line:hover {
+  background: #F3E8FF;
+}
+
+.poem-py {
+  font-size: 0.95rem;
+  color: #7E22CE;
+  font-weight: 600;
+}
+
+.poem-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #3B0764;
+  letter-spacing: 1px;
+}
+
+.poem-id {
+  font-size: 0.85rem;
+  color: #6B21A8;
+}
+
+/* 4. Flashcard Kosakata (记生词) */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.vocab-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.vocab-card:hover {
+  border-color: var(--dino-green-light);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(47, 133, 90, 0.12);
+  background: #F0FDF4;
+}
+
+.vocab-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.vocab-py {
+  font-size: 0.88rem;
+  color: #0284C7;
+  font-weight: 700;
+}
+
+.vocab-audio-icon {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.vocab-zh {
+  font-family: var(--font-chinese);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0.25rem 0;
+}
+
+.vocab-id {
+  font-size: 0.82rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .reader-layout {
+    grid-template-columns: 1fr;
+  }
+  .reader-sidebar {
+    position: static;
+    max-height: none;
+  }
+  .lesson-chips-scroll {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .lesson-chip-btn {
+    min-width: 220px;
+  }
+}

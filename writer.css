@@ -1,0 +1,397 @@
+/* ========================================================
+   MODUL 2: STROKE WRITING GAME STYLING (GAME MENULIS GURATAN)
+   ======================================================== */
+
+.writer-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Panel Pemilihan 20 Karakter per Unit */
+.writer-sidebar-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: var(--shadow-sm);
+}
+
+.writer-sidebar-header {
+  margin-bottom: 1rem;
+}
+
+.writer-sidebar-header h3 {
+  font-family: var(--font-dino);
+  color: var(--dino-forest);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.writer-char-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.char-picker-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.25rem;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.char-picker-card:hover {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+  transform: translateY(-2px);
+}
+
+.char-picker-card.active {
+  background: #DCFCE7;
+  border-color: var(--dino-green-light);
+  box-shadow: 0 4px 10px rgba(47, 133, 90, 0.2);
+}
+
+.char-picker-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #94A3B8;
+  line-height: 1;
+}
+
+.char-picker-hanzi {
+  font-family: var(--font-chinese);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0.15rem 0;
+}
+
+.char-picker-py {
+  font-size: 0.72rem;
+  color: #0284C7;
+  font-weight: 600;
+}
+
+.char-picker-star {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 0.75rem;
+}
+
+/* Area Utama Kanvas Menulis */
+.writer-main-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Info Karakter Target */
+.char-target-hero-card {
+  background: linear-gradient(135deg, #1E5E3A 0%, #15803D 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-md);
+  flex-wrap: wrap;
+}
+
+.char-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.char-hero-big-hanzi {
+  font-family: var(--font-chinese);
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.char-hero-details h2 {
+  font-size: 1.6rem;
+  color: #FEF08A;
+  margin-bottom: 0.2rem;
+}
+
+.char-hero-details p {
+  font-size: 1rem;
+  color: #DCFCE7;
+  font-weight: 600;
+}
+
+.char-hero-meta-pills {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Kotak Tianzige & Toolbar */
+.tianzige-stage-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.tianzige-canvas-container {
+  width: 340px;
+  height: 340px;
+  max-width: 100%;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(224, 90, 71, 0.18);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  touch-action: none;
+}
+
+#tianzigeCanvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  background: #FFFEF5;
+}
+
+.writer-toolbar {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.writer-tool-btn {
+  background: #F8FAFC;
+  border: 1.5px solid #CBD5E1;
+  font-family: var(--font-dino);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #334155;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.writer-tool-btn:hover {
+  background: #E2E8F0;
+  transform: translateY(-2px);
+}
+
+.writer-tool-btn.primary {
+  background: #2563EB;
+  color: #FFFFFF;
+  border-color: #1D4ED8;
+}
+
+.writer-tool-btn.primary:hover {
+  background: #1D4ED8;
+}
+
+.writer-tool-btn.active {
+  background: var(--dino-mint);
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest);
+}
+
+/* Feedback & Tips Dinosaurus */
+.writer-feedback-card {
+  width: 100%;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  text-align: center;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dino-hint {
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.dino-progress-text {
+  color: #0284C7;
+  font-weight: 700;
+}
+
+.dino-warning-text {
+  color: #EA580C;
+  font-weight: 700;
+}
+
+.dino-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #DCFCE7;
+  border: 2px solid #86EFAC;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  color: #166534;
+  text-align: left;
+  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.dino-badge-icon {
+  font-size: 2.2rem;
+}
+
+/* Daftar Langkah Urutan Guratan (Stroke Steps) */
+.stroke-steps-box {
+  width: 100%;
+  border-top: 2px solid #F1F5F9;
+  padding-top: 1rem;
+}
+
+.stroke-steps-box h4 {
+  font-family: var(--font-dino);
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 0.75rem;
+}
+
+.stroke-steps-list {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.stroke-step-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.stroke-step-card:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.stroke-step-card.active {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  color: #B45309;
+  font-weight: 700;
+}
+
+.stroke-step-num {
+  background: #E2E8F0;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stroke-step-card.active .stroke-step-num {
+  background: #F59E0B;
+  color: #FFFFFF;
+}
+
+.stroke-step-name {
+  font-size: 0.82rem;
+}
+
+/* Kotak Contoh Kata */
+.char-examples-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #E2E8F0;
+}
+
+.char-examples-box h4 {
+  font-family: var(--font-dino);
+  color: var(--dino-forest);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.examples-tags-list {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.example-tag {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+@media (max-width: 900px) {
+  .writer-layout {
+    grid-template-columns: 1fr;
+  }
+  .writer-char-grid {
+    grid-template-columns: repeat(5, 1fr);
+    max-height: 200px;
+  }
+}

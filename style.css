@@ -1,0 +1,499 @@
+/* ========================================================
+   DINO JURASSIC MANDARIN DESIGN SYSTEM (HAN YU 3)
+   Aesthetic Prehistoric Adventure Theme
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap');
+
+:root {
+  /* Color Tokens - Dinosaur Jurassic Palette */
+  --dino-forest-dark: #143823;
+  --dino-forest: #1E5E3A;
+  --dino-green-light: #2F855A;
+  --dino-mint: #E6F4EA;
+  --dino-amber: #D97706;
+  --dino-amber-light: #FEF3C7;
+  --dino-orange: #EA580C;
+  --dino-terracotta: #C2410C;
+  --dino-egg-cream: #FFFDF7;
+  --dino-sand: #F7F5EE;
+  --dino-dark: #1E293B;
+  --dino-muted: #64748B;
+  --dino-border: #E2E8F0;
+  
+  /* Shadows & Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 2px 4px rgba(20, 56, 35, 0.06);
+  --shadow-md: 0 6px 16px rgba(20, 56, 35, 0.08);
+  --shadow-lg: 0 14px 32px rgba(20, 56, 35, 0.12);
+  --shadow-dino-pop: 0 8px 0 rgba(20, 56, 35, 0.15);
+
+  /* Fonts */
+  --font-dino: 'Fredoka', 'Quicksand', sans-serif;
+  --font-body: 'Quicksand', sans-serif;
+  --font-chinese: 'Noto Sans SC', 'Kaiti', 'SimSun', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #F4F8F3;
+  background-image: 
+    radial-gradient(#D1E7DD 1.5px, transparent 1.5px),
+    radial-gradient(#E8F5E9 1.5px, #F4F8F3 1.5px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
+  color: var(--dino-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================================
+   HEADER & TOP DINO STATS BAR
+   ======================================================== */
+.dino-header {
+  background: linear-gradient(135deg, var(--dino-forest-dark) 0%, var(--dino-forest) 100%);
+  color: #FFFFFF;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(20, 56, 35, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dino-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dino-logo-icon {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+  animation: dinoWiggle 3s ease-in-out infinite;
+}
+
+@keyframes dinoWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+
+.dino-brand-text h1 {
+  font-family: var(--font-dino);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.dino-brand-text p {
+  font-size: 0.82rem;
+  color: #A7F3D0;
+  font-weight: 600;
+}
+
+.dino-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.stat-badge {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #FFFFFF;
+}
+
+.stat-badge.stars {
+  background: #B45309;
+  border-color: #FBBF24;
+  color: #FEF3C7;
+}
+
+.header-action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-weight: 700;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.82rem;
+}
+
+.header-action-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.header-action-btn.muted {
+  background: #DC2626;
+  border-color: #EF4444;
+}
+
+/* ========================================================
+   NAVIGATION TABS (DINO PRASAHARJA TABS)
+   ======================================================== */
+.dino-nav-container {
+  background: #FFFFFF;
+  border-bottom: 2px solid #E2E8F0;
+  position: sticky;
+  top: 68px;
+  z-index: 90;
+  box-shadow: var(--shadow-sm);
+}
+
+.dino-nav-tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.dino-nav-btn {
+  background: #F1F5F9;
+  border: 2px solid transparent;
+  color: #475569;
+  font-family: var(--font-dino);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dino-nav-btn:hover {
+  background: #E2E8F0;
+  color: var(--dino-forest);
+  transform: translateY(-2px);
+}
+
+.dino-nav-btn.active {
+  background: var(--dino-mint);
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest-dark);
+  box-shadow: 0 4px 8px rgba(47, 133, 90, 0.15);
+}
+
+.dino-nav-icon {
+  font-size: 1.2rem;
+}
+
+/* ========================================================
+   MAIN CONTENT & TABS
+   ======================================================== */
+.main-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+.tab-pane {
+  display: none;
+  animation: fadeInPane 0.3s ease;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+@keyframes fadeInPane {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Common Dino Buttons */
+.dino-btn {
+  font-family: var(--font-dino);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 3px 0 rgba(0,0,0,0.12);
+}
+
+.dino-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.12);
+}
+
+.dino-btn.primary {
+  background: linear-gradient(180deg, #34D399 0%, #059669 100%);
+  color: #FFFFFF;
+  border-bottom: 3px solid #047857;
+}
+
+.dino-btn.primary:hover {
+  background: linear-gradient(180deg, #6EE7B7 0%, #10B981 100%);
+  transform: translateY(-2px);
+}
+
+.dino-btn.secondary {
+  background: #F1F5F9;
+  color: #334155;
+  border: 1px solid #CBD5E1;
+}
+
+.dino-btn.secondary:hover {
+  background: #E2E8F0;
+}
+
+.dino-btn.large {
+  font-size: 1.05rem;
+  padding: 0.85rem 1.75rem;
+}
+
+.dino-btn.accent {
+  background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
+  color: #FFFFFF;
+  border-bottom: 3px solid #B45309;
+}
+
+.mt-3 { margin-top: 0.75rem; }
+
+/* Filter Pill Bar */
+.filter-pills-bar {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-pill {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  color: #475569;
+  font-family: var(--font-dino);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+  border-color: var(--dino-green-light);
+  color: var(--dino-forest);
+}
+
+.filter-pill.active {
+  background: var(--dino-forest);
+  border-color: var(--dino-forest);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(30, 94, 58, 0.25);
+}
+
+/* ========================================================
+   MODAL DIALOG (CERTIFICATE & POPUPS)
+   ======================================================== */
+.dino-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeInModal 0.25s ease;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dino-modal-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dino-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #F1F5F9;
+  padding-bottom: 0.75rem;
+}
+
+.dino-modal-header h3 {
+  font-family: var(--font-dino);
+  color: var(--dino-forest);
+  font-size: 1.35rem;
+}
+
+.dino-close-btn {
+  background: #F1F5F9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dino-close-btn:hover {
+  background: #E2E8F0;
+  color: #1E293B;
+}
+
+.cert-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #F8FAFC;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #E2E8F0;
+}
+
+.cert-input-row label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #334155;
+  white-space: nowrap;
+}
+
+.cert-input-row input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid #CBD5E1;
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+.cert-input-row input:focus {
+  border-color: var(--dino-green-light);
+}
+
+.cert-preview-box {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.cert-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: 2px solid #F1F5F9;
+  padding-top: 1rem;
+}
+
+/* Footer */
+.dino-footer {
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  padding: 1.25rem 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: #64748B;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.dino-footer span {
+  color: var(--dino-forest);
+  font-weight: 700;
+}
+
+/* Visibility Control Utility */
+body.hide-pinyin .sentence-py,
+body.hide-pinyin .para-py,
+body.hide-pinyin .game-item-py,
+body.hide-pinyin .poem-py,
+body.hide-pinyin .vocab-py,
+body.hide-pinyin .yct2-prompt-py {
+  display: none !important;
+}
+
+body.hide-translation .sentence-id,
+body.hide-translation .para-id,
+body.hide-translation .game-item-id,
+body.hide-translation .poem-id,
+body.hide-translation .vocab-id {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dino-stats-bar {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
