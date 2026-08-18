@@ -1,0 +1,318 @@
+/* ==========================================
+   HAN YU 3 - READING & AUDIO KARAOKE STYLESHEET
+   ========================================== */
+
+.reading-toolbar {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid #e1eee2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.toolbar-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dino-forest-dark);
+}
+
+.btn-speed {
+  background: var(--dino-mint-pale);
+  color: var(--dino-forest-dark);
+  border: 1.5px solid var(--dino-leaf-mint);
+  padding: 6px 12px;
+  border-radius: var(--radius-round);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-speed:hover {
+  background: var(--dino-mint-light);
+}
+
+.btn-speed.speed-active {
+  background: var(--dino-forest-med);
+  color: white;
+  border-color: var(--dino-forest-dark);
+  box-shadow: 0 2px 8px rgba(45, 106, 79, 0.3);
+}
+
+.btn-toggle-opt {
+  background: white;
+  color: var(--dino-text-muted);
+  border: 1.5px solid #d0ded2;
+  padding: 6px 12px;
+  border-radius: var(--radius-round);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-toggle-opt.opt-on {
+  background: #f0f9f3;
+  color: var(--dino-forest-med);
+  border-color: var(--dino-leaf-mint);
+}
+
+/* ==========================================
+   READING SECTIONS GRID
+   ========================================== */
+.reading-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .reading-sections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reading-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+  border: 2px solid #e1ede2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reading-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 2px dashed #edf4ee;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--dino-forest-dark);
+}
+
+.section-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-play-all {
+  background: var(--dino-forest-med);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-round);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-play-all:hover {
+  background: var(--dino-forest-dark);
+  transform: scale(1.03);
+}
+
+.btn-stop-audio {
+  background: #f1f3f5;
+  color: #495057;
+  border: 1px solid #ced4da;
+  padding: 6px 10px;
+  border-radius: var(--radius-round);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-stop-audio:hover {
+  background: #e9ecef;
+}
+
+/* ==========================================
+   SENTENCE ITEM & KARAOKE HIGHLIGHT
+   ========================================== */
+.sentence-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sentence-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: #fdfefe;
+  border: 1.5px solid #f0f5f1;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sentence-item:hover {
+  border-color: #c7e6cc;
+  background: #f7fcf8;
+}
+
+/* Karaoke Highlight Active State */
+.sentence-item.sentence-active {
+  background: #e8f9ed;
+  border-color: var(--dino-leaf-mint);
+  box-shadow: 0 4px 15px rgba(82, 183, 136, 0.35);
+  transform: translateX(4px);
+}
+
+.sentence-left {
+  padding-top: 2px;
+}
+
+.btn-speak-single {
+  background: white;
+  border: 1.5px solid #d5e6d8;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: var(--dino-forest-med);
+}
+
+.btn-speak-single:hover {
+  background: var(--dino-forest-med);
+  color: white;
+  border-color: var(--dino-forest-med);
+}
+
+.sentence-text-box {
+  flex: 1;
+}
+
+.sentence-pinyin {
+  font-size: 13px;
+  color: var(--dino-amber);
+  font-weight: 600;
+  margin-bottom: 2px;
+  letter-spacing: 0.3px;
+}
+
+.sentence-hanzi {
+  font-family: var(--font-family-hanzi);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dino-text-dark);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.sentence-indo {
+  font-size: 13px;
+  color: var(--dino-text-muted);
+  line-height: 1.4;
+}
+
+.hidden-text {
+  display: none !important;
+}
+
+/* ==========================================
+   VOCABULARY SUMMARY CHIPS
+   ========================================== */
+.unit-vocab-summary-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+  border: 2px solid #e1eee2;
+  padding: 20px;
+}
+
+.vocab-header-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--dino-forest-dark);
+  margin-bottom: 16px;
+}
+
+.vocab-pill-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.vocab-chip {
+  background: var(--dino-mint-pale);
+  border: 1.5px solid #d2edd6;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vocab-chip:hover {
+  background: #e4f7e8;
+  border-color: var(--dino-leaf-mint);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.vocab-chip-hanzi {
+  font-family: var(--font-family-hanzi);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--dino-forest-dark);
+}
+
+.vocab-chip-pinyin {
+  font-size: 12px;
+  color: var(--dino-amber);
+  font-weight: 700;
+}
+
+.vocab-chip-indo {
+  font-size: 12px;
+  color: var(--dino-text-muted);
+}
+
+.vocab-chip-btn {
+  margin-top: 6px;
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  background: white;
+  color: var(--dino-forest-med);
+  border: 1px solid var(--dino-leaf-mint);
+  padding: 2px 8px;
+  border-radius: var(--radius-round);
+}

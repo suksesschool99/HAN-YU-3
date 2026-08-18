@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAN YU 3 - Petualangan Belajar Bahasa Mandarin Tema Dinosaurus</title>
+  <meta name="description" content="Aplikasi edukasi interaktif HAN YU 3 (汉语 3) bertema Dinosaurus dengan audio pembacaan teks, animasi guratan Hanzi (stroke order), dan 25 soal latihan standar YCT 2 per unit.">
+
+  <!-- Google Fonts: Noto Sans SC & Poppins/Segoe -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/reading.css">
+  <link rel="stylesheet" href="css/writing.css">
+  <link rel="stylesheet" href="css/quiz.css">
+
+  <!-- HanziWriter CDN (Preloaded) -->
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER APLIKASI
+       ========================================== -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-container">
+        <div class="brand-dino-logo" title="Dino Han Yu Master">🦖</div>
+        <div>
+          <div class="brand-title">
+            HAN YU 3 <span class="badge-hanzi">汉语第三册</span>
+          </div>
+          <div class="brand-tagline">Petualangan Belajar Mandarin Dinosaurus & Persiapan YCT 2</div>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="global-audio-badge" id="global-audio-status">
+          🔊 Sedang Membaca Audio...
+        </div>
+
+        <div class="unit-picker-box">
+          <label for="global-unit-select">Pilih Unit:</label>
+          <select id="global-unit-select" class="unit-picker-select" aria-label="Pilih Unit Han Yu 3">
+            <!-- Populated via JavaScript -->
+          </select>
+        </div>
+
+        <button id="btn-toggle-sound" class="btn-header-sound" title="Aktifkan / Matikan Suara Dinosaurus">
+          🔊 Suara: ON
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       PETA PETUALANGAN DINOSAURUS (10 UNIT)
+       ========================================== -->
+  <div class="dino-adventure-map-strip">
+    <div class="map-strip-inner">
+      <div class="map-strip-title">
+        🗺️ <b>Peta Unit:</b>
+      </div>
+      <div class="dino-map-nodes" id="dino-map-nodes">
+        <!-- Populated via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       BAR NAVIGASI (3 PILIHAN UTAMA & HATCHERY)
+       ========================================== -->
+  <nav class="app-nav-bar" aria-label="Menu Pembelajaran">
+    <div class="nav-inner">
+      <button class="nav-btn nav-active" data-nav-mode="reading">
+        <span class="nav-btn-icon">📖</span>
+        <span>1. Cara Membaca & Audio</span>
+      </button>
+
+      <button class="nav-btn" data-nav-mode="writing">
+        <span class="nav-btn-icon">✍️</span>
+        <span>2. Cara Menulis Guratan</span>
+      </button>
+
+      <button class="nav-btn" data-nav-mode="quiz">
+        <span class="nav-btn-icon">🎯</span>
+        <span>3. Soal Latihan YCT 2 (25 Soal)</span>
+      </button>
+
+      <button class="nav-btn" data-nav-mode="hatchery">
+        <span class="nav-btn-icon">🥚</span>
+        <span>4. Dino Hatchery & Hadiah</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       KONTEN UTAMA APLIKASI
+       ========================================== -->
+  <main class="app-main-content">
+    
+    <!-- Unit Header Banner Card -->
+    <div class="unit-banner-card">
+      <div class="unit-banner-left">
+        <div class="unit-banner-badge" id="unit-banner-badge">🏫 Sekolah & Perkenalan</div>
+        <h1 class="unit-banner-title" id="unit-banner-title">第一课：在学校 (Pelajaran 1: Di Sekolah)</h1>
+        <p class="unit-banner-subtitle" id="unit-banner-subtitle">Dì yī kè: Zài xuéxiào - Rexy sangat senang menyapa teman-teman baru!</p>
+      </div>
+      <div class="unit-banner-right">
+        <div class="unit-banner-dino" id="unit-banner-dino">Rexy si T-Rex 🦖</div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         PANEL 1: CARA MEMBACA & AUDIO TEKS
+         ========================================== -->
+    <section id="view-reading" class="view-panel" style="display: block;">
+      <div id="reading-content-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PANEL 2: CARA MENULIS GURATAN HANZI
+         ========================================== -->
+    <section id="view-writing" class="view-panel" style="display: none;">
+      <div class="writing-container">
+        
+        <!-- Vocab Character Selector Carousel -->
+        <div class="vocab-char-selector-box">
+          <div class="selector-label">Pilih Kosakata Karakter Hanzi Unit Ini:</div>
+          <div class="char-pills-wrap" id="stroke-vocab-pills">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <div class="writing-stage-grid">
+          <!-- Canvas Area -->
+          <div class="writing-canvas-card">
+            <div id="hanzi-canvas-container" class="hanzi-box grid-tianzige">
+              <!-- HanziWriter / Native SVG Canvas mounts here -->
+            </div>
+
+            <div class="canvas-actions">
+              <div class="action-row">
+                <button class="btn-writing-primary" onclick="window.strokeWriterEngine.animate()" title="Lihat urutan guratan karakter dari awal sampai akhir">
+                  ▶️ Putar Animasi
+                </button>
+                <button class="btn-writing-secondary" onclick="window.strokeWriterEngine.startQuiz()" title="Mulai mode latihan menulis di layar">
+                  ✍️ Latihan Tulis
+                </button>
+              </div>
+
+              <div class="grid-select-group">
+                <span style="font-size: 11px; font-weight: 700; color: #666;">Kisi Grid:</span>
+                <button class="btn-grid-opt" onclick="window.strokeWriterEngine.setGrid('tianzige')">田字格 (Tian)</button>
+                <button class="btn-grid-opt" onclick="window.strokeWriterEngine.setGrid('mizige')">米字格 (Mi)</button>
+                <button class="btn-grid-opt" onclick="window.strokeWriterEngine.setGrid('plain')">Polos</button>
+              </div>
+
+              <div class="stroke-feedback-wrap" id="stroke-feedback-msg">
+                <span class="badge-writing">💡 Tekan 'Putar Animasi' untuk melihat guratan atau 'Latihan Tulis' untuk mencoba menulis sendiri.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Information & Stroke Breakdown Panel -->
+          <div class="writing-info-card">
+            <div class="info-card-header">
+              <div class="info-main-pinyin" id="hanzi-info-pinyin">xué</div>
+              <div class="info-main-meaning" id="hanzi-info-meaning">Belajar / Menuntut ilmu</div>
+            </div>
+
+            <div class="char-meta-table">
+              <div class="meta-item">
+                <div class="meta-label">Radikal (部首)</div>
+                <div class="meta-val" id="hanzi-info-radical">子 (Anak)</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Total Guratan (笔画)</div>
+                <div class="meta-val" id="hanzi-info-strokes">8 Guratan</div>
+              </div>
+            </div>
+
+            <div class="stroke-steps-section">
+              <h4>Urutan Nama Guratan (笔画顺序):</h4>
+              <div class="stroke-steps-wrap" id="stroke-names-list">
+                <!-- Stroke steps pills populated dynamically -->
+              </div>
+            </div>
+
+            <div class="char-example-box">
+              <b>Contoh Kalimat:</b>
+              <p id="hanzi-info-example">我们在学校学习汉语。(Kami belajar bahasa Mandarin di sekolah.)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PANEL 3: SOAL LATIHAN STANDAR YCT 2 (25 SOAL)
+         ========================================== -->
+    <section id="view-quiz" class="view-panel" style="display: none;">
+      <div class="quiz-container">
+        
+        <!-- Quiz Header & 25 Question Number Grid -->
+        <div class="quiz-header-card">
+          <div class="quiz-meta-row">
+            <div class="quiz-progress-text" id="quiz-progress-text">Soal 1 dari 25 (0% Selesai)</div>
+            <div class="quiz-timer-badge" id="quiz-timer">⏱️ 00:00</div>
+          </div>
+
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+          </div>
+
+          <div class="quiz-num-pills-wrap" id="quiz-num-pills">
+            <!-- 25 Question number pills generated dynamically -->
+          </div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="question-main-card">
+          <div class="q-type-badge" id="quiz-q-type-badge">Tipe 1: 看图判断对错 (Benar/Salah Gambar)</div>
+
+          <div class="q-prompt-box" id="quiz-q-prompt">
+            <!-- Prompt text & audio button -->
+          </div>
+
+          <div id="quiz-q-visual" style="display: none;">
+            <!-- Visual depiction emoji/illustration -->
+          </div>
+
+          <div class="quiz-options-grid" id="quiz-options-container">
+            <!-- Options buttons A, B, C or Benar/Salah -->
+          </div>
+
+          <div id="quiz-q-explanation" style="display: none;">
+            <!-- Instant feedback & Indonesian explanation -->
+          </div>
+
+          <div class="quiz-bottom-nav">
+            <button class="btn-quiz-nav" id="quiz-btn-prev" onclick="window.yctQuiz.prevQuestion()">
+              ⬅️ Soal Sebelumnya
+            </button>
+            <button class="btn-quiz-nav btn-nav-primary" id="quiz-btn-next" onclick="window.yctQuiz.nextQuestion()">
+              Soal Berikutnya ➡️
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PANEL 4: DINO HATCHERY & KOLEKSI TELUR
+         ========================================== -->
+    <section id="view-hatchery" class="view-panel" style="display: none;">
+      <div class="hatchery-intro-box">
+        <h3>🥚 Kandang Telur & Koleksi Dinosaurus Kamu</h3>
+        <p>Setiap kali kamu menyelesaikan 25 soal latihan YCT 2 dengan nilai minimal 60, telur dinosaurus di unit tersebut akan menetas menjadi dinosaurus baru!</p>
+      </div>
+
+      <div class="hatchery-cards-grid" id="hatchery-cards-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       MODAL HASIL KUIS & TELUR MENETAS
+       ========================================== -->
+  <div id="quiz-result-modal" class="quiz-result-modal-container">
+    <!-- Rendered dynamically by yct2-quiz.js -->
+  </div>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="app-footer">
+    <p>🦖 <b>HAN YU 3 (汉语第三册)</b> - Aplikasi Edukasi Bahasa Mandarin Interaktif & Standar Ujian YCT 2</p>
+    <p style="margin-top: 4px; font-size: 12px;">Dilengkapi Audio Web Speech API zh-CN, Animasi Guratan Hanzi, dan Koleksi Dinosaurus.</p>
+  </footer>
+
+  <!-- JavaScript Modules in Execution Order -->
+  <script src="js/data/units-data.js"></script>
+  <script src="js/data/vocab-data.js"></script>
+  <script src="js/data/yct2-quiz-data.js"></script>
+  <script src="js/dino-sounds.js"></script>
+  <script src="js/audio-player.js"></script>
+  <script src="js/stroke-writer.js"></script>
+  <script src="js/yct2-quiz.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

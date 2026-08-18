@@ -1,0 +1,410 @@
+/* ==========================================
+   HAN YU 3 - HANZI STROKE WRITER STYLESHEET
+   ========================================== */
+
+.writing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Character Selector Horizontal Carousel */
+.vocab-char-selector-box {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-subtle);
+  border: 1.5px solid #e1eee2;
+}
+
+.selector-label {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--dino-forest-dark);
+  margin-bottom: 10px;
+}
+
+.char-pills-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.char-pill {
+  background: #fdfefe;
+  border: 2px solid #cfe2ce;
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transition: all 0.2s ease;
+  min-width: 75px;
+}
+
+.char-pill:hover {
+  border-color: var(--dino-leaf-mint);
+  transform: translateY(-2px);
+}
+
+.char-pill.pill-active {
+  background: var(--dino-forest-med);
+  border-color: var(--dino-forest-dark);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+}
+
+.char-pill.pill-active .char-pill-hanzi,
+.char-pill.pill-active .char-pill-sub {
+  color: white;
+}
+
+.char-pill-hanzi {
+  font-family: var(--font-family-hanzi);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--dino-forest-dark);
+}
+
+.char-pill-sub {
+  font-size: 11px;
+  color: var(--dino-text-muted);
+  font-weight: 600;
+}
+
+/* ==========================================
+   WRITING STAGE & INFO SPLIT
+   ========================================== */
+.writing-stage-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .writing-stage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.writing-canvas-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+  border: 2px solid #e1eee2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================================
+   TIANZIGE & MIZIGE GRID STYLES
+   ========================================== */
+.hanzi-box {
+  width: 270px;
+  height: 270px;
+  position: relative;
+  border: 3px solid #d90429;
+  border-radius: 8px;
+  background: white;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(217, 4, 41, 0.05);
+}
+
+/* TianZiGe (4 squares) */
+.hanzi-box.grid-tianzige::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  width: 0; height: 100%;
+  border-left: 1.5px dashed #ff9999;
+}
+.hanzi-box.grid-tianzige::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 0;
+  width: 100%; height: 0;
+  border-top: 1.5px dashed #ff9999;
+}
+
+/* MiZiGe (8 triangles / diagonals) */
+.hanzi-box.grid-mizige::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  width: 0; height: 100%;
+  border-left: 1.5px dashed #ff9999;
+}
+.hanzi-box.grid-mizige::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 0;
+  width: 100%; height: 0;
+  border-top: 1.5px dashed #ff9999;
+}
+
+.native-hanzi-display {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Canvas Control Buttons */
+.canvas-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.btn-writing-primary {
+  flex: 1;
+  background: var(--dino-forest-med);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-writing-primary:hover {
+  background: var(--dino-forest-dark);
+  transform: translateY(-2px);
+}
+
+.btn-writing-secondary {
+  flex: 1;
+  background: var(--dino-amber);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-writing-secondary:hover {
+  background: #d8573b;
+  transform: translateY(-2px);
+}
+
+.grid-select-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.btn-grid-opt {
+  background: #f8faf8;
+  border: 1px solid #ceded0;
+  padding: 4px 10px;
+  border-radius: var(--radius-round);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--dino-text-muted);
+  cursor: pointer;
+}
+
+.btn-grid-opt:hover {
+  background: var(--dino-mint-light);
+  color: var(--dino-forest-dark);
+}
+
+/* Feedback message badge */
+.stroke-feedback-wrap {
+  margin-top: 12px;
+  width: 100%;
+  text-align: center;
+  min-height: 38px;
+}
+
+.badge-writing {
+  background: #e8f4f8;
+  color: #0288d1;
+  padding: 6px 12px;
+  border-radius: var(--radius-round);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.badge-correct {
+  background: #e8f9ed;
+  color: #2d6a4f;
+  padding: 6px 12px;
+  border-radius: var(--radius-round);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.badge-wrong {
+  background: #fde8e8;
+  color: #d90429;
+  padding: 6px 12px;
+  border-radius: var(--radius-round);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.badge-success {
+  background: #fff3cd;
+  color: #856404;
+  padding: 8px 16px;
+  border-radius: var(--radius-round);
+  font-size: 13px;
+  font-weight: 800;
+  border: 2px solid var(--dino-gold);
+  display: inline-block;
+  animation: popSuccess 0.5s ease;
+}
+
+@keyframes popSuccess {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ==========================================
+   STROKE DETAILS & RADICAL INFO CARD
+   ========================================== */
+.writing-info-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+  border: 2px solid #e1eee2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-card-header {
+  border-bottom: 2px dashed #edf4ee;
+  padding-bottom: 12px;
+}
+
+.info-main-pinyin {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--dino-amber);
+}
+
+.info-main-meaning {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dino-forest-dark);
+}
+
+.char-meta-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.meta-item {
+  background: var(--dino-mint-pale);
+  border: 1px solid #d2edd6;
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+}
+
+.meta-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--dino-text-muted);
+  text-transform: uppercase;
+}
+
+.meta-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--dino-forest-dark);
+  margin-top: 2px;
+}
+
+/* Stroke Steps List */
+.stroke-steps-section h4 {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--dino-forest-dark);
+  margin-bottom: 8px;
+}
+
+.stroke-steps-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stroke-step-pill {
+  background: #f1f5f2;
+  border: 1px solid #dbe5dc;
+  color: var(--dino-text-dark);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-round);
+  transition: all 0.2s ease;
+}
+
+.stroke-step-pill.active {
+  background: var(--dino-gold);
+  border-color: var(--dino-amber);
+  color: #333;
+  font-weight: 800;
+  transform: scale(1.05);
+}
+
+.stroke-step-pill.completed {
+  background: #e0f2e9;
+  border-color: var(--dino-leaf-mint);
+  color: var(--dino-forest-med);
+}
+
+.char-example-box {
+  background: #fffdf5;
+  border-left: 4px solid var(--dino-gold);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: #555;
+}
+
+.char-example-box b {
+  color: var(--dino-forest-dark);
+}

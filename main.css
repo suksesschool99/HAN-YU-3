@@ -1,0 +1,531 @@
+/* ==========================================
+   HAN YU 3 - THEMA DINOSAURUS MAIN STYLESHEET
+   ========================================== */
+
+:root {
+  /* Dino Palette */
+  --dino-forest-dark: #1b4332;
+  --dino-forest-med: #2d6a4f;
+  --dino-jungle-green: #40916c;
+  --dino-leaf-mint: #52b788;
+  --dino-mint-light: #d8f3dc;
+  --dino-mint-pale: #f2fbf5;
+
+  --dino-amber: #e76f51;
+  --dino-amber-light: #f4a261;
+  --dino-gold: #ffd166;
+  --dino-egg-cream: #fefae0;
+
+  --dino-text-dark: #081c15;
+  --dino-text-muted: #4a5759;
+  --dino-text-white: #ffffff;
+
+  --shadow-subtle: 0 4px 15px rgba(27, 67, 50, 0.08);
+  --shadow-medium: 0 8px 25px rgba(27, 67, 50, 0.12);
+  --shadow-hover: 0 12px 35px rgba(27, 67, 50, 0.18);
+  --shadow-focus: 0 0 0 3px rgba(82, 183, 136, 0.4);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-round: 999px;
+
+  --font-family-base: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --font-family-hanzi: 'Noto Sans SC', 'Kaiti', 'SimSun', 'Microsoft YaHei', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background: #f8faf7;
+  color: var(--dino-text-dark);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   APP HEADER & DINOSAUR BANNER
+   ========================================== */
+.app-header {
+  background: linear-gradient(135deg, var(--dino-forest-dark) 0%, var(--dino-forest-med) 60%, var(--dino-jungle-green) 100%);
+  color: white;
+  padding: 16px 24px;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-header::before {
+  content: "🦖  🦕  🌴  🌿  🌋  🥚  ✨";
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  font-size: 20px;
+  opacity: 0.25;
+  letter-spacing: 14px;
+  pointer-events: none;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-dino-logo {
+  font-size: 42px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+  animation: dinoFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes dinoFloat {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-5px) rotate(3deg); }
+}
+
+.brand-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-title .badge-hanzi {
+  background: var(--dino-amber);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-round);
+}
+
+.brand-tagline {
+  font-size: 13px;
+  color: var(--dino-mint-light);
+  font-weight: 500;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.unit-picker-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 6px 12px;
+  border-radius: var(--radius-round);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.unit-picker-box label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dino-gold);
+}
+
+.unit-picker-select {
+  background: white;
+  color: var(--dino-forest-dark);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-header-sound {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-round);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-header-sound:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-header-sound.btn-muted {
+  background: #6c757d;
+  opacity: 0.8;
+}
+
+/* ==========================================
+   NAVIGATION BAR (3 PILIHAN UTAMA & HATCHERY)
+   ========================================== */
+.app-nav-bar {
+  background: white;
+  border-bottom: 2px solid #e9f0ea;
+  box-shadow: var(--shadow-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  overflow-x: auto;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dino-text-muted);
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  color: var(--dino-forest-med);
+  background: var(--dino-mint-pale);
+}
+
+.nav-btn.nav-active {
+  color: white;
+  background: var(--dino-forest-med);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+  border-color: var(--dino-forest-dark);
+}
+
+.nav-btn-icon {
+  font-size: 18px;
+}
+
+/* ==========================================
+   ADVENTURE MAP HORIZONTAL STRIP
+   ========================================== */
+.dino-adventure-map-strip {
+  background: linear-gradient(to bottom, #edf7ee, #f8faf7);
+  border-bottom: 1px dashed #d1e7d3;
+  padding: 12px 16px;
+}
+
+.map-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.map-strip-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--dino-forest-med);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.dino-map-nodes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.dino-map-node {
+  background: white;
+  border: 1.5px solid #cfe2ce;
+  padding: 6px 12px;
+  border-radius: var(--radius-round);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dino-text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.dino-map-node:hover {
+  border-color: var(--dino-leaf-mint);
+  transform: translateY(-2px);
+}
+
+.dino-map-node.node-active {
+  background: var(--dino-gold);
+  border-color: var(--dino-amber);
+  color: #333;
+  font-weight: 800;
+  box-shadow: 0 3px 8px rgba(255, 209, 102, 0.4);
+}
+
+/* ==========================================
+   MAIN CONTENT AREA & UNIT BANNER
+   ========================================== */
+.app-main-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto 40px;
+  padding: 0 16px;
+  flex: 1;
+}
+
+.unit-banner-card {
+  background: linear-gradient(135deg, #ffffff 0%, var(--dino-mint-pale) 100%);
+  border: 2px solid var(--dino-mint-light);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.unit-banner-left {
+  flex: 1;
+  min-width: 260px;
+}
+
+.unit-banner-badge {
+  display: inline-block;
+  background: var(--dino-mint-light);
+  color: var(--dino-forest-dark);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-round);
+  margin-bottom: 8px;
+}
+
+.unit-banner-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--dino-forest-dark);
+  margin-bottom: 4px;
+}
+
+.unit-banner-subtitle {
+  font-size: 14px;
+  color: var(--dino-text-muted);
+}
+
+.unit-banner-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.unit-banner-dino {
+  background: white;
+  border: 2px solid var(--dino-gold);
+  padding: 8px 16px;
+  border-radius: var(--radius-round);
+  font-weight: 700;
+  font-size: 14px;
+  color: #723c00;
+  box-shadow: var(--shadow-subtle);
+}
+
+/* ==========================================
+   DINO HATCHERY (KOLEKSI TELUR & DINOSAURUS)
+   ========================================== */
+.hatchery-intro-box {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  border-left: 5px solid var(--dino-gold);
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.hatchery-intro-box h3 {
+  color: var(--dino-forest-dark);
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.hatchery-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.hatchery-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  border: 2px solid #e1eee2;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hatchery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.hatchery-card.card-unlocked {
+  border-color: var(--dino-gold);
+  background: linear-gradient(to bottom, #ffffff, #fffdf2);
+}
+
+.hatchery-card.card-locked {
+  opacity: 0.85;
+  background: #fdfdfd;
+}
+
+.dino-avatar-large {
+  font-size: 52px;
+  margin-bottom: 10px;
+  display: inline-block;
+  animation: eggWobble 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes eggWobble {
+  0% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+.hatchery-dino-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--dino-forest-dark);
+  margin-bottom: 4px;
+}
+
+.hatchery-unit-tag {
+  font-size: 12px;
+  color: var(--dino-amber);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hatchery-trait {
+  font-size: 12px;
+  color: var(--dino-text-muted);
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.hatchery-score-badge {
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--dino-mint-light);
+  color: var(--dino-forest-dark);
+  padding: 4px 10px;
+  border-radius: var(--radius-round);
+  margin-bottom: 12px;
+}
+
+.btn-hatchery-action {
+  width: 100%;
+  background: var(--dino-forest-med);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-hatchery-action:hover {
+  background: var(--dino-forest-dark);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.app-footer {
+  background: white;
+  border-top: 1px solid #e0e9e1;
+  padding: 20px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--dino-text-muted);
+  margin-top: auto;
+}
+
+.app-footer b {
+  color: var(--dino-forest-dark);
+}
+
+/* Global status badge */
+.global-audio-badge {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: var(--dino-amber);
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-round);
+  animation: pulseAudio 1.5s infinite;
+}
+
+@keyframes pulseAudio {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header { padding: 12px 16px; }
+  .brand-title { font-size: 20px; }
+  .unit-banner-title { font-size: 20px; }
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .header-controls { width: 100%; justify-content: space-between; }
+  .nav-inner { justify-content: flex-start; }
+}
